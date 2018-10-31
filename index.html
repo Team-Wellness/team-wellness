@@ -13,6 +13,8 @@
 
     <style>
         form {display: none;}
+
+        body {background-image: url("https://cdn.hipwallpaper.com/i/98/63/rckmR3.jpg"); }
     </style>
 
 </head>
@@ -40,6 +42,7 @@
     <br><br>
 
     <!-- Form stuff -->
+<!-- todo make buttons redirect to appropriate pages when handling the form, not on the button itself -->
     <div class="container">
         <div class="row">
             <div class="col"></div>
@@ -75,7 +78,7 @@
                         <label for="providerPassword">Password</label>
                         <input type="password" class="form-control" id="providerPassword" placeholder="Password">
                     </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" class="btn btn-primary" onclick="location.href='/team-wellness/providerHome.html'">Submit</button>
                     <button class="btn btn-primary backbtn"> Back </button>
                 </form>
             </div>
