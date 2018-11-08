@@ -14,7 +14,9 @@
 
   <!-- Javascript/jQuery -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-  <script src="js/scripts.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+          integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+          crossorigin="anonymous"></script>
 
 </head>
 <body>
@@ -30,16 +32,10 @@
 </script>
 <!--end of Navigation bar-->
 
-
 <!-- Home Page -->
+
 <div id="boxy" class="container">
-  <div class="row" style="text-align: center">
-    <div class="col">
-      <a HREF="#" class="btn btn-lrg-2"><i class="material-icons">arrow_back</i> </a>
-      <h3 id="demo"></h3>
-      <a HREF="#" class="btn btn-lrg-2"><i class="material-icons">arrow_forward</i> </a>
-    </div>
-  </div>
+  <h1 align="center">EDIT MODE</h1>
   <div id="myUL">
     <div class="row">
       <div class="col">
@@ -116,17 +112,19 @@
               </div>
             </div>
           </div>
-
         </div>
       </div>
+
     </div>
-    <!-- Edit Button -->
-  <div align="center">
-    <a type="button" class="btn btn-primary" href="patientHomeEdit.html">Edit</a>
-  </div>
-    <!-- End Edit Button -->
+    <!-- Back Button -->
+    <div align="center">
+      <a type="button" class="btn btn-primary" href="patientHome.html">Back</a>
+    </div>
+    <!-- End Back Button -->
   </div>
 </div>
+
+
 <!-- End filter bar/test patience -->
 
 
@@ -153,16 +151,6 @@
   }
 </script>
 <!-- End filter bar -->
-
-<!-- Date -->
-<script>
-  let dateObj = new Date();
-  let month = dateObj.getUTCMonth() + 1; //months from 1-12
-  let day = dateObj.getUTCDate();
-  let year = dateObj.getUTCFullYear();
-  let d = year + "/" + month + "/" + day;
-  document.getElementById("demo").innerHTML = d;
-</script>
 
 </html>
 
