@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Home | RxHelp</title>
+
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+  <!-- Material Icons -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+        rel="stylesheet">
+
+  <!-- Javascript/jQuery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  <script src="js/scripts.js"></script>
+
+</head>
+<body>
+
+<!--Navigation bar-->
+<div id="nav-placeholder"></div>
+<hr>
+
+<script>
+  $(function () {
+    $("#nav-placeholder").load("patientNav.html");
+  });
+</script>
+<!--end of Navigation bar-->
+
+
+<!-- Home Page -->
+<div id="boxy" class="container">
+  <div class="row" style="text-align: center">
+    <div class="col">
+      <a HREF="#" class="btn btn-lrg-2"><i class="material-icons">arrow_back</i> </a>
+      <h3 id="demo"></h3>
+      <a HREF="#" class="btn btn-lrg-2"><i class="material-icons">arrow_forward</i> </a>
+    </div>
+  </div>
+  <div id="myUL">
+    <div class="row">
+      <div class="col">
+        <div class="col">
+          <div style="margin: 10px;" id="mood" class="card">
+            <div class="card-body">
+              <h5 class="card-title">How Are you Feeling Today?</h5>
+              <a HREF="#" class="btn btn-lrg-2"><i class="material-icons">sentiment_very_satisfied</i> </a>
+              <a HREF="#" class="btn btn-lrg-2"><i class="material-icons">sentiment_satisfied</i> </a>
+              <a HREF="#" class="btn btn-lrg-2"><i class="material-icons">sentiment_dissatisfied</i> </a>
+              <a HREF="#" class="btn btn-lrg-2"><i class="material-icons">sentiment_very_dissatisfied</i> </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="col">
+          <div style="margin: 10px;" id="sleep" class="card">
+            <div class="card-body">
+              <h5 class="card-title">How much sleep did you have?</h5>
+              <a href="#" class="btn btn-lrg">1-3 Hrs</a>
+              <a href="#" class="btn btn-lrg">4-6 Hrs</a>
+              <a href="#" class="btn btn-lrg">7-8 Hrs</a>
+              <a href="#" class="btn btn-lrg">9+ Hrs</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="col">
+          <div style="margin: 10px;" id="exercise" class="card" style="width: 18rem;">
+
+            <div class="card-body">
+              <h5 class="card-title">How much did you exercise?</h5>
+              <a href="#" class="btn btn-lrg">0-15 mins</a>
+              <a href="#" class="btn btn-lrg">15-30 mins</a>
+              <a href="#" class="btn btn-lrg">30-45 mins</a>
+              <a href="#" class="btn btn-lrg">45-60+ mins</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="row2">
+      <div class="center row">
+        <div class="col center">
+          <div class="col">
+            <div style="margin: 10px" id="Food" class="card">
+              <div class="card-body">
+                <h5 class="card-title">What Did You Eat Today?</h5>
+                <ul class="list-group">
+                  <li class="list-group-item">Loco Moco</li>
+                  <li class="list-group-item">BBQ Chicken and Kalbi Plate</li>
+                  <li class="list-group-item">Spicy Ahi Poke</li>
+                  <li class="list-group-item">Malasadas</li>
+                  <li class="list-group-item">YEET</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="col">
+          <div class="col">
+            <div style="margin: 10px;" id="medication" class="card" style="width: 18rem;">
+
+              <div class="card-body">
+                <h5 class="card-title">Medications</h5>
+                <a>Next Dose at:</a><br>
+                <h2>4 PM Today</h2>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <!-- Edit Button -->
+  <div align="center">
+    <a type="button" class="btn btn-primary" href="/patientHome/edit">Edit</a>
+  </div>
+    <!-- End Edit Button -->
+  </div>
+</div>
+<!-- End filter bar/test patience -->
+
+
+</body>
+
+<!-- Filter bar -->
+<script>
+  function myFunction() {
+    var input, filter, ul, li, a, i;
+    input = document.getElementById('myInput');
+    filter = input.value.toUpperCase();
+    ul = document.getElementById("myUL");
+    li = document.getElementsByClassName("card");
+
+    // Loop through all list items, and hide those who don't match the search query
+    for (i = 0; i < li.length; i++) {
+      a = li[i].getElementsByTagName("h5")[0];
+      if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
+        li[i].style.display = "";
+      } else {
+        li[i].style.display = "none";
+      }
+    }
+  }
+</script>
+<!-- End filter bar -->
+
+<!-- Date -->
+<script>
+  let dateObj = new Date();
+  let month = dateObj.getUTCMonth() + 1; //months from 1-12
+  let day = dateObj.getUTCDate();
+  let year = dateObj.getUTCFullYear();
+  let d = year + "/" + month + "/" + day;
+  document.getElementById("demo").innerHTML = d;
+</script>
+
+</html>
+
