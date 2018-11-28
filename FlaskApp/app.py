@@ -11,6 +11,8 @@ print("Opened database successfully")
 
 # conn.execute('drop table if exists test')
 conn.execute('CREATE TABLE IF NOT EXISTS test (name varchar(50), addr varchar(50), city varchar(50), pin varchar(50))')
+cur = conn.cursor()
+
 # print("Table created successfully")
 #
 # conn.execute('insert into test (name, addr, city, pin) values ("max", "123 st st", "honolulu", "what")')
@@ -19,7 +21,7 @@ conn.execute('CREATE TABLE IF NOT EXISTS test (name varchar(50), addr varchar(50
 # conn.close()
 
 
-#login
+# login; currently only works with providers
 @app.route("/", methods=['GET', 'POST'])
 def main():
     error = None
@@ -33,7 +35,10 @@ def main():
 
 @app.route('/providerHome')
 def homeDr():
-    return render_template('provider/providerHome.html')
+    cur = conn.cursor()
+    cur.execute("select * from patients")
+    data = cur.fetchall()
+    return render_template('provider/providerHome.html', data=data)
 
 
 @app.route('/providerAdd')
@@ -41,8 +46,9 @@ def addDr():
     return render_template('provider/providerAdd.html')
 
 
-@app.route('/providerEntry')
-def entryDr():
+@app.route('/providerEntry/<id_num>')
+def entryDr(id_num):
+
     return render_template('provider/providerEntry.html')
 
 
@@ -52,12 +58,13 @@ def msgDr():
     return render_template('provider/providerMessages.html')
 
 
-@app.route('/providerNotes', methods=["GET", "POST"])
-def notesDr():
-    cur = mysql.connection.cursor()
-    cur.execute('''select * from messages''')
-    data = cur.fetchall()
-    return render_template('provider/providerNotes.html', data=data)
+@app.route('/providerNotes/<id_num>', methods=["GET", "POST"])
+def notesDr(id_num):
+
+    # cur = mysql.connection.cursor()
+    # cur.execute('''select * from messages''')
+    # data = cur.fetchall()
+    return render_template('provider/providerNotes.html')
 
 ###
 
