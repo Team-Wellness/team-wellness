@@ -1,33 +1,34 @@
-from flask import Flask, request, session, g, redirect, url_for, abort, \
-     render_template, flash
-from flask.ext.mysql import MySQL
-
-import mysql.connector
-
-try:
-    import configparser
-except:
-    from six.moves import configparser
+from flask import Flask, request, session, g, redirect, url_for, abort, request, render_template, flash
 
 
-# if __name__ == "__main__":
-#     app.run()
 
-# mysql = MySQL()
-app = Flask(__name__)
-# mysql = MySQL()
-# app.config['MYSQL_DATABASE_USER'] = 'root'
-# app.config['MYSQL_DATABASE_PASSWORD'] = 'password'
-# app.config['MYSQL_DATABASE_DB'] = 'teamwellness'
-# app.config['MYSQL_DATABASE_HOST'] = 'localhost'
-# mysql.init_app(app)
+
+import sqlite3
+
+app = Flask(__name__) # create the application instance :)
+conn = sqlite3.connect('database.db')
+print("Opened database successfully")
+
+# conn.execute('drop table if exists test')
+conn.execute('CREATE TABLE IF NOT EXISTS test (name varchar(50), addr varchar(50), city varchar(50), pin varchar(50))')
+# print("Table created successfully")
 #
-# conn = mysql.connect()
-# cursor = conn.cursor()
+# conn.execute('insert into test (name, addr, city, pin) values ("max", "123 st st", "honolulu", "what")')
+# conn.commit()
+#
+# conn.close()
 
-@app.route("/")
+
+#login
+@app.route("/", methods=['GET', 'POST'])
 def main():
-    return render_template('index.html')
+    error = None
+    if request.method == 'POST':
+        if request.form['username'] != 'admin@gmail.com' or request.form['password'] != 'admin':
+            error == 'Could not find account using email or password'
+        else:
+            return redirect(url_for('homeDr'))  # only works for provider rn
+    return render_template('index.html', error=error)
 
 
 @app.route('/providerHome')
