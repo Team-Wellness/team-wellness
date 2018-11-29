@@ -1,7 +1,5 @@
 from flask import Flask, request, session, g, redirect, url_for, abort, request, render_template, flash
-
-
-
+import random
 
 import sqlite3
 
@@ -49,11 +47,32 @@ def addDr():
     return render_template('provider/providerAdd.html', data=data)
 
 
-@app.route('/providerConfirm/<testVar>')
+@app.route('/providerConfirm/<testVar>', methods=['GET', 'POST'])
 def confirmAddDr(testVar):
+    global relationship_id, dr_id, patient_id
     cur = conn.cursor()
     cur.execute("select * from patients p where p.id_num ==" + testVar + ";")
     data = cur.fetchall()
+    # if request.method == 'POST':
+    #     relationshipID = random.randint(0, 100000000)
+    #     dr_id = 1;
+    #     p_id = testVar;
+    #     # inserts data into db after hitting submit
+    #     rows = [(dr_id, patient_id, relationship_id)]
+    #     cur.bindarraysize = 1
+    #     cur.setinputsizes(int, int, int)
+    #     cur.executemany("insert into relationships(dr_id, patient_id, relationship_id values (:1, :2, :3)", rows)
+    #     con.commit()
+    #     print("success!")
+    relationship_id = random.randint(0, 10000)
+    dr_id = 1;
+    patient_id = testVar;
+    rows = [(dr_id, patient_id, relationship_id)]
+    # cur.bindarraysize = 1
+    cur.setinputsizes(int, int, int)
+    cur.executemany("insert into relationships(dr_id, patient_id, relationship_id) values (:1, :2, :3)", rows)
+    conn.commit()
+    print("success!")
     return render_template('provider/providerConfirm.html', data=data)
 
 
