@@ -1,23 +1,21 @@
 from flask import Flask, request, session, g, redirect, url_for, abort, request, render_template, flash
 import random
-
+from flask_login import LoginManager
+from flask_simplelogin import SimpleLogin
 import sqlite3
 
-app = Flask(__name__) # create the application instance :)
+app = Flask(__name__) # create the application instance
+SimpleLogin(app)
+app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
+
 conn = sqlite3.connect('database.db')
 print("Opened database successfully")
-# login = LoginManager(app)
 
-# conn.execute('drop table if exists test')
-conn.execute('CREATE TABLE IF NOT EXISTS test (name varchar(50), addr varchar(50), city varchar(50), pin varchar(50))')
+# Login stuff
+# login_manager = LoginManager()
+# login_manager.init_app(app)
+
 cur = conn.cursor()
-
-# print("Table created successfully")
-#
-# conn.execute('insert into test (name, addr, city, pin) values ("max", "123 st st", "honolulu", "what")')
-# conn.commit()
-#
-# conn.close()
 
 
 # login; currently only works with providers
