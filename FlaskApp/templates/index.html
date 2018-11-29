@@ -106,22 +106,23 @@ onclick="javascript:window.location.href='/patientHome.html'; return false;"
         <div class="row">
             <div class="col"></div>
             <div class="col">
-                <form class="form2">
+                <form action="" method="post" class="form2">
                     <div class="form-group">
 
                         <label for="providerEmail" class="control-label required">Email address</label>
-                        <input type="email" class="form-control" id="providerEmail" aria-describedby="emailHelp" name="login[username]" placeholder="Enter email">
+                        <input type="email" class="form-control" id="providerEmail" aria-describedby="emailHelp" name="username" placeholder="Enter email" value="{{ request.form.username }}">
 
                         <small id="emailHelp2" class="form-text text-muted">We'll never share your email with anyone else.</small>
                     </div>
                     <div class="form-group">
                         <label for="providerPassword">Password</label>
-                        <input type="password" class="form-control" id="providerPassword" placeholder="Password">
+                        <input type="password" class="form-control" id="providerPassword" placeholder="Password" name="password" value=" {{ request.form.password }}">
                     </div>
-                    <button type="submit" class="btn btn-primary btn-raised" onsubmit="return finalSubmit()">Submit</button>
-                    <!--onclick="javascript:window.location.href='/providerHome.html'; return false;"-->
+                    <button type="submit" class="btn btn-primary btn-raised" onsubmit="return finalSubmit()" value="Login">Submit</button>
                     <button class="btn btn-primary btn-raised backbtn"> Back </button>
-                    <a href="/providerHome">Skip past login</a>
+                    {% if error %}
+                        <p class="error"><strong>Error: </strong> {{ error }}</p>
+                    {% endif %}
                 </form>
             </div>
             <div class="col"></div>

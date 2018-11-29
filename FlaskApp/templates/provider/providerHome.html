@@ -98,103 +98,41 @@
     </div>
 </div>
 
+<!--TEST-->
+
+<!--TEST-->
 <br><br><br>
 <div id="boxy" class="container">
     <div id="myUL"> <div class="row">
-        <div class="col">
-            <div class="col"><div style="margin: 10px;" id="patientIDA" class="card" style="width: 18rem;">
-                <img class="card-img-top" src="https://static.licdn.com/scds/common/u/images/themes/katy/ghosts/person/ghost_person_200x200_v1.png" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">Tyler Bop</h5>
-                    <p class="card-text">ID Number: </p>
-                    <a href="/viewEntry" class="btn btn-primary btn-sm">Entries</a>
-                    <a href="/enterNotes" class="btn btn-primary btn-sm">Write Notes</a>
-                </div>
-            </div></div>
-        </div>
 
-        <div class="col">
-            <div class="col"><div style="margin: 10px;" id="patientIDB" class="card" style="width: 18rem;">
-                <img class="card-img-top" src="https://static.licdn.com/scds/common/u/images/themes/katy/ghosts/person/ghost_person_200x200_v1.png" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">Wendy Twist</h5>
-                    <p class="card-text">ID Number: </p>
-                    <a href="#" class="btn btn-primary btn-sm">Entries</a>
-                    <a href="#" class="btn btn-primary btn-sm">Write Notes</a>
-                </div>
-            </div></div>
-        </div>
+    <!-- Prints each of the cards -->
+    <div class="container">
+        <!--<tr>-->
+        <div class="row flex-row">
+            {% for o in data %}
+            <!--<div class="col">-->
 
-        <div class="col">
-            <div class="col"><div style="margin: 10px;" id="patientIDC" class="card" style="width: 18rem;">
-                <img class="card-img-top" src="https://static.licdn.com/scds/common/u/images/themes/katy/ghosts/person/ghost_person_200x200_v1.png" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">Gary Pull</h5>
-                    <p class="card-text">ID Number: </p>
-                    <a href="#" class="btn btn-primary btn-sm">Entries</a>
-                    <a href="#" class="btn btn-primary btn-sm">Write Notes</a>
-                </div>
-            </div></div>
+                    <div class="col-sm-3">
+
+                <div class="col"><div style="margin: 1px;" id="{{ o[1] }}" class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="https://static.licdn.com/scds/common/u/images/themes/katy/ghosts/person/ghost_person_200x200_v1.png" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title"> {{ o[3] }}</h5>
+                        <p class="card-text">ID Number: {{ o[1] }}</p>
+                        <div class="text-center">
+                            <a href="providerEntry/{{o[1]}}" class="btn btn-primary btn-sm">Entries</a>
+                            <a href="providerNotes/{{o[1]}}" class="btn btn-primary btn-sm">Notes</a>
+                            <a href="providerDeleteConfirm/{{o[1]}}" class="btn btn-primary btn-sm">Delete</a>
+                        </div>
+                    </div>
+                </div></div>
+
             </div>
 
-
-        <div class="col">
-            <div class="col"><div style="margin: 10px;" id="patientNo" class="card" style="width: 18rem;">
-                <img class="card-img-top" src="https://static.licdn.com/scds/common/u/images/themes/katy/ghosts/person/ghost_person_200x200_v1.png" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">Test name</h5>
-                    <p class="card-text">ID Number: </p>
-                    <a href="#" class="btn btn-primary btn-sm">Entries</a>
-                    <a href="#" class="btn btn-primary btn-sm">Write Notes</a>
-                </div>
-            </div></div>
+        {% endfor %}
         </div>
-
-    </div> <!-- Row, limit 4 per row -->
-
-        <br><br>
-        <div class="row">
-
-            <div class="col"><div style="margin: 10px;" id="patientIDD" class="card" style="width: 18rem;">
-                <img class="card-img-top" src="https://static.licdn.com/scds/common/u/images/themes/katy/ghosts/person/ghost_person_200x200_v1.png" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">Edwin BreakDance</h5>
-                    <p class="card-text">ID Number: </p>
-                    <a href="#" class="btn btn-primary btn-sm">Entries</a>
-                    <a href="#" class="btn btn-primary btn-sm">Write Notes</a>
-                </div>
-            </div></div>
-
-            <div class="col"><div style="margin: 10px;" id="patientIDE" class="card" style="width: 18rem;">
-                <img class="card-img-top" src="https://static.licdn.com/scds/common/u/images/themes/katy/ghosts/person/ghost_person_200x200_v1.png" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">Microwave Johnny</h5>
-                    <p class="card-text">ID Number: </p>
-                    <a href="#" class="btn btn-primary btn-sm">Entries</a>
-                    <a href="#" class="btn btn-primary btn-sm">Write Notes</a>
-                </div>
-            </div></div>
-
-            <div class="col"><div style="margin: 10px;" id="patientIDF" class="card" style="width: 18rem;">
-                <img class="card-img-top" src="https://static.licdn.com/scds/common/u/images/themes/katy/ghosts/person/ghost_person_200x200_v1.png" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">Pls Come To Brazil</h5>
-                    <p class="card-text">ID Number: </p>
-                    <a href="#" class="btn btn-primary btn-sm">Entries</a>
-                    <a href="#" class="btn btn-primary btn-sm">Write Notes</a>
-                </div>
-            </div></div>
-
-            <div class="col"><div style="margin: 10px;" id="patientIDr" class="card" style="width: 18rem;">
-                <img class="card-img-top" src="https://static.licdn.com/scds/common/u/images/themes/katy/ghosts/person/ghost_person_200x200_v1.png" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">Hello Cool</h5>
-                    <p class="card-text">ID Number: </p>
-                    <a href="#" class="btn btn-primary btn-sm">Entries</a>
-                    <a href="#" class="btn btn-primary btn-sm">Write Notes</a>
-                </div>
-            </div></div>
-
+        <!--</tr>-->
+    </div>
         </div>
 
     </div>
@@ -226,6 +164,7 @@
             }
         }
     }
+
 </script>
 <!-- End filter bar -->
 
