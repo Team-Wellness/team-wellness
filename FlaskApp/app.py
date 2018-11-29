@@ -6,6 +6,7 @@ import sqlite3
 app = Flask(__name__) # create the application instance :)
 conn = sqlite3.connect('database.db')
 print("Opened database successfully")
+# login = LoginManager(app)
 
 # conn.execute('drop table if exists test')
 conn.execute('CREATE TABLE IF NOT EXISTS test (name varchar(50), addr varchar(50), city varchar(50), pin varchar(50))')
@@ -53,17 +54,6 @@ def confirmAddDr(testVar):
     cur = conn.cursor()
     cur.execute("select * from patients p where p.id_num ==" + testVar + ";")
     data = cur.fetchall()
-    # if request.method == 'POST':
-    #     relationshipID = random.randint(0, 100000000)
-    #     dr_id = 1;
-    #     p_id = testVar;
-    #     # inserts data into db after hitting submit
-    #     rows = [(dr_id, patient_id, relationship_id)]
-    #     cur.bindarraysize = 1
-    #     cur.setinputsizes(int, int, int)
-    #     cur.executemany("insert into relationships(dr_id, patient_id, relationship_id values (:1, :2, :3)", rows)
-    #     con.commit()
-    #     print("success!")
     relationship_id = random.randint(0, 10000)
     dr_id = 1;
     patient_id = testVar;
@@ -74,6 +64,19 @@ def confirmAddDr(testVar):
     conn.commit()
     print("success!")
     return render_template('provider/providerConfirm.html', data=data)
+
+
+@app.route('/providerDeleteConfirm/<testVar>', methods=['GET', 'POST'])
+def confirmDeleteDr(testVar):
+    cur = conn.cursor()
+    cur.execute("select * from patients p where p.id_num ==" + testVar + ";")
+    data = cur.fetchall();
+    patient_id = testVar
+    cur.setinputsizes(int)
+    cur.execute("delete from relationships where patient_id = " + patient_id + ";")
+    conn.commit()
+    print("Success!")
+    return render_template('provider/providerDeleteConfirm.html', data=data)
 
 
 @app.route('/providerEntry/<id_num>')

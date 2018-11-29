@@ -119,7 +119,6 @@ onclick="javascript:window.location.href='/patientHome.html'; return false;"
                         <input type="password" class="form-control" id="providerPassword" placeholder="Password" name="password" value=" {{ request.form.password }}">
                     </div>
                     <button type="submit" class="btn btn-primary btn-raised" onsubmit="return finalSubmit()" value="Login">Submit</button>
-                    <!--onclick="javascript:window.location.href='/providerHome.html'; return false;"-->
                     <button class="btn btn-primary btn-raised backbtn"> Back </button>
                     {% if error %}
                         <p class="error"><strong>Error: </strong> {{ error }}</p>
