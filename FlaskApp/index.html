@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login | RxHelp</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <!-- Javascript/jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.js"  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+
+    <!-- Bootstrap UI -->
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Titillium+Web:400,300,700&amp;subset=latin,latin-ext" />
+    <link rel="stylesheet" href="bootstrap-ui/dist/css/bootstrap-ui.css/bootstrap-ui.min.css"/>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <!-- JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.bundle.min.js" integrity="sha384-pjaaA8dDz/5BgdFUPX6M/9SUZv4d12SUPF0axWc+VRZkx5xU3daN+lYb49+Ax+Tl" crossorigin="anonymous"></script>
+    <!-- Bootstrap UI END-->
+
+    <style>
+        form {display: none;}
+
+        body {background-image: url("https://cdn.hipwallpaper.com/i/98/63/rckmR3.jpg"); }
+    </style>
+
+</head>
+
+<body>
+
+<!--Wat-->
+
+<!--Wat-->
+
+    <h1 style="text-align: center" class="display-1">Welcome</h1>
+    <h1 style="text-align: center" class="display-4">Please login</h1>
+    <br><br>
+
+    <!-- Button stuff -->
+    <div class="container-fluid">
+        <div class="row align-items-center">
+            <div class="col"></div>
+
+            <div class="col">
+                <div id="buttons">
+
+                    <!-- Bootstrap UI buttons -->
+                    <div class="form-group">
+                        <button id="form1" class="btn btn-primary btn-raised btn-block btn-lg">
+                            Patient
+                        </button>
+                    </div>
+                    <div class="form-group">
+                        <button id="form2" class="btn btn-primary btn-raised btn-block btn-lg">
+                            Provider
+                        </button>
+
+                        <small id="signupMsg" class="form-text text-muted">To sign up, request an account from your insurance.</small>
+
+                    </div>
+                    <!-- Bootstrap UI Buttons -->
+
+                    <!--<button id="form1" class="btn btn-primary btn-block">Patient</button>-->
+                    <!--<button id="form2" class="btn btn-primary btn-block">Provider</button>-->
+                </div>
+            </div>
+
+            <div class="col"></div>
+        </div>
+    </div>
+
+    <br><br>
+
+    <!-- Form stuff -->
+<!-- todo make buttons redirect to appropriate pages when handling the form, not on the button itself -->
+    <div class="container">
+        <div class="row">
+            <div class="col"></div>
+                <div class="col-6">
+                    <form  class="form1">
+                        <div class="form-group">
+                            <label for="patientEmail" class="control-label required">Email address</label>
+                            <input type="email" class="form-control" id="patientEmail" aria-describedby="emailHelp" name="login[username]" placeholder="Enter email">
+                            <small id="emailHelp1" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="patientPassword">Password</label>
+                            <input type="password" class="form-control" id="patientPassword" placeholder="Password">
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-raised" onclick="location.href='patient/patientHome.html'">Submit</button>
+                        <button class="btn btn-primary btn-raised backbtn"> Back </button>
+                    </form>
+                </div>
+                <div class="col"></div>
+    </div></div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col"></div>
+            <div class="col">
+                <form class="form2">
+                    <div class="form-group">
+
+                        <label for="providerEmail" class="control-label required">Email address</label>
+                        <input type="email" class="form-control" id="providerEmail" aria-describedby="emailHelp" name="login[username]" placeholder="Enter email">
+
+                        <small id="emailHelp2" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="providerPassword">Password</label>
+                        <input type="password" class="form-control" id="providerPassword" placeholder="Password">
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-raised" onclick="location.href='provider/providerHome.html'">Submit</button>
+                    <button class="btn btn-primary btn-raised backbtn"> Back </button>
+                </form>
+            </div>
+            <div class="col"></div>
+        </div></div>
+    <!-- End button stuff -->
+
+</body>
+
+<script>
+    // Button animations
+    $('button').on('click', function(){
+        var whatForm = $(this).attr('id');
+        $('#buttons').slideUp();
+        $('.'+whatForm).slideDown();
+    });
+
+    // Submit
+    function validateEmail(emailAddr) {
+        var tool = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        return tool.test(emailAddr);
+    }
+
+    function finalSubmit() {
+        if (validateEmail(document.getElementById(('emailfield').value))) {
+            //If valid, do nothing
+        }
+        else {
+            return false; // Invalid email
+        }
+    }
+
+    $('.backbtn').on('click', function(e){
+        e.preventDefault();
+        $('#buttons').slideDown();
+        $('form').slideUp();
+    });
+</script>
+
+</html>
