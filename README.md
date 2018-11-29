@@ -12,3 +12,9 @@ RxHelp aims to help patients manage their health easier and more efficiently by 
 6. (OPTIONAL) Type "set FLASK_DEBUG=true" without the quotations
 7. Type "python -m flask run" without the quotations to run the application
 8. In your brower, go to "127.0.0.1:500" without the quotations
+
+## Tasks
+1. Implement a login page 
+2. Set up a database and connect it to the provider side
+3. Connect database to patient side 
+4. Connect patient side to provider side
