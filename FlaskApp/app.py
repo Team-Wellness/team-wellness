@@ -36,14 +36,17 @@ def main():
 @app.route('/providerHome')
 def homeDr():
     cur = conn.cursor()
-    cur.execute("select * from patients")
+    cur.execute("select * from patients where id_num in (select patient_id from relationships)") # who exist in the relationships table
     data = cur.fetchall()
     return render_template('provider/providerHome.html', data=data)
 
 
 @app.route('/providerAdd')
 def addDr():
-    return render_template('provider/providerAdd.html')
+    cur = conn.cursor();
+    cur.execute("select * from patients p where not exists (select * from relationships r where p.id_num = r.patient_id")
+    data = cur.fetchall()
+    return render_template('provider/providerAdd.html', data=data)
 
 
 @app.route('/providerEntry/<id_num>')
