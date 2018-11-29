@@ -4,7 +4,7 @@
 RxHelp aims to help patients manage their health easier and more efficiently by allowing for tracking of many attributes and access to a multitude of doctors.
 
 ## How to run it locally
-1. Install Oracle DB, Python, and Flask
+1. Install Sqlite3, Python, and Flask
 2. In the console, put yourself in the FlaskApp folder (team-wellness --> FlaskApp)
 3. Run schema.sql in your database to create the relevant tables
 4. In app.py, change the code so it matches your database account information
