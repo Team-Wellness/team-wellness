@@ -43,10 +43,18 @@ def homeDr():
 
 @app.route('/providerAdd')
 def addDr():
-    cur = conn.cursor();
-    cur.execute("select * from patients p where not exists (select * from relationships r where p.id_num = r.patient_id")
+    cur = conn.cursor()
+    cur.execute("select * from patients p where not exists (select * from relationships r where p.id_num = r.patient_id)")
     data = cur.fetchall()
     return render_template('provider/providerAdd.html', data=data)
+
+
+@app.route('/providerConfirm/<testVar>')
+def confirmAddDr(testVar):
+    cur = conn.cursor()
+    cur.execute("select * from patients p where p.id_num ==" + testVar + ";")
+    data = cur.fetchall()
+    return render_template('provider/providerConfirm.html', data=data)
 
 
 @app.route('/providerEntry/<id_num>')
