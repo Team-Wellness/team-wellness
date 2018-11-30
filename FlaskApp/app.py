@@ -21,14 +21,14 @@ cur = conn.cursor()
 # login; currently only works with providers
 @app.route("/", methods=['GET', 'POST'])
 def main():
-    error = None
     if request.method == 'POST':
         if request.form['usernameDr'] == 'admin@gmail.com' and request.form['passwordDr'] == 'admin':
             return redirect(url_for('homeDr'))  # Redirect to provider home
         if request.form['usernameP'] == 'patient@gmail.com' and request.form['passwordP'] == 'patient':
             return redirect(url_for('homeP')) # Redirect to patient home
         else:
-            error == 'Could not find account using email or password'
+            print("Nice try")
+            return redirect(url_for('main'))
     return render_template('index.html')
 
 
