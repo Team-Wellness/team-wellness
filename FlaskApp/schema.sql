@@ -14,7 +14,8 @@ age INT,
 birthday VARCHAR(255) NOT NULL,
 sex VARCHAR(255) NOT NULL,
 height VARCHAR(255) NOT NULL,
-weight INT
+weight INT,
+img VARCHAR(255) NOT NULL
 );
 
 create table if not exists relationships(
@@ -39,7 +40,7 @@ notes VARCHAR(255) NOT NULL,
 grace_period INT
 );
 
-create table message(
+create table if not exists message(
 patient VARCHAR(255) NOT NULL,
 dr INT,
 msg_id INT PRIMARY KEY,
