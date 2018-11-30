@@ -51,13 +51,13 @@
 
 <!--end of Navigation bar-->
 
-
+{% for o in data %}
 <div id="boxy" class="container">
     <!--Choose Doctor-->
     <div class="row">
         <div style="margin: 20px;" class="card w-100">
             <div class="card-body">
-                <h5 class="card-title">Notes for Tyler Bop</h5>
+                <h5 class="card-title">Notes for {{ o[3] }}</h5>
                 <form>
 
                     <!--Message Subject and Body-->
@@ -80,6 +80,7 @@
         </div>
     </div>
 </div>
+{% endfor %}
 
 
 </body>

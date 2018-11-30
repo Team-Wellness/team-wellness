@@ -31,10 +31,6 @@
 
 <body>
 
-<!--Wat-->
-
-<!--Wat-->
-
     <h1 style="text-align: center" class="display-1">Welcome</h1>
     <h1 style="text-align: center" class="display-4">Please login</h1>
     <br><br>
@@ -49,12 +45,14 @@
 
                     <!-- Bootstrap UI buttons -->
                     <div class="form-group">
-                        <button id="form1" class="btn btn-primary btn-raised btn-block btn-lg">
+                        <!--<a href="loginPatient" class="btn btn-outline-primary">Patient</a>-->
+                        <button id="form1" class="btn btn-outline-primary btn-primary btn-raised btn-block btn-lg">
                             Patient
                         </button>
                     </div>
                     <div class="form-group">
-                        <button id="form2" class="btn btn-primary btn-raised btn-block btn-lg">
+                        <!--<a href="loginDr" class="btn btn-outline-primary">Provider</a>-->
+                        <button id="form2" class="btn btn-outline-primary btn-primary btn-raised btn-block btn-lg">
                             Provider
                         </button>
 
@@ -80,15 +78,15 @@
         <div class="row">
             <div class="col"></div>
                 <div class="col-6">
-                    <form  class="form1">
+                    <form action="" method="post" class="form1">
                         <div class="form-group">
                             <label for="patientEmail" class="control-label required">Email address</label>
-                            <input type="email" class="form-control" id="patientEmail" aria-describedby="emailHelp" name="login[username]" placeholder="Enter email">
+                            <input type="email" class="form-control" id="patientEmail" aria-describedby="emailHelp" name="usernameP" placeholder="Enter email" value="{{ request.form.usernameP }}">
                             <small id="emailHelp1" class="form-text text-muted">We'll never share your email with anyone else.</small>
                         </div>
                         <div class="form-group">
                             <label for="patientPassword">Password</label>
-                            <input type="password" class="form-control" id="patientPassword" placeholder="Password">
+                            <input type="password" class="form-control" id="patientPassword" placeholder="Password" name="passwordP" value=" {{ request.form.passwordP }}">
                         </div>
                         <button type="submit" class="btn btn-primary btn-raised">Submit</button>
                         <button class="btn btn-primary btn-raised backbtn"> Back </button>
@@ -110,19 +108,17 @@ onclick="javascript:window.location.href='/patientHome.html'; return false;"
                     <div class="form-group">
 
                         <label for="providerEmail" class="control-label required">Email address</label>
-                        <input type="email" class="form-control" id="providerEmail" aria-describedby="emailHelp" name="username" placeholder="Enter email" value="{{ request.form.username }}">
+                        <input type="email" class="form-control" id="providerEmail" aria-describedby="emailHelp" name="usernameDr" placeholder="Enter email" value="{{ request.form.usernameDr }}">
 
                         <small id="emailHelp2" class="form-text text-muted">We'll never share your email with anyone else.</small>
                     </div>
                     <div class="form-group">
                         <label for="providerPassword">Password</label>
-                        <input type="password" class="form-control" id="providerPassword" placeholder="Password" name="password" value=" {{ request.form.password }}">
+                        <input type="password" class="form-control" id="providerPassword" placeholder="Password" name="passwordDr" value=" {{ request.form.passwordDr }}">
                     </div>
                     <button type="submit" class="btn btn-primary btn-raised" onsubmit="return finalSubmit()" value="Login">Submit</button>
                     <button class="btn btn-primary btn-raised backbtn"> Back </button>
-                    {% if error %}
-                        <p class="error"><strong>Error: </strong> {{ error }}</p>
-                    {% endif %}
+                    <p class="error">{{ error }}</p>
                 </form>
             </div>
             <div class="col"></div>

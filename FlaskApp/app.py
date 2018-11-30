@@ -1,23 +1,21 @@
 from flask import Flask, request, session, g, redirect, url_for, abort, request, render_template, flash
 import random
-
+from flask_login import LoginManager
+from flask_simplelogin import SimpleLogin
 import sqlite3
 
-app = Flask(__name__) # create the application instance :)
+app = Flask(__name__) # create the application instance
+SimpleLogin(app)
+app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
+
 conn = sqlite3.connect('database.db')
 print("Opened database successfully")
-# login = LoginManager(app)
 
-# conn.execute('drop table if exists test')
-conn.execute('CREATE TABLE IF NOT EXISTS test (name varchar(50), addr varchar(50), city varchar(50), pin varchar(50))')
+# Login stuff
+# login_manager = LoginManager()
+# login_manager.init_app(app)
+
 cur = conn.cursor()
-
-# print("Table created successfully")
-#
-# conn.execute('insert into test (name, addr, city, pin) values ("max", "123 st st", "honolulu", "what")')
-# conn.commit()
-#
-# conn.close()
 
 
 # login; currently only works with providers
@@ -25,11 +23,37 @@ cur = conn.cursor()
 def main():
     error = None
     if request.method == 'POST':
-        if request.form['username'] != 'admin@gmail.com' or request.form['password'] != 'admin':
-            error == 'Could not find account using email or password'
+        if request.form['usernameDr'] == 'admin@gmail.com' and request.form['passwordDr'] == 'admin':
+            return redirect(url_for('homeDr'))  # Redirect to provider home
+        if request.form['usernameP'] == 'patient@gmail.com' and request.form['passwordP'] == 'patient':
+            return redirect(url_for('homeP')) # Redirect to patient home
         else:
-            return redirect(url_for('homeDr'))  # only works for provider rn
-    return render_template('index.html', error=error)
+            error == 'Could not find account using email or password'
+    return render_template('index.html')
+
+
+# Doctor login
+@app.route("/loginDr", methods=['GET', 'POST'])
+def mainDr():
+    error = None
+    if request.method == 'POST':
+        if request.form['usernameDr'] == 'admin@gmail.com' and request.form['passwordDr'] == 'admin':
+            return redirect(url_for('homeDr'))  # Redirect to provider home
+        else:
+            error == 'Could not find account using email or password'
+    return render_template('loginDr.html', error=error)
+
+
+# Patient login
+@app.route("/loginPatient", methods=['GET', 'POST'])
+def mainP():
+    error = None
+    if request.method == 'POST':
+        if request.form['usernameP'] == 'admin@gmail.com' and request.form['passwordP'] == 'admin':
+            return redirect(url_for('homeP'))  # Redirect to patient home
+        else:
+            error == 'Could not find account using email or password'
+    return render_template('loginPatient.html', error=error)
 
 
 @app.route('/providerHome')
@@ -93,11 +117,10 @@ def msgDr():
 
 @app.route('/providerNotes/<id_num>', methods=["GET", "POST"])
 def notesDr(id_num):
-
-    # cur = mysql.connection.cursor()
-    # cur.execute('''select * from messages''')
-    # data = cur.fetchall()
-    return render_template('provider/providerNotes.html')
+    cur = conn.cursor()
+    cur.execute("select * from patients p where p.id_num = " + id_num + ";")
+    data = cur.fetchall();
+    return render_template('provider/providerNotes.html', data=data)
 
 ###
 
