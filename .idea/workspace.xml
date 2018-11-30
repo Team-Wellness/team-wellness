@@ -5,7 +5,6 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FlaskApp/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/FlaskApp/app.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FlaskApp/database.db" beforeDir="false" afterPath="$PROJECT_DIR$/FlaskApp/database.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlaskApp/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/FlaskApp/templates/index.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -32,8 +31,8 @@
           <file leaf-file-name="app.py" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/FlaskApp/app.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="540">
-                  <caret line="43" column="55" lean-forward="true" selection-start-line="43" selection-start-column="55" selection-end-line="43" selection-end-column="55" />
+                <state relative-caret-position="339">
+                  <caret line="40" column="75" lean-forward="true" selection-start-line="40" selection-start-column="75" selection-end-line="40" selection-end-column="75" />
                   <folding>
                     <element signature="e#0#103#0" expanded="true" />
                   </folding>
@@ -61,8 +60,8 @@
           <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/FlaskApp/templates/index.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="336">
-                  <caret line="92" column="129" selection-start-line="92" selection-start-column="129" selection-end-line="92" selection-end-column="129" />
+                <state relative-caret-position="235">
+                  <caret line="89" column="30" lean-forward="true" selection-start-line="89" selection-start-column="30" selection-end-line="89" selection-end-column="30" />
                   <folding>
                     <element signature="n#style#0;n#h1#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                     <element signature="n#style#0;n#h1#1;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -155,8 +154,8 @@
         <option value="$PROJECT_DIR$/FlaskApp/templates/provider/providerNotes.html" />
         <option value="$PROJECT_DIR$/FlaskApp/templates/loginPatient.html" />
         <option value="$PROJECT_DIR$/FlaskApp/templates/loginDr.html" />
-        <option value="$PROJECT_DIR$/FlaskApp/app.py" />
         <option value="$PROJECT_DIR$/FlaskApp/templates/index.html" />
+        <option value="$PROJECT_DIR$/FlaskApp/app.py" />
       </list>
     </option>
   </component>
@@ -182,7 +181,7 @@
     <handled-path value="$PROJECT_DIR$/FlaskApp/bootstrap-ui/node_modules" />
     <handled-path value="$PROJECT_DIR$/FlaskApp/templates/bootstrap-ui/node_modules" />
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="537" />
     <option name="y" value="-23" />
     <option name="width" value="1509" />
@@ -537,7 +536,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" weight="0.24934895" />
@@ -916,23 +915,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/FlaskApp/app.py">
+    <entry file="file://$PROJECT_DIR$/FlaskApp/templates/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="43" column="55" lean-forward="true" selection-start-line="43" selection-start-column="55" selection-end-line="43" selection-end-column="55" />
+        <state relative-caret-position="235">
+          <caret line="89" column="30" lean-forward="true" selection-start-line="89" selection-start-column="30" selection-end-line="89" selection-end-column="30" />
           <folding>
-            <element signature="e#0#103#0" expanded="true" />
+            <element signature="n#style#0;n#h1#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#h1#1;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/FlaskApp/templates/index.html">
+    <entry file="file://$PROJECT_DIR$/FlaskApp/app.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="92" column="129" selection-start-line="92" selection-start-column="129" selection-end-line="92" selection-end-column="129" />
+        <state relative-caret-position="339">
+          <caret line="40" column="75" lean-forward="true" selection-start-line="40" selection-start-column="75" selection-end-line="40" selection-end-column="75" />
           <folding>
-            <element signature="n#style#0;n#h1#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#h1#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#0#103#0" expanded="true" />
           </folding>
         </state>
       </provider>
