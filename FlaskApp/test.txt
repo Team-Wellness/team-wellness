@@ -1,0 +1,4 @@
+import cs_Oracle
+con = cx_Oracle.connect('abc/123@127.0.0.1/orcl')
+print con.version
+con.close()
