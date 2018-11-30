@@ -13,8 +13,8 @@
 
     <!-- Bootstrap UI -->
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Titillium+Web:400,300,700&amp;subset=latin,latin-ext" />
-    <link rel="stylesheet" href="bootstrap-ui/dist/css/bootstrap-ui.min.css" />
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+   <!-- <link rel="stylesheet" href="bootstrap-ui/dist/css/bootstrap-ui.min.css" />
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"> -->
 
     <!-- JS -->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
@@ -37,17 +37,16 @@
     <div class="container">
         <div class="row">
             <div class="col"></div>
-                <div class="col-6">
-                    <form class="form">
+                <div class="col">
+                  <form action="{{ url_for('loginPatient')}}" method="post" class="form">
                         <div class="form-group">
                             <label for="patientEmail" class="control-label required">Email address</label>
-                            <input type="email" class="form-control" id="patientEmail" aria-describedby="emailHelp" name="usernameP" placeholder="Enter email">
-                            <!--<input type="email" class="form-control" id="patientEmail" aria-describedby="emailHelp" name="login[username]" placeholder="Enter email">-->
+                            <input type="email" class="form-control" id="patientEmail" aria-describedby="emailHelp" name="usernameP" placeholder="Enter email" value="{{ request.form.username }}">
                             <small id="emailHelp1" class="form-text text-muted">We'll never share your email with anyone else.</small>
                         </div>
                         <div class="form-group">
                             <label for="patientPassword">Password</label>
-                            <input type="password" class="form-control" id="patientPassword" placeholder="Password" name="passwordP">
+                            <input type="password" class="form-control" id="patientPassword" placeholder="Password" name="passwordP" value="{{ request.form.password }}">
                         </div>
                         <button type="submit" class="btn btn-primary btn-raised">Submit</button>
                         <button class="btn btn-primary btn-raised backbtn"> Back </button>
@@ -56,6 +55,5 @@
                 </div>
                 <div class="col"></div>
     </div></div>
-
 </body>
 </html>
