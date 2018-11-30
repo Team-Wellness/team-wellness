@@ -162,4 +162,3 @@ def entryViewDr():
 def notesEnterDr():
     return render_template('provider/providerNotes.html')
 
-@app.route('')
