@@ -23,11 +23,37 @@ cur = conn.cursor()
 def main():
     error = None
     if request.method == 'POST':
-        if request.form['username'] != 'admin@gmail.com' or request.form['password'] != 'admin':
-            error == 'Could not find account using email or password'
+        if request.form['usernameDr'] == 'admin@gmail.com' and request.form['passwordDr'] == 'admin':
+            return redirect(url_for('homeDr'))  # Redirect to provider home
+        if request.form['usernameP'] == 'patient@gmail.com' and request.form['passwordP'] == 'patient':
+            return redirect(url_for('homeP')) # Redirect to patient home
         else:
-            return redirect(url_for('homeDr'))  # only works for provider rn
-    return render_template('index.html', error=error)
+            error == 'Could not find account using email or password'
+    return render_template('index.html')
+
+
+# Doctor login
+@app.route("/loginDr", methods=['GET', 'POST'])
+def mainDr():
+    error = None
+    if request.method == 'POST':
+        if request.form['usernameDr'] == 'admin@gmail.com' and request.form['passwordDr'] == 'admin':
+            return redirect(url_for('homeDr'))  # Redirect to provider home
+        else:
+            error == 'Could not find account using email or password'
+    return render_template('loginDr.html', error=error)
+
+
+# Patient login
+@app.route("/loginPatient", methods=['GET', 'POST'])
+def mainP():
+    error = None
+    if request.method == 'POST':
+        if request.form['usernameP'] == 'admin@gmail.com' and request.form['passwordP'] == 'admin':
+            return redirect(url_for('homeP'))  # Redirect to patient home
+        else:
+            error == 'Could not find account using email or password'
+    return render_template('loginPatient.html', error=error)
 
 
 @app.route('/providerHome')
@@ -91,11 +117,10 @@ def msgDr():
 
 @app.route('/providerNotes/<id_num>', methods=["GET", "POST"])
 def notesDr(id_num):
-
-    # cur = mysql.connection.cursor()
-    # cur.execute('''select * from messages''')
-    # data = cur.fetchall()
-    return render_template('provider/providerNotes.html')
+    cur = conn.cursor()
+    cur.execute("select * from patients p where p.id_num = " + id_num + ";")
+    data = cur.fetchall();
+    return render_template('provider/providerNotes.html', data=data)
 
 ###
 
