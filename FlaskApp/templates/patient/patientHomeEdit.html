@@ -30,17 +30,31 @@
 
 </head>
 <body>
+<!--Nav bar-->
+<style>
+  body {
+    background-image: url("https://patientengagementhit.com/images/site/features/_large/patient-healthcare-access-header.jpg");
+    background-size: auto auto;
+    /*background-repeat: no-repeat;*/
+  }
 
-<!--Navigation bar-->
-<div id="nav-placeholder"></div>
+  #boxy { background-color: rgba(255, 255, 255, 0.6); }
+</style>
+
+<b><h1 style="text-align: center;" class="display-4">RxHelp</h1></b>
 <hr>
-
-<script>
-  $(function () {
-    $("#nav-placeholder").load("patientNav.html");
-  });
-</script>
-<!--end of Navigation bar-->
+<ul class="nav justify-content-center">
+  <li class="nav-item">
+    <a class="nav-link active" href="/patientHome"><h5>Home</h5></a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/patientProfile"><h5>Profile</h5></a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/patientMyDoctor"><h5>My Doctor</h5></a>
+  </li>
+</ul>
+<!-- Nav Bar -->
 
 <!-- Home Page -->
 
@@ -136,7 +150,7 @@
     </div>
     <!-- Back Button -->
     <div align="center">
-      <a type="button" class="btn btn-primary" href="patientHome.html">Back</a>
+      <a type="button" class="btn btn-primary" href="/patientHome">Back</a>
     </div>
     <!-- End Back Button -->
   </div>
