@@ -77,13 +77,8 @@
     <div class="container">
         <div class="row">
             <div class="col"></div>
-<<<<<<< HEAD
-                <div class="col-6">
-                    <form action="http://127.0.0.1:5000/patientHome" method="post" class="form1">
-=======
                 <div class="col">
                     <form action="" method="post" class="form1">
->>>>>>> zac
                         <div class="form-group">
 
                             <label for="patientEmail" class="control-label required">Email address</label>
@@ -95,19 +90,10 @@
                             <label for="patientPassword">Password</label>
                             <input type="password" class="form-control" id="patientPassword" placeholder="Password" name="passwordP" value=" {{ request.form.passwordP }}">
                         </div>
-<<<<<<< HEAD
-                        <!--<button type="submit" class="btn btn-primary btn-raised" onsubmit="return finalSubmit()" value="Login">Submit ME</button>-->
-
-                    <button type="submit" class="btn btn-primary btn-raised" onsubmit="return finalSubmit()" value="Login">Submit</button>
-
-                        <!--<a href="patientHome" class="btn btn-primary btn-raised">Submit</a>-->
-                        <button class="btn btn-primary btn-raised backbtn"> Back </button>
-=======
                       <button type="submit" class="btn btn-primary btn-raised" name="loginType" onsubmit="return finalSubmit()" value="p">Submit</button>
                         <button class="btn btn-primary btn-raised backbtn"> Back </button>
                         <a href="/patientHome">Skip past login</a>
                         <p class="error">{{ error }}</p>
->>>>>>> zac
                     </form>
                 </div>
                 <div class="col"></div>
