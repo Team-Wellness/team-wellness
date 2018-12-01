@@ -21,15 +21,6 @@ cur = conn.cursor()
 @app.route("/", methods=['GET', 'POST'])
 def main():
     if request.method == 'POST':
-<<<<<<< HEAD
-        if request.form['usernameDr'] == 'admin@gmail.com' and request.form['passwordDr'] == 'admin':
-            return redirect(url_for('homeDr'))  # Redirect to provider home
-        if request.form['usernameP'] == 'patient@gmail.com' and request.form['passwordP'] == 'patient':
-            return redirect(url_for('homeP'))  # Redirect to patient home
-        else:
-            print("Nice try")
-            return redirect(url_for('main'))
-=======
         if request.form['loginType'] == 'p':
             if request.form['usernameP'] == 'admin@gmail.com' and request.form['passwordP'] == 'admin':
                 return redirect(url_for('homeP')) # Redirect to patient home
@@ -40,7 +31,6 @@ def main():
                 return redirect(url_for('homeDr'))  # Redirect to provider home
             else:
                 error == 'Could not find account using email or password'
->>>>>>> zac
     return render_template('index.html')
 
 
