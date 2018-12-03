@@ -8,9 +8,8 @@ app = Flask(__name__) # create the application instance
 SimpleLogin(app)
 app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
 
-conn = sqlite3.connect('database.db')
+conn = sqlite3.connect('database.db', check_same_thread=False)
 print("Opened database successfully")
-
 # Login stuff
 # login_manager = LoginManager()
 # login_manager.init_app(app)
@@ -18,17 +17,20 @@ print("Opened database successfully")
 cur = conn.cursor()
 
 
-# login; currently only works with providers
+#login; currently only works with providers
 @app.route("/", methods=['GET', 'POST'])
 def main():
     if request.method == 'POST':
-        if request.form['usernameDr'] == 'admin@gmail.com' and request.form['passwordDr'] == 'admin':
-            return redirect(url_for('homeDr'))  # Redirect to provider home
-        if request.form['usernameP'] == 'patient@gmail.com' and request.form['passwordP'] == 'patient':
-            return redirect(url_for('homeP')) # Redirect to patient home
-        else:
-            print("Nice try")
-            return redirect(url_for('main'))
+        if request.form['loginType'] == 'p':
+            if request.form['usernameP'] == 'admin@gmail.com' and request.form['passwordP'] == 'admin':
+                return redirect(url_for('homeP')) # Redirect to patient home
+            else:
+                error == 'Could not find account using email or password'
+        elif request.form['loginType'] == 'd':
+            if request.form['usernameDr'] == 'admin@gmail.com' and request.form['passwordDr'] == 'admin':
+                return redirect(url_for('homeDr'))  # Redirect to provider home
+            else:
+                error == 'Could not find account using email or password'
     return render_template('index.html')
 
 
@@ -41,7 +43,7 @@ def mainDr():
             return redirect(url_for('homeDr'))  # Redirect to provider home
         else:
             error == 'Could not find account using email or password'
-    return render_template('loginDr.html', error=error)
+    return render_template('index.html', error=error)
 
 
 # Patient login
@@ -49,11 +51,11 @@ def mainDr():
 def mainP():
     error = None
     if request.method == 'POST':
-        if request.form['usernameP'] == 'admin@gmail.com' and request.form['passwordP'] == 'admin':
+        if request.form['usernameP'] == 'patient@gmail.com' and request.form['passwordP'] == 'patient':
             return redirect(url_for('homeP'))  # Redirect to patient home
         else:
             error == 'Could not find account using email or password'
-    return render_template('loginPatient.html', error=error)
+    return render_template('index.html', error=error)
 
 
 @app.route('/providerHome')
@@ -161,3 +163,4 @@ def entryViewDr():
 @app.route('/enterNotes')
 def notesEnterDr():
     return render_template('provider/providerNotes.html')
+
