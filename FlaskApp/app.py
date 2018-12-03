@@ -34,31 +34,6 @@ def main():
                 error == 'Could not find account using email or password'
     return render_template('index.html')
 
-
-# Doctor login
-@app.route("/loginDr", methods=['GET', 'POST'])
-def mainDr():
-    error = None
-    if request.method == 'POST':
-        if request.form['usernameDr'] == 'admin@gmail.com' and request.form['passwordDr'] == 'admin':
-            return redirect(url_for('homeDr'))  # Redirect to provider home
-        else:
-            error == 'Could not find account using email or password'
-    return render_template('index.html', error=error)
-
-
-# Patient login
-@app.route("/loginPatient", methods=['GET', 'POST'])
-def mainP():
-    error = None
-    if request.method == 'POST':
-        if request.form['usernameP'] == 'patient@gmail.com' and request.form['passwordP'] == 'patient':
-            return redirect(url_for('homeP'))  # Redirect to patient home
-        else:
-            error == 'Could not find account using email or password'
-    return render_template('index.html', error=error)
-
-
 @app.route('/providerHome')
 def homeDr():
     cur = conn.cursor()
