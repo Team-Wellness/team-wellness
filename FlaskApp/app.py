@@ -20,15 +20,22 @@ cur = conn.cursor()
 #login; currently only works with providers
 @app.route("/", methods=['GET', 'POST'])
 def main():
-    error = None
+    error = 'none';
+    cur = conn.cursor()
     if request.method == 'POST':
         if request.form['loginType'] == 'p':
-            if request.form['usernameP'] == 'admin@gmail.com' and request.form['passwordP'] == 'admin':
+            usernameP = request.form['usernameP']
+            passwordP = request.form['passwordP']
+            cur.execute("select id_num from patients where username = ? and password = ?", (usernameP, passwordP,))
+            if cur.fetchone() is not None:
                 return redirect(url_for('homeP')) # Redirect to patient home
             else:
                 error == 'Could not find account using email or password'
         elif request.form['loginType'] == 'd':
-            if request.form['usernameDr'] == 'admin@gmail.com' and request.form['passwordDr'] == 'admin':
+            usernameDr = request.form['usernameDr']
+            passwordDr = request.form['passwordDr']
+            cur.execute("select id_number from doctors where username = ? and password = ?", (usernameDr,passwordDr,))
+            if cur.fetchone() is not None:
                 return redirect(url_for('homeDr'))  # Redirect to provider home
             else:
                 error == 'Could not find account using email or password'
@@ -139,4 +146,3 @@ def entryViewDr():
 @app.route('/enterNotes')
 def notesEnterDr():
     return render_template('provider/providerNotes.html')
-
