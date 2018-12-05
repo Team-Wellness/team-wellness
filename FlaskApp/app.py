@@ -141,8 +141,11 @@ def homeEditP():
     return render_template('patient/patientHomeEdit.html')
 
 
-@app.route('/patientProfile')
+@app.route('/patientProfile/<id_num>', methods=["Get"])
 def profileP():
+    cur = conn.cursor()
+    cur.execute("select * from patients p where p.id_num = ")
+
     return render_template('patient/patientProfile.html')
 
 
