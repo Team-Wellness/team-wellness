@@ -31,6 +31,7 @@
 <!--&lt;!&ndash;end of Navigation bar&ndash;&gt;-->
 
 
+
 <!-- Navbar end -->
 <style>
   body {
@@ -57,12 +58,13 @@
 </ul>
 <!-- Navbar end -->
 
+  {% for o in data %}
 
 <!-- Home Page -->
 <div id="boxy" class="container">
   <div class="row" style="margin: auto; max-width: 250px">
       <a HREF="#" class="btn btn-lrg-2"><i class="material-icons">arrow_back</i> </a>
-      <h3 id="demo"></h3>
+      <h3>{{o[0]}}</h3>
       <a HREF="#" class="btn btn-lrg-2"><i class="material-icons">arrow_forward</i> </a>
   </div>
   <div id="myUL">
@@ -85,11 +87,8 @@
         <div class="col">
           <div style="margin: 10px;" id="sleep" class="card">
             <div class="card-body">
-              <h5 class="card-title">How much sleep did you have?</h5>
-              <a href="#" class="btn btn-lrg">1-3 Hrs</a>
-              <a href="#" class="btn btn-lrg">4-6 Hrs</a>
-              <a href="#" class="btn btn-lrg">7-8 Hrs</a>
-              <a href="#" class="btn btn-lrg">9+ Hrs</a>
+              <h5 class="card-title">You had this much sleep?</h5>
+              <h4>{{o[4]}}</h4>
             </div>
           </div>
         </div>
@@ -153,7 +152,7 @@
   </div>
 </div>
 <!-- End filter bar/test patience -->
-
+{% endfor %}
 
 </body>
 

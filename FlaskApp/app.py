@@ -107,7 +107,7 @@ def notesDr(id_num):
     data = cur.fetchall();
     return render_template('provider/providerNotes.html', data=data)
 
-###
+
 
 @app.route('/patientMyDoctor')
 def drP():
@@ -116,8 +116,10 @@ def drP():
 
 @app.route('/patientHome')
 def homeP():
-    return render_template('patient/patientHome.html')
-
+    cur = conn.cursor()
+    cur.execute("select * from entries where patient_id in (select id_num from patients)")
+    data = cur.fetchall()
+    return render_template('patient/patientHome.html', data=data)
 
 @app.route('/patientHome/edit')
 def homeEditP():
