@@ -64,7 +64,7 @@
 <div id="boxy" class="container">
   <div class="row" style="margin: auto; max-width: 250px">
       <a HREF="#" class="btn btn-lrg-2"><i class="material-icons">arrow_back</i> </a>
-      <h3>{{o[0]}}</h3>
+      <h3 id="demo"></h3>
       <a HREF="#" class="btn btn-lrg-2"><i class="material-icons">arrow_forward</i> </a>
   </div>
   <div id="myUL">
@@ -146,12 +146,13 @@
     </div>
     <!-- Edit Button -->
     <div align="center">
-      <a type="button" class="btn btn-primary" href="/patientHome/edit">Edit</a>
+      <a type="button" class="btn btn-primary" href="/patientHome/edit/{{o[1]}}">Edit</a>
     </div>
     <!-- End Edit Button -->
   </div>
 </div>
 <!-- End filter bar/test patience -->
+
 {% endfor %}
 
 </body>
@@ -187,6 +188,7 @@
     let d = year + "/" + month + "/" + day;
     document.getElementById("demo").innerHTML = d;
 </script>
+
 
 </html>
 

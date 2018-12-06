@@ -28,7 +28,7 @@ def main():
             passwordP = request.form['passwordP']
             cur.execute("select id_num from patients where username = ? and password = ?", (usernameP, passwordP,))
             if cur.fetchone() is not None:
-                return redirect(url_for('homeP')) # Redirect to patient home
+                return redirect(url_for('homeP', id_num=9438))# Redirect to patient home
             else:
                 error == 'Could not find account using email or password'
         elif request.form['loginType'] == 'd':
@@ -114,16 +114,19 @@ def drP():
     return render_template('patient/patientMyDoctor.html')
 
 
-@app.route('/patientHome')
-def homeP():
+@app.route('/patientHome/<id_num>')
+def homeP(id_num):
     cur = conn.cursor()
-    cur.execute("select * from entries where patient_id in (select id_num from patients)")
+    cur.execute("select * from entries where patient_id = ?", (id_num,))
     data = cur.fetchall()
     return render_template('patient/patientHome.html', data=data)
 
-@app.route('/patientHome/edit')
-def homeEditP():
-    return render_template('patient/patientHomeEdit.html')
+@app.route('/patientHome/edit/<id_num>')
+def homeEditP(id_num):
+    cur = conn.cursor()
+    cur.execute("select * from entries where patient_id = ?", (id_num,))
+    data = cur.fetchall()
+    return render_template('patient/patientHomeEdit.html', data=data)
 
 
 @app.route('/patientProfile')

@@ -171,16 +171,16 @@
         </div>
       </div>
 
-
+      {% for o in data %}
     </div>
     <!-- Back Button -->
     <div align="center">
-      <a type="button" class="btn btn-primary" href="/patientHome">Back</a>
+      <a type="button" class="btn btn-primary" href="/patientHome/{{o[1]}}">Back</a>
     </div>
     <!-- End Back Button -->
     </div>
   </div>
-
+{% endfor %}
 
 
 <!-- End filter bar/test patience -->
