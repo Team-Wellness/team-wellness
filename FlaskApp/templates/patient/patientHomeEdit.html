@@ -65,7 +65,7 @@
   </li>
 </ul>
 <!-- Nav Bar -->
-
+{% for o in data %}
 <!-- Home Page -->
 
 <div id="boxy" class="container">
@@ -76,6 +76,7 @@
         <div class="col">
           <div style="margin: 10px;" id="mood" class="card">
             <div class="card-body">
+              <form action = "{{ url_for('homeEditP', id_num=o.patient_id) }}" method = "POST">
               <h5 class="card-title">How Are you Feeling Today?</h5>
               <a HREF="#" class="btn btn-lrg-2"><i class="material-icons">sentiment_very_satisfied</i> </a>
               <a HREF="#" class="btn btn-lrg-2"><i class="material-icons">sentiment_satisfied</i> </a>
@@ -92,15 +93,15 @@
             <div class="card-body">
               <h5 class="card-title">How much sleep did you have?</h5>
               <div class="input-group">
-              <input id="slhr" type="number" placeholder="Hours" class="form-control" title="sleep" required/>
-                <button onclick="slcheck()" type="submit" class="btn btn-primary">Add</button>
+              <input id="slhr" name="slhours" type="number" placeholder="Hours" class="form-control" title="sleep" required/>
+                <button onclick="slcheck()" name=add type="submit" class="btn btn-primary" value="sleep">Add</button>
               </div>
                 <p id="demos"></p>
             </div>
           </div>
         </div>
       </div>
-
+    </form>
       <div class="col">
         <div class="col">
           <div style="margin: 10px;" id="exercise" class="card" style="width: 18rem;">
@@ -171,7 +172,7 @@
         </div>
       </div>
 
-      {% for o in data %}
+
     </div>
     <!-- Back Button -->
     <div align="center">
