@@ -73,11 +73,10 @@
         <div class="col">
           <div style="margin: 10px;" id="mood" class="card">
             <div class="card-body">
-              <h5 class="card-title">How Are you Feeling Today?</h5>
-              <a HREF="#" class="btn btn-lrg-2"><i class="material-icons">sentiment_very_satisfied</i> </a>
-              <a HREF="#" class="btn btn-lrg-2"><i class="material-icons">sentiment_satisfied</i> </a>
-              <a HREF="#" class="btn btn-lrg-2"><i class="material-icons">sentiment_dissatisfied</i> </a>
-              <a HREF="#" class="btn btn-lrg-2"><i class="material-icons">sentiment_very_dissatisfied</i> </a>
+              <h5 class="card-title">You are feeling: </h5>
+              <div class="row" >
+              <a style="width:50px;padding-left:20px"><i class="material-icons" >moods</i></a> <h5>Today</h5>
+              </div>
             </div>
           </div>
         </div>
@@ -87,8 +86,8 @@
         <div class="col">
           <div style="margin: 10px;" id="sleep" class="card">
             <div class="card-body">
-              <h5 class="card-title">You had this much sleep?</h5>
-              <h4>{{o[4]}}</h4>
+              <h5 class="card-title">You had this much sleep:</h5>
+              <h4>{{o[4]}} Hours</h4>
             </div>
           </div>
         </div>
@@ -99,11 +98,8 @@
           <div style="margin: 10px;" id="exercise" class="card" style="width: 18rem;">
 
             <div class="card-body">
-              <h5 class="card-title">How much did you exercise?</h5>
-              <a href="#" class="btn btn-lrg">0-15 mins</a>
-              <a href="#" class="btn btn-lrg">15-30 mins</a>
-              <a href="#" class="btn btn-lrg">30-45 mins</a>
-              <a href="#" class="btn btn-lrg">45-60+ mins</a>
+              <h5 class="card-title">You exercised this long:</h5>
+              <h4>{{o[5]}} Hours</h4>
             </div>
           </div>
         </div>
@@ -136,7 +132,7 @@
               <div class="card-body">
                 <h5 class="card-title">Medications</h5>
                 <a>Next Dose at:</a><br>
-                <h2>4 PM Today</h2>
+                <h2>{{o[6]}} PM Today</h2>
               </div>
             </div>
           </div>
@@ -152,7 +148,19 @@
   </div>
 </div>
 <!-- End filter bar/test patience -->
-
+<script>
+  switch(o.mood) {
+      case 1:
+          mood = sentiment_very_satisfied;
+      case 2:
+          mood = sentiment_satisfied;
+      case 3:
+          mood = sentiment_dissatisfied;
+      case 4:
+          mood = sentiment_very_dissatisfied;
+  }
+  document.getElementById("moods").innerHTML = mood;
+</script>
 {% endfor %}
 
 </body>
