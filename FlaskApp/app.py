@@ -12,15 +12,9 @@ app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
 conn = sqlite3.connect('database.db', check_same_thread=False)
 print("Opened database successfully")
 now = datetime.datetime.now()
-
-# Login stuff
-# login_manager = LoginManager()
-# login_manager.init_app(app)
-
-# cur = conn.cursor()
+global currentPatient
 
 
-#login; currently only works with providers
 @app.route("/", methods=['GET', 'POST'])
 def main():
     error = 'none';
@@ -135,8 +129,8 @@ def noteConfirmDr(testVar):
     cur.execute("select * from patients p where p.id_num ==" + testVar + ";")
     data = cur.fetchall()
     note_id = random.randint(0, 10000)
-    dr_id = 1;
-    patient_id = testVar;
+    dr_id = 1
+    patient_id = testVar
     rows = [(dr_id, patient_id, relationship_id)]
     # cur.bindarraysize = 1
     cur.setinputsizes(int, int, int)
@@ -149,14 +143,13 @@ def notesDr(id_num):
     conn = sqlite3.connect('database.db')
     cur = conn.cursor()
     cur.execute("select * from patients p where p.id_num = " + id_num + ";")
-    data = cur.fetchall();
+    data = cur.fetchall()
     if request.method == 'POST':
         print("got into post")
         print(str(now))
         subject = str(request.values.get('patientSubject'))
         content = str(request.values.get('patientMessage'))
         note_id = random.randint(0, 1000000000000)
-        # cur.execute("INSERT INTO doctor_notes(dr_id, patient_id, note_id, subject, date, content) VALUES(1, 123, " + str(note_id) + ", 'subject', 'date', 'content');")
         cur.execute("INSERT INTO doctor_notes(dr_id, patient_id, note_id, subject, date, content) VALUES(1, " + str(id_num) + ", " + str(note_id) + ", '" + subject + "', '" + str(now) + "', '" + content + "');")
         conn.commit()
     return render_template('provider/providerNotes.html', data=data)
@@ -170,6 +163,7 @@ def drP():
 
 @app.route('/patientHome/<id_num>', methods=["GET", "POST"])
 def homeP(id_num):
+    currentPatient = id_num
     cur = conn.cursor()
     cur.execute("select * from entries where patient_id = ?", (id_num,))
     data = cur.fetchall()
