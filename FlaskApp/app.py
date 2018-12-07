@@ -20,43 +20,32 @@ cur = conn.cursor()
 #login; currently only works with providers
 @app.route("/", methods=['GET', 'POST'])
 def main():
+<<<<<<< HEAD
+=======
+    error = 'none';
+    cur = conn.cursor()
+>>>>>>> zac
     if request.method == 'POST':
         if request.form['loginType'] == 'p':
-            if request.form['usernameP'] == 'admin@gmail.com' and request.form['passwordP'] == 'admin':
-                return redirect(url_for('homeP')) # Redirect to patient home
+            usernameP = request.form['usernameP']
+            passwordP = request.form['passwordP']
+            cur.execute("select * from patients where username = ? and password = ?", (usernameP, passwordP,))
+            data = cur.fetchall()
+            if cur.fetchone() is None:
+                for id in data:
+                    return redirect(url_for('homeP', id_num=id[1]))# Redirect to patient home
             else:
                 error == 'Could not find account using email or password'
         elif request.form['loginType'] == 'd':
-            if request.form['usernameDr'] == 'admin@gmail.com' and request.form['passwordDr'] == 'admin':
+            usernameDr = request.form['usernameDr']
+            passwordDr = request.form['passwordDr']
+            cur.execute("select * from doctors where username = ? and password = ?", (usernameDr,passwordDr,))
+            data = cur.fetchall()
+            if cur.fetchone() is None:
                 return redirect(url_for('homeDr'))  # Redirect to provider home
             else:
                 error == 'Could not find account using email or password'
     return render_template('index.html')
-
-
-# Doctor login
-@app.route("/loginDr", methods=['GET', 'POST'])
-def mainDr():
-    error = None
-    if request.method == 'POST':
-        if request.form['usernameDr'] == 'admin@gmail.com' and request.form['passwordDr'] == 'admin':
-            return redirect(url_for('homeDr'))  # Redirect to provider home
-        else:
-            error == 'Could not find account using email or password'
-    return render_template('index.html', error=error)
-
-
-# Patient login
-@app.route("/loginPatient", methods=['GET', 'POST'])
-def mainP():
-    error = None
-    if request.method == 'POST':
-        if request.form['usernameP'] == 'patient@gmail.com' and request.form['passwordP'] == 'patient':
-            return redirect(url_for('homeP'))  # Redirect to patient home
-        else:
-            error == 'Could not find account using email or password'
-    return render_template('index.html', error=error)
-
 
 @app.route('/providerHome')
 def homeDr():
@@ -124,21 +113,34 @@ def notesDr(id_num):
     data = cur.fetchall();
     return render_template('provider/providerNotes.html', data=data)
 
-###
+
 
 @app.route('/patientMyDoctor')
 def drP():
     return render_template('patient/patientMyDoctor.html')
 
 
-@app.route('/patientHome')
-def homeP():
-    return render_template('patient/patientHome.html')
+@app.route('/patientHome/<id_num>', methods=["GET", "POST"])
+def homeP(id_num):
+    cur = conn.cursor()
+    cur.execute("select * from entries where patient_id = ?", (id_num,))
+    data = cur.fetchall()
+    return render_template('patient/patientHome.html', data=data)
 
+@app.route('/patientHome/edit/<id_num>')
+def homeEditP(id_num):
+    cur = conn.cursor()
+    cur.execute("select * from entries where patient_id = ?", (id_num,))
+    data = cur.fetchall()
 
-@app.route('/patientHome/edit')
-def homeEditP():
-    return render_template('patient/patientHomeEdit.html')
+    if request.method == 'POST':
+        print('jasdoahgfiua')
+        if request.form['add'] == 'sleep':
+            hours = request.form["slhours"]
+            cur.execute("update entries set sleep = ? where id_num = ?", (hours,id_num,))
+            print("add success")
+            return redirect(url_for('homeEditP', id_num=id_num))
+    return render_template('patient/patientHomeEdit.html', data=data)
 
 
 @app.route('/patientProfile')
@@ -163,4 +165,3 @@ def entryViewDr():
 @app.route('/enterNotes')
 def notesEnterDr():
     return render_template('provider/providerNotes.html')
-
