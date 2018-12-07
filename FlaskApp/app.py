@@ -3,6 +3,7 @@ import random
 from flask_login import LoginManager
 from flask_simplelogin import SimpleLogin
 import sqlite3
+import datetime
 
 app = Flask(__name__) # create the application instance
 SimpleLogin(app)
@@ -10,6 +11,7 @@ app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
 
 conn = sqlite3.connect('database.db')
 print("Opened database successfully")
+now = datetime.datetime.now()
 
 # Login stuff
 # login_manager = LoginManager()
@@ -161,11 +163,12 @@ def notesDr(id_num):
     data = cur.fetchall();
     if request.method == 'POST':
         print("got into post")
+        print(str(now))
         subject = str(request.values.get('patientSubject'))
         content = str(request.values.get('patientMessage'))
         note_id = random.randint(0, 1000000000000)
         # cur.execute("INSERT INTO doctor_notes(dr_id, patient_id, note_id, subject, date, content) VALUES(1, 123, " + str(note_id) + ", 'subject', 'date', 'content');")
-        cur.execute("INSERT INTO doctor_notes(dr_id, patient_id, note_id, subject, date, content) VALUES(1, " + str(id_num) + ", " + str(note_id) + ", '" + subject + "', 'date', '" + content + "');")
+        cur.execute("INSERT INTO doctor_notes(dr_id, patient_id, note_id, subject, date, content) VALUES(1, " + str(id_num) + ", " + str(note_id) + ", '" + subject + "', '" + str(now) + "', '" + content + "');")
         conn.commit()
     return render_template('provider/providerNotes.html', data=data)
 
