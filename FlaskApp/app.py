@@ -141,17 +141,39 @@ def homeEditP():
     return render_template('patient/patientHomeEdit.html')
 
 
-@app.route('/patientProfile/<id_num>', methods=["Get"])
-def profileP():
-    cur = conn.cursor()
-    cur.execute("select * from patients p where p.id_num = ")
+@app.route('/patientProfile/<id_num>', methods=['GET'])
+def profileP(id_num):
+    cur.execute("select * from patients p where p.id_num = " + id_num +";")
+    pInfo = cur.fetchall()
 
-    return render_template('patient/patientProfile.html')
+    cur.execute("select name from doctors where id_number = (select dr_id from relationships where patient_id =" + id_num + ")" + ";")
+    pDocs = cur.fetchall()
+
+    return render_template('patient/patientProfile.html', pInfo = pInfo, pDocs = pDocs)
 
 
-@app.route('/patientProfile/edit')
-def editP():
-    return render_template('patient/patientProfileEdit.html')
+@app.route('/patientProfile/edit/<id_num>', methods=['GET', 'POST'])
+def editP(id_num):
+    cur.execute("select * from patients where id_num = " + id_num +";")
+    pInfo = cur.fetchall()
+
+    if request.method == 'POST':
+        print ("In request method post")
+        #cur.execute("delete from patients where id_num = " + id_num + ";")
+        username = pInfo[0][0]
+        password = pInfo[0][2]
+        name = request.form['pName']
+        age = request.form['pAge']
+        birthday = request.form['pBirthday']
+        sex = request.form['pGender']
+        height = request.form['pHeight']
+        weight = request.form['pWeight']
+        img = pInfo[0][9]
+        print(username, password, name, age, birthday, sex, height, weight, img)
+        cur.execute("insert into patients(username, id_num, password, name, age, birthday, sex, height, weight, img) values (" + username +"," + id_num +"," + password +"," + name +"," + age +"," + birthday +"," + sex +"," + height +"," + weight +"," + img +");")
+        conn.commit()
+
+    return render_template('patient/patientProfileEdit.html', pInfo = pInfo)
 
 
 @app.route('/sendMsg')

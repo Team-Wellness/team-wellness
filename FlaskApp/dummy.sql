@@ -6,4 +6,20 @@ insert into patients(username, id_num, password, name, age, birthday, sex, heigh
 
 insert into patients(username, id_num, password, name, age, birthday, sex, height, weight, img) values ("patient4", 43984, "password", "Matt C", 21, "March 19", "M", "69 in", 989, "https://66.media.tumblr.com/a77da79293850e89ddc89fe647843a7e/tumblr_pey3v5AnH41wjwprio2_540.jpg");
 
-insert into relationships(dr_id, patient_id, relationship_id) values (1, 2938490, 9384909482304);
+insert into doctors (username, password, name, id_number)
+values ("doc1", "docTest1", "Dr. Juniper", 11);
+
+insert into doctors (username, password, name, id_number)
+values ("doc2", "docTest2", "Dr. Oak", 12);
+
+insert into doctors (username, password, name, id_number)
+values ("doc1", "docTest1", "Dr. Elm", 13);
+
+insert into relationships(dr_id, patient_id, relationship_id) values (11, 9438, 9384909482304);
+
+insert into relationships(dr_id, patient_id, relationship_id) values (12, 9438, 9384909482305);
+
+insert into relationships(dr_id, patient_id, relationship_id) values (13, 9438, 9384909482306);
+
+
+insert into patients(username, id_num, password, name, age, birthday, sex, height, weight, img) values ("admin@gmail.com", 43989, "admin", "Test Patient", 21, "April 1", "F", "69 in", 110, "https://citizenmed.files.wordpress.com/2011/08/user-icon1.jpg");

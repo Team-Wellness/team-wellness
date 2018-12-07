@@ -23,9 +23,9 @@
 <!--<hr>-->
 
 <!--<script>-->
-  <!--$(function () {-->
-    <!--$("#nav-placeholder").load("patientNav.html");-->
-  <!--});-->
+<!--$(function () {-->
+<!--$("#nav-placeholder").load("patientNav.html");-->
+<!--});-->
 <!--</script>-->
 <!--&lt;!&ndash;end of Navigation bar&ndash;&gt;-->
 
@@ -37,7 +37,9 @@
     /*background-repeat: no-repeat;*/
   }
 
-  #boxy { background-color: rgba(255, 255, 255, 0.6); }
+  #boxy {
+    background-color: rgba(255, 255, 255, 0.6);
+  }
 </style>
 
 <b><h1 style="text-align: center;" class="display-4">RxHelp</h1></b>
@@ -63,34 +65,37 @@
       <div class="card-body">
         <h5 class="card-title"><b>Patient Information</b></h5>
         <table class="table">
+          {% for p in pInfo %}
+          <script>console.log()</script>
           <tbody>
           <tr>
             <th scope="row">Name</th>
-            <td>First Last</td>
+            <td>{{p[3]}}</td>
           </tr>
           <tr>
             <th scope="row">Age</th>
-            <td>##</td>
+            <td>{{p[4]}}</td>
           </tr>
           <tr>
             <th scope="row">Birthday</th>
-            <td>Month/Day/Year</td>
+            <td>{{p[5]}}</td>
           </tr>
           <tr>
             <th scope="row">Gender</th>
-            <td>Male / Female</td>
+            <td>{{p[6]}}</td>
           </tr>
           <tr>
             <th scope="row">Height</th>
-            <td>##' ##"</td>
+            <td>{{p[7]}}</td>
           </tr>
           <tr>
             <th scope="row">Weight</th>
-            <td>### lbs.</td>
+            <td>{{p[8]}}</td>
           </tr>
           </tbody>
         </table>
-        <a class="btn btn-primary btn-lg btn-block" href="/patientProfile/edit" role="button">Edit Information</a>
+        <a class="btn btn-primary btn-lg btn-block" href="/patientProfile/edit/{{p[1]}}" role="button">Edit Information</a>
+        {% endfor %}
       </div>
     </div>
   </div>
@@ -128,29 +133,17 @@
           <thead>
           <tr>
             <th scope="col">Doctor</th>
-            <th scope="col">Added</th>
             <th scope="col">Delete</th>
           </tr>
           </thead>
           <tbody>
+         {% for d in pDocs %}
           <tr>
-            <td>Dr. John Elms</td>
-            <td><i class="material-icons">done</i></td>
+            <td>{{d}}</td>
             <td class="btn btn-secondary" href="patientProfileEdit.html" role="button"><i class="material-icons">highlight_off</i>
             </td>
           </tr>
-          <tr>
-            <td>Dr. Clarise Lee</td>
-            <td><i class="material-icons">done</i></td>
-            <td class="btn btn-secondary" href="patientProfileEdit.html" role="button"><i class="material-icons">highlight_off</i>
-            </td>
-          </tr>
-          <tr>
-            <td>Dr. Ellie Tau</td>
-            <td><i class="material-icons">maximize</i></td>
-            <td class="btn btn-secondary" href="patientProfileEdit.html" role="button"><i class="material-icons">highlight_off</i>
-            </td>
-          </tr>
+          {% endfor %}
           </tbody>
         </table>
       </div>
