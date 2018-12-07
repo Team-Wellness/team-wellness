@@ -26,17 +26,19 @@ def main():
         if request.form['loginType'] == 'p':
             usernameP = request.form['usernameP']
             passwordP = request.form['passwordP']
-            cur.execute("select id_num from patients where username = ? and password = ?", (usernameP, passwordP,))
-            data = cur.fetchall();
+            cur.execute("select * from patients where username = ? and password = ?", (usernameP, passwordP,))
+            data = cur.fetchall()
             if cur.fetchone() is None:
-                return redirect(url_for('homeP', id_num=data[0]))# Redirect to patient home
+                for id in data:
+                    return redirect(url_for('homeP', id_num=id[1]))# Redirect to patient home
             else:
                 error == 'Could not find account using email or password'
         elif request.form['loginType'] == 'd':
             usernameDr = request.form['usernameDr']
             passwordDr = request.form['passwordDr']
-            cur.execute("select id_number from doctors where username = ? and password = ?", (usernameDr,passwordDr,))
-            if cur.fetchone() is not None:
+            cur.execute("select * from doctors where username = ? and password = ?", (usernameDr,passwordDr,))
+            data = cur.fetchall()
+            if cur.fetchone() is None:
                 return redirect(url_for('homeDr'))  # Redirect to provider home
             else:
                 error == 'Could not find account using email or password'
@@ -127,10 +129,14 @@ def homeEditP(id_num):
     cur = conn.cursor()
     cur.execute("select * from entries where patient_id = ?", (id_num,))
     data = cur.fetchall()
+
     if request.method == 'POST':
+        print('jasdoahgfiua')
         if request.form['add'] == 'sleep':
             hours = request.form["slhours"]
             cur.execute("update entries set sleep = ? where id_num = ?", (hours,id_num,))
+            print("add success")
+            return redirect(url_for('homeEditP', id_num=id_num))
     return render_template('patient/patientHomeEdit.html', data=data)
 
 
