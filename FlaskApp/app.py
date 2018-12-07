@@ -15,7 +15,7 @@ print("Opened database successfully")
 # login_manager = LoginManager()
 # login_manager.init_app(app)
 
-cur = conn.cursor()
+# cur = conn.cursor()
 
 
 # login; currently only works with providers
@@ -58,6 +58,7 @@ def mainP():
 
 @app.route('/providerHome')
 def homeDr():
+    conn = sqlite3.connect('database.db')
     cur = conn.cursor()
     cur.execute("select * from patients where id_num in (select patient_id from relationships)") # who exist in the relationships table
     data = cur.fetchall()
@@ -66,6 +67,7 @@ def homeDr():
 
 @app.route('/providerAdd')
 def addDr():
+    conn = sqlite3.connect('database.db')
     cur = conn.cursor()
     cur.execute("select * from patients p where not exists (select * from relationships r where p.id_num = r.patient_id)")
     data = cur.fetchall()
@@ -75,6 +77,7 @@ def addDr():
 @app.route('/providerConfirm/<testVar>', methods=['GET', 'POST'])
 def confirmAddDr(testVar):
     global relationship_id, dr_id, patient_id
+    conn = sqlite3.connect('database.db')
     cur = conn.cursor()
     cur.execute("select * from patients p where p.id_num ==" + testVar + ";")
     data = cur.fetchall()
@@ -92,6 +95,7 @@ def confirmAddDr(testVar):
 
 @app.route('/providerDeleteConfirm/<testVar>', methods=['GET', 'POST'])
 def confirmDeleteDr(testVar):
+    conn = sqlite3.connect('database.db')
     cur = conn.cursor()
     cur.execute("select * from patients p where p.id_num ==" + testVar + ";")
     data = cur.fetchall();
@@ -102,6 +106,19 @@ def confirmDeleteDr(testVar):
     print("Success!")
     return render_template('provider/providerDeleteConfirm.html', data=data)
 
+@app.route('/providerDeleteMsgConfirm/<testVar>', methods=['GET', 'POST'])
+def confirmMsgDeleteDr(testVar):
+    conn = sqlite3.connect('database.db')
+    cur = conn.cursor()
+    cur.execute("select * from patients p where p.id_num ==" + testVar + ";")
+    data = cur.fetchall();
+    patient_id = testVar
+    cur.setinputsizes(int)
+    cur.execute("delete from relationships where patient_id = " + patient_id + ";")
+    conn.commit()
+    print("Success!")
+    return render_template('provider/providerDeleteMsgConfirm.html', data=data)
+
 
 @app.route('/providerEntry/<id_num>')
 def entryDr(id_num):
@@ -111,12 +128,16 @@ def entryDr(id_num):
 
 @app.route('/providerMessages')
 def msgDr():
-
-    return render_template('provider/providerMessages.html')
+    conn = sqlite3.connect('database.db')
+    cur = conn.cursor()
+    cur.execute("select * from message where dr = 1;")  # Change 1 to current doctor id
+    data = cur.fetchall();
+    return render_template('provider/providerMessages.html', data=data)
 
 
 @app.route('/providerNotes/<id_num>', methods=["GET", "POST"])
 def notesDr(id_num):
+    conn = sqlite3.connect('database.db')
     cur = conn.cursor()
     cur.execute("select * from patients p where p.id_num = " + id_num + ";")
     data = cur.fetchall();

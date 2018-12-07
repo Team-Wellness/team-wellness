@@ -86,59 +86,20 @@
         </tr>
         </thead>
         <tbody>
+        {% for o in data %}
         <tr>
-            <td>Goro Majima</td>
-            <td>11/01/2018</td>
-            <td>Emergency!</td>
-            <td>I developed a rash on my left arm. WebMD says I'm going to die. Is this true?</td>
+            <td>{{ o[0] }}</td>
+            <td>{{ o[3] }}</td>
+            <td>{{ o[4] }}</td>
+            <td>{{ o[5] }}</td>
             <td><button type="button" class="btn btn-primary item-action item-action-danger" data-toggle="confirm" data-confirm-message="Delete?" data-confirm-yes="Yes" data-confirm-no="No" title="Delete">
-                <!--<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>-->
                 Delete
             </button></td>
         </tr>
-        <tr>
-            <td>Missy Elliot</td>
-            <td>01/20/2018</td>
-            <td>Appointment</td>
-            <td>lol I am deathly allergic to kittens but I just adopted one. What should I do?</td>
-            <td><button type="button" class="btn btn-primary item-action item-action-danger" data-toggle="confirm" data-confirm-message="Delete?" data-confirm-yes="Yes" data-confirm-no="No" title="Delete">
-                <span class="glyphicon glyphicon-trash" aria-hidden="true">
-                    Delete
-                </span>
-            </button></tr>
+        {% endfor %}
         </tbody>
     </table>
-
 </div>
-
-<!--<div class="ui centered container">-->
-    <!--<table border="1" class="ui celled table">-->
-        <!--<tr>-->
-            <!--<th>Name (im dying)</th>-->
-            <!--<th>Date</th>-->
-            <!--<th>Subject</th>-->
-            <!--<th>Body</th>-->
-            <!--<th></th>-->
-        <!--</tr>-->
-        <!--{% for o in data %}-->
-        <!--<tr>-->
-            <!--<td>{{ data.patient_name }}</td>-->
-            <!--<td>{{ o[2]}}</td>-->
-            <!--<td>{{ o[3] }}</td>-->
-            <!--<td>{{o[4]}}</td>-->
-            <!--<td><a href="edit_entry/{{o[0]}}" class="btn btn-default pull-right">Edit</a></td>-->
-            <!--&lt;!&ndash;<td><a href="edit_entry/{{o[0]}}" class="btn btn-default pull-right">Edit</a></td>&ndash;&gt;-->
-            <!--<td><a href="delete/{{o[0]}}" class="btn btn-default pull-right">Delete</a></td>-->
-        <!--</tr>-->
-        <!--{% endfor %}-->
-    <!--</table>-->
-<!--</div>-->
-
-
-
-<!-- End filter bar/test patience -->
-
-
 </body>
 </html>
 
