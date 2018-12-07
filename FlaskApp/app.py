@@ -158,21 +158,25 @@ def editP(id_num):
     pInfo = cur.fetchall()
 
     if request.method == 'POST':
-        print ("In request method post")
-        #cur.execute("delete from patients where id_num = " + id_num + ";")
-        username = pInfo[0][0]
-        password = pInfo[0][2]
         name = request.form['pName']
+        if name == '': name = pInfo[0][3]
         age = request.form['pAge']
+        if age == '': age = pInfo[0][4]
         birthday = request.form['pBirthday']
+        if birthday == '': birthday = pInfo[0][5]
         sex = request.form['pGender']
+        if sex == '': sex = pInfo[0][6]
         height = request.form['pHeight']
+        if height == '': height = pInfo[0][7]
         weight = request.form['pWeight']
-        img = pInfo[0][9]
-        print(username, password, name, age, birthday, sex, height, weight, img)
-        cur.execute("insert into patients(username, id_num, password, name, age, birthday, sex, height, weight, img) values (" + username +"," + id_num +"," + password +"," + name +"," + age +"," + birthday +"," + sex +"," + height +"," + weight +"," + img +");")
+        if weight == '': weight = pInfo[0][8]
+        print(name, age, birthday, sex, height, weight)
+        cur.execute("update patients set name = ?, age = ?, birthday = ?, sex = ?, height = ?, weight = ? where id_num = ?", (name, age, birthday, sex, height, weight, id_num))
         conn.commit()
 
+        cur.execute("select * from patients where id_num = " + id_num +";")
+        pInfo = cur.fetchall()
+        print("Information update, success!")
     return render_template('patient/patientProfileEdit.html', pInfo = pInfo)
 
 

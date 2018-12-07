@@ -44,14 +44,14 @@
     <select />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.81681037">
+    <splitter split-orientation="horizontal" split-proportion="0.68175286">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/FlaskApp/app.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="426">
-                  <caret line="169" column="40" lean-forward="true" selection-start-line="169" selection-start-column="40" selection-end-line="169" selection-end-column="40" />
+                <state relative-caret-position="409">
+                  <caret line="178" column="43" selection-start-line="178" selection-start-column="43" selection-end-line="178" selection-end-column="43" />
                   <folding>
                     <element signature="e#0#103#0" expanded="true" />
                   </folding>
@@ -85,7 +85,7 @@
       </split-first>
       <split-second>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="false">
+          <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/FlaskApp/schema.sql">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="68">
@@ -103,10 +103,10 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/FlaskApp/templates/patient/patientProfileEdit.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="1218">
+                <state relative-caret-position="1167">
                   <caret line="94" column="85" selection-start-line="94" selection-start-column="85" selection-end-line="94" selection-end-column="85" />
                 </state>
               </provider>
@@ -167,8 +167,8 @@
         <option value="$PROJECT_DIR$/FlaskApp/schema.sql" />
         <option value="$PROJECT_DIR$/FlaskApp/dummy.sql" />
         <option value="$PROJECT_DIR$/FlaskApp/templates/patient/patientProfile.html" />
-        <option value="$PROJECT_DIR$/FlaskApp/app.py" />
         <option value="$PROJECT_DIR$/FlaskApp/templates/patient/patientProfileEdit.html" />
+        <option value="$PROJECT_DIR$/FlaskApp/app.py" />
       </list>
     </option>
   </component>
@@ -551,6 +551,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/FlaskApp/templates/patient/patientProfileEdit.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1167">
+          <caret line="94" column="85" selection-start-line="94" selection-start-column="85" selection-end-line="94" selection-end-column="85" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/FlaskApp/schema.sql">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
@@ -558,17 +565,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/FlaskApp/templates/patient/patientProfileEdit.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1218">
-          <caret line="94" column="85" selection-start-line="94" selection-start-column="85" selection-end-line="94" selection-end-column="85" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/FlaskApp/app.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="426">
-          <caret line="169" column="40" lean-forward="true" selection-start-line="169" selection-start-column="40" selection-end-line="169" selection-end-column="40" />
+        <state relative-caret-position="409">
+          <caret line="178" column="43" selection-start-line="178" selection-start-column="43" selection-end-line="178" selection-end-column="43" />
           <folding>
             <element signature="e#0#103#0" expanded="true" />
           </folding>
