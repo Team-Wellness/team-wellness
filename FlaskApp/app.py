@@ -122,21 +122,22 @@ def homeP(id_num):
     cur = conn.cursor()
     cur.execute("select * from entries where patient_id = ?", (id_num,))
     data = cur.fetchall()
-    return render_template('patient/patientHome.html', data=data)
+    cur.execute("select * from foods where id_num = ?", (id_num,))
+    foods = cur.fetchall()
+    return render_template('patient/patientHome.html', data=data, foods=foods)
 
 @app.route('/patientHome/edit/<id_num>')
 def homeEditP(id_num):
     cur = conn.cursor()
     cur.execute("select * from entries where patient_id = ?", (id_num,))
     data = cur.fetchall()
-
     if request.method == 'POST':
         print('jasdoahgfiua')
         if request.form['add'] == 'sleep':
             hours = request.form["slhours"]
             cur.execute("update entries set sleep = ? where id_num = ?", (hours,id_num,))
             print("add success")
-            return redirect(url_for('homeEditP', id_num=id_num))
+            cur.commit()
     return render_template('patient/patientHomeEdit.html', data=data)
 
 

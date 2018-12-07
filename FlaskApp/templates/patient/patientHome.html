@@ -39,7 +39,12 @@
     background-size: auto auto;
     /*background-repeat: no-repeat;*/
   }
-
+  .list-group{
+    max-height: 300px;
+    margin-bottom: 10px;
+    overflow:scroll;
+    -webkit-overflow-scrolling: touch;
+  }
   #boxy { background-color: rgba(255, 255, 255, 0.6); }
 </style>
 
@@ -113,11 +118,14 @@
               <div class="card-body">
                 <h5 class="card-title">What Did You Eat Today?</h5>
                 <ul class="list-group">
-                  <li class="list-group-item">Loco Moco</li>
-                  <li class="list-group-item">BBQ Chicken and Kalbi Plate</li>
-                  <li class="list-group-item">Spicy Ahi Poke</li>
-                  <li class="list-group-item">Malasadas</li>
-                  <li class="list-group-item">YEET</li>
+                  {% for f in foods %}
+                  <li class="list-group-item">{{f[0]}}</li>
+                  <!--<li class="list-group-item">Loco Moco</li>-->
+                  <!--<li class="list-group-item">BBQ Chicken and Kalbi Plate</li>-->
+                  <!--<li class="list-group-item">Spicy Ahi Poke</li>-->
+                  <!--<li class="list-group-item">Malasadas</li>-->
+                  <!--<li class="list-group-item">YEET</li>-->
+                  {% endfor %}
                 </ul>
               </div>
             </div>
