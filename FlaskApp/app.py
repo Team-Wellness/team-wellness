@@ -191,15 +191,15 @@ def msgP(id_num):
         date = cur.fetchall()
         date = date[0][0]
         msg_id = random.randint(0, 10000)
-        print(selectDoc, pSubject, pMessage, date)
+        #print(selectDoc, pSubject, pMessage, date)
 
         # Get Doc id
         for doc in pDocs:
             if doc[2] == selectDoc: docId = doc[3]
-        print(selectDoc, docId, msg_id)
+        #print(selectDoc, docId, msg_id)
 
         data = [id_num, str(docId), str(msg_id), date, pSubject, pMessage]
-        print(data)
+        #print(data)
         # Place message into messages table
         cur.executemany("insert into message(patient, dr, msg_id, day, subject, body) values (:1, :2, :3, :4, :5, :6);", [data])
         conn.commit()
