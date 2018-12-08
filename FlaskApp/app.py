@@ -179,7 +179,6 @@ def editP(id_num):
         print("Information update, success!")
     return render_template('patient/patientProfileEdit.html', pInfo = pInfo)
 
-
 @app.route('/sendMsg')
 def msgP():
     return render_template('patient/patientSendMessage.html')

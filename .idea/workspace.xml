@@ -44,14 +44,14 @@
     <select />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.68175286">
+    <splitter split-orientation="horizontal" split-proportion="0.59195405">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/FlaskApp/app.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="409">
-                  <caret line="178" column="43" selection-start-line="178" selection-start-column="43" selection-end-line="178" selection-end-column="43" />
+                <state relative-caret-position="851">
+                  <caret line="184" lean-forward="true" selection-start-line="184" selection-end-line="184" />
                   <folding>
                     <element signature="e#0#103#0" expanded="true" />
                   </folding>
@@ -88,7 +88,7 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/FlaskApp/schema.sql">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="68">
+                <state relative-caret-position="-136">
                   <caret line="4" column="25" selection-start-line="4" selection-start-column="25" selection-end-line="4" selection-end-column="25" />
                 </state>
               </provider>
@@ -544,13 +544,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/FlaskApp/dummy.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="2" column="20" lean-forward="true" selection-start-line="2" selection-start-column="20" selection-end-line="2" selection-end-column="103" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/FlaskApp/templates/patient/patientProfileEdit.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1167">
@@ -558,20 +551,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/FlaskApp/schema.sql">
+    <entry file="file://$PROJECT_DIR$/FlaskApp/dummy.sql">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="25" selection-start-line="4" selection-start-column="25" selection-end-line="4" selection-end-column="25" />
+        <state relative-caret-position="102">
+          <caret line="2" column="20" lean-forward="true" selection-start-line="2" selection-start-column="20" selection-end-line="2" selection-end-column="103" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/FlaskApp/app.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="409">
-          <caret line="178" column="43" selection-start-line="178" selection-start-column="43" selection-end-line="178" selection-end-column="43" />
+        <state relative-caret-position="851">
+          <caret line="184" lean-forward="true" selection-start-line="184" selection-end-line="184" />
           <folding>
             <element signature="e#0#103#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FlaskApp/schema.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-136">
+          <caret line="4" column="25" selection-start-line="4" selection-start-column="25" selection-end-line="4" selection-end-column="25" />
         </state>
       </provider>
     </entry>
