@@ -6,11 +6,19 @@ insert into patients(username, id_num, password, name, age, birthday, sex, heigh
 
 insert into patients(username, id_num, password, name, age, birthday, sex, height, weight, img) values ("patient4", 43984, "password", "Matt C", 21, "March 19", "M", "69 in", 989, "https://66.media.tumblr.com/a77da79293850e89ddc89fe647843a7e/tumblr_pey3v5AnH41wjwprio2_540.jpg");
 
-insert into relationships(dr_id, patient_id, relationship_id) values (1, 2938490, 9384909482304);
+insert into relationships(dr_id, patient_id, relationship_id) values (123, 32848, 9384909482304);
 
-insert into message(patient, dr, msg_id, day, subject, body) values (43948, 1, 5, "October 5th, 2018", "Message Title", "This is the message body.");
+insert into relationships(dr_id, patient_id, relationship_id) values (123, 2938490, 9384909482302);
 
-insert into message(patient, dr, msg_id, day, subject, body) values (43948, 1, 6, "December 5th, 2018", "Another Subject", "Hi! This is a message.");
+insert into relationships(dr_id, patient_id, relationship_id) values (123, 9438, 9384909482307);
+
+insert into relationships(dr_id, patient_id, relationship_id) values (123, 43825, 9384909482309);
+
+insert into message(patient, dr, msg_id, day, subject, body) values (9438, 123, 483872, "July 2nd, 2018", "Only for doctor1", "Msg only for doctor1");
+
+insert into message(patient, dr, msg_id, day, subject, body) values (43948, 123, 5, "October 5th, 2018", "Message Title", "This is the message body.");
+
+insert into message(patient, dr, msg_id, day, subject, body) values (43948, 123, 6, "December 5th, 2018", "Another Subject", "Hi! This is a message.");
 
 insert into message(patient, dr, msg_id, day, subject, body) values (9438, 1, 7, "July 2nd, 2018", "Annnnnd another subject", "How exciting!");
 
@@ -20,4 +28,4 @@ insert into message(patient, dr, msg_id, day, subject, body) values (43825, 1, 9
 
 insert into message(patient, dr, msg_id, day, subject, body) values (43984, 1, 10, "December 1st, 2018", "Message Title", "Message body");
 
-insert into doctors(username, password, name, id_number) values ('doctor1', 'password', 'Dr. Amelia Badelia', 456);
+insert into doctors(username, password, name, id_number) values ('doctor2', 'password', 'Dr. Amelia Badelia', 456);

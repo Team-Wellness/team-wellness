@@ -12,7 +12,6 @@ app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
 conn = sqlite3.connect('database.db', check_same_thread=False)
 print("Opened database successfully")
 now = datetime.datetime.now()
-global currentPatient
 
 
 @app.route("/", methods=['GET', 'POST'])
@@ -36,50 +35,56 @@ def main():
             cur.execute("select * from doctors where username = ? and password = ?", (usernameDr,passwordDr,))
             data = cur.fetchall()
             if cur.fetchone() is None:
-                return redirect(url_for('homeDr'))  # Redirect to provider home
+                for id in data:
+                    return redirect(url_for('homeDr', id_number=id[3]))  # Redirect to provider home
             else:
                 error == 'Could not find account using email or password'
     return render_template('index.html')
 
-@app.route('/providerHome')
-def homeDr():
+@app.route('/providerHome/<id_number>', methods=['GET', 'POST'])
+def homeDr(id_number):
+    currentDoctor = id_number
+    print(currentDoctor)
     conn = sqlite3.connect('database.db')
     cur = conn.cursor()
-    cur.execute("select * from patients where id_num in (select patient_id from relationships)") # who exist in the relationships table
+    cur.execute("select * from patients where id_num in (select patient_id from relationships where dr_id = " + id_number + ");") # who exist in the relationships table
     data = cur.fetchall()
-    return render_template('provider/providerHome.html', data=data)
+    print(currentDoctor)
+    return render_template('provider/providerHome.html', data=data, id_number=id_number)
 
 
-@app.route('/providerAdd')
-def addDr():
+# View screen of patients you can add
+@app.route('/providerAdd/<id_number>')
+def addDr(id_number):
     conn = sqlite3.connect('database.db')
     cur = conn.cursor()
-    cur.execute("select * from patients p where not exists (select * from relationships r where p.id_num = r.patient_id)")
+    cur.execute("select * from patients p where not exists (select * from relationships r where p.id_num in (select patient_id from relationships where dr_id = " + id_number + "));")
     data = cur.fetchall()
-    return render_template('provider/providerAdd.html', data=data)
+    return render_template('provider/providerAdd.html', data=data, id_number=id_number)
 
 
-@app.route('/providerConfirm/<testVar>', methods=['GET', 'POST'])
-def confirmAddDr(testVar):
+# Confirm you are adding a patient
+@app.route('/providerConfirm/<id_number>/<patientId>', methods=['GET', 'POST'])
+def confirmAddDr(patientId, id_number):
     global relationship_id, dr_id, patient_id
     conn = sqlite3.connect('database.db')
     cur = conn.cursor()
-    cur.execute("select * from patients p where p.id_num ==" + testVar + ";")
+    cur.execute("select * from patients p where p.id_num ==" + patientId + ";")
     data = cur.fetchall()
     relationship_id = random.randint(0, 10000)
-    dr_id = 1;
-    patient_id = testVar;
+    dr_id = id_number;
+    patient_id = patientId;
     rows = [(dr_id, patient_id, relationship_id)]
     # cur.bindarraysize = 1
     cur.setinputsizes(int, int, int)
     cur.executemany("insert into relationships(dr_id, patient_id, relationship_id) values (:1, :2, :3)", rows)
     conn.commit()
     print("success!")
-    return render_template('provider/providerConfirm.html', data=data)
+    return render_template('provider/providerConfirm.html', data=data, id_number=id_number)
 
 
-@app.route('/providerDeleteConfirm/<testVar>', methods=['GET', 'POST'])
-def confirmDeleteDr(testVar):
+@app.route('/providerDeleteConfirm/<id_number>/<testVar>', methods=['GET', 'POST'])
+def confirmDeleteDr(testVar, id_number):
     conn = sqlite3.connect('database.db')
     cur = conn.cursor()
     cur.execute("select * from patients p where p.id_num ==" + testVar + ";")
@@ -89,12 +94,12 @@ def confirmDeleteDr(testVar):
     cur.execute("delete from relationships where patient_id = " + patient_id + ";")
     conn.commit()
     print("Success!")
-    return render_template('provider/providerDeleteConfirm.html', data=data)
+    return render_template('provider/providerDeleteConfirm.html', data=data, id_number=id_number)
 
 
 # Deletes message from provider side/database FIX THIS ONE AHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH
-@app.route('/providerDeleteMsg/<msgVar>', methods=['GET', 'POST'])
-def confirmMessageDeleteDr(msgVar):
+@app.route('/providerDeleteMsg/<id_number>/<msgVar>', methods=['GET', 'POST'])
+def confirmMessageDeleteDr(msgVar, id_number):
     conn = sqlite3.connect('database.db')
     cur = conn.cursor()
     cur.execute("select * from patients p where p.id_num =" + msgVar + ";")
@@ -104,12 +109,12 @@ def confirmMessageDeleteDr(msgVar):
     cur.execute("delete from message where msg_id = " + msgVar + ";")
     conn.commit()
     print("Success!")
-    return render_template('provider/providerDeleteMsg.html', data=data)
+    return render_template('provider/providerDeleteMsg.html', data=data, id_number=id_number)
 
 
 # Removes patient from dr's care
-@app.route('/providerDeleteMsgConfirm/<testVar>', methods=['GET', 'POST'])
-def confirmMsgDeleteDr(testVar):
+@app.route('/providerDeleteMsgConfirm/<id_number>/<testVar>', methods=['GET', 'POST'])
+def confirmMsgDeleteDr(testVar, id_number):
     conn = sqlite3.connect('database.db')
     cur = conn.cursor()
     cur.execute("select * from patients p where p.id_num ==" + testVar + ";")
@@ -119,7 +124,7 @@ def confirmMsgDeleteDr(testVar):
     cur.execute("delete from relationships where patient_id = " + patient_id + ";")
     conn.commit()
     print("Success!")
-    return render_template('provider/providerDeleteMsgConfirm.html', data=data)
+    return render_template('provider/providerDeleteMsgConfirm.html', data=data, id_number=id_number)
 
 
 # View patient entries
@@ -129,38 +134,41 @@ def entryDr(id_num):
     return render_template('provider/providerEntry.html')
 
 
-@app.route('/providerMessages', methods=['GET', 'POST'])
-def msgDr():
+## FIX THIS FOR MULTIPLE DOCTORS
+@app.route('/providerMessages/<id_number>', methods=['GET', 'POST'])
+def msgDr(id_number):
     conn = sqlite3.connect('database.db')
     cur = conn.cursor()
-    cur.execute("select * from patients a join message b on a.id_num = b.patient;")
+    cur.execute("select * from patients a join message b on a.id_num = b.patient where b.dr = " + id_number + ";")
     joinedData = cur.fetchall()
-    return render_template('provider/providerMessages.html', joinedData=joinedData)
+    return render_template('provider/providerMessages.html', joinedData=joinedData, id_number=id_number)
 
 
 # Actually confirms that note has been sent, not msg
-@app.route('/providerConfirmMsgSend/<testVar>', methods=['GET', 'POST'])
-def noteConfirmDr(testVar):
+# testVar is patient's id, id_number is doctor's id
+@app.route('/providerConfirmMsgSend/<id_number>/<testVar>', methods=['GET', 'POST'])
+def noteConfirmDr(testVar, id_number):
     global relationship_id, dr_id, patient_id
     conn = sqlite3.connect('database.db')
     cur = conn.cursor()
     cur.execute("select * from patients p where p.id_num ==" + testVar + ";")
     data = cur.fetchall()
     note_id = random.randint(0, 10000)
-    dr_id = 1
+    dr_id = id_number
     patient_id = testVar
     rows = [(dr_id, patient_id, relationship_id)]
     # cur.bindarraysize = 1
     cur.setinputsizes(int, int, int)
     cur.executemany("insert into doctor_notes(dr_id, patient_id, note_id, subject, date, content) values (:1, :2, :3, )", rows)
     conn.commit()
-    return render_template('provider/providerConfirmMsgSend.html', data=data)
+    return render_template('provider/providerConfirmMsgSend.html', data=data, id_number=id_number)
 
-@app.route('/providerNotes/<id_num>', methods=["GET", "POST"])
-def notesDr(id_num):
+
+@app.route('/providerNotes/<id_number>/<patient_id>', methods=["GET", "POST"])
+def notesDr(id_number, patient_id):
     conn = sqlite3.connect('database.db')
     cur = conn.cursor()
-    cur.execute("select * from patients p where p.id_num = " + id_num + ";")
+    cur.execute("select * from patients p where p.id_num = " + patient_id + ";")
     data = cur.fetchall()
     if request.method == 'POST':
         print("got into post")
@@ -168,10 +176,18 @@ def notesDr(id_num):
         subject = str(request.values.get('patientSubject'))
         content = str(request.values.get('patientMessage'))
         note_id = random.randint(0, 1000000000000)
-        cur.execute("INSERT INTO doctor_notes(dr_id, patient_id, note_id, subject, date, content) VALUES(1, " + str(id_num) + ", " + str(note_id) + ", '" + subject + "', '" + str(now) + "', '" + content + "');")
+        cur.execute("INSERT INTO doctor_notes(dr_id, patient_id, note_id, subject, date, content) VALUES(1, " + str(id_number) + ", " + str(note_id) + ", '" + subject + "', '" + str(now) + "', '" + content + "');")
         conn.commit()
-    return render_template('provider/providerNotes.html', data=data)
+    return render_template('provider/providerNotes.html', data=data, id_number=id_number)
 
+
+@app.route('/viewEntry/<id_number>/<entry_id>')
+def entryViewDr(id_number, entry_id):
+    conn = sqlite3.connect('database.db')
+    cur = conn.cursor
+    cur.execute()
+    data = cur.fetchall()
+    return render_template('provider/providerEntry.html', id_number=id_number, entry_id=entry_id)
 
 
 @app.route('/patientMyDoctor')
@@ -186,6 +202,7 @@ def homeP(id_num):
     cur.execute("select * from entries where patient_id = ?", (id_num,))
     data = cur.fetchall()
     return render_template('patient/patientHome.html', data=data)
+
 
 @app.route('/patientHome/edit/<id_num>')
 def homeEditP(id_num):
@@ -217,11 +234,3 @@ def editP():
 def msgP():
     return render_template('patient/patientSendMessage.html')
 
-@app.route('/viewEntry')
-def entryViewDr():
-    return render_template('provider/providerEntry.html')
-
-
-@app.route('/enterNotes')
-def notesEnterDr():
-    return render_template('provider/providerNotes.html')

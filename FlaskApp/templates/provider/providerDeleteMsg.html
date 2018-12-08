@@ -33,13 +33,13 @@
 <hr>
 <ul class="nav justify-content-center">
     <li class="nav-item">
-        <a class="nav-link active" href="/providerHome"><h5>Patients</h5></a>
+        <a class="nav-link active" href="/providerHome/{{ id_number }}"><h5>Patients</h5></a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="/providerAdd"><h5>Add Patients</h5></a>
+        <a class="nav-link" href="/providerAdd/{{ id_number }}"><h5>Add Patients</h5></a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="/providerMessages"><h5>Messages</h5></a>
+        <a class="nav-link" href="/providerMessages/{{ id_number }}"><h5>Messages</h5></a>
     </li>
 </ul>
 <hr>
@@ -48,7 +48,7 @@
     <h4>Deleted message</h4>
 <br><br>
 <br><br>
-    <a href="/providerMessages" class="btn btn-outline-primary">Confirm</a>
+    <a href="/providerMessages/{{ id_number }}" class="btn btn-outline-primary">Confirm</a>
     <br><br>
     </div>
 </div>
