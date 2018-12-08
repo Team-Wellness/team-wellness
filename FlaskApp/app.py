@@ -3,6 +3,7 @@ import random
 from flask_login import LoginManager
 from flask_simplelogin import SimpleLogin
 import sqlite3
+from datetime import datetime
 
 app = Flask(__name__) # create the application instance
 SimpleLogin(app)
@@ -126,9 +127,27 @@ def notesDr(id_num):
 
 ###
 
-@app.route('/patientMyDoctor')
-def drP():
-    return render_template('patient/patientMyDoctor.html')
+@app.route('/patientMyDoctor/<id_num>', methods = ['GET'])
+def drP(id_num):
+    # Data for doctor notes: take all messages for patient
+    cur.execute("select * from doctor_notes where patient_id = " + id_num + ";")
+    dNotes = cur.fetchall()
+    dNotes = list(dNotes)
+
+    # Need to grab names of dcotors for each message
+    notesInfo = []
+    for doc_id in dNotes:
+        doc_id = list(doc_id)
+        cur.execute("select name from doctors where id_number = " + str(doc_id[0]) + ";")
+        name = cur.fetchall()
+        # Change dr's id field to dr's name
+        doc_id[0] = name[0][0]
+        # Change date
+        #print(doc_id[4].format('L'))
+        notesInfo.append(doc_id)
+    print(notesInfo)
+
+    return render_template('patient/patientMyDoctor.html', notesInfo = notesInfo)
 
 
 @app.route('/patientHome')
@@ -191,7 +210,7 @@ def msgP(id_num):
         date = cur.fetchall()
         date = date[0][0]
         msg_id = random.randint(0, 10000)
-        #print(selectDoc, pSubject, pMessage, date)
+        print(selectDoc, pSubject, pMessage, date)
 
         # Get Doc id
         for doc in pDocs:

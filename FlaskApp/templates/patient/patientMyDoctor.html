@@ -55,33 +55,6 @@
 
 
 <div id="boxy" class="container">
-  <!--Patient Medication List-->
-  <div class="row">
-    <div style="margin: 20px;" class="card w-100">
-      <div class="card-body">
-        <h5 class="card-title"><b>Medication Information</b></h5>
-        <table class="table">
-          <thead>
-          <tr>
-            <th scope="col">Medication</th>
-            <th scope="col">Instructions</th>
-          </tr>
-          </thead>
-          <tbody>
-          <tr>
-            <td>Ezetimibe/Simvastatin (Vytorin) 10mg/80mg</td>
-            <td>Take one pill at night for high cholesterol.</td>
-          </tr>
-          <tr>
-            <td>Carvedilol (Coreg) 25mg</td>
-            <td>Take one pill in the morning and one pill at night for high blood pressure.</td>
-          </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </div>
-  <!--End of Medication List-->
 
   <!--Doctor Notes-->
   <div class="row">
@@ -101,22 +74,14 @@
           </tr>
           </thead>
           <tbody>
+          {% for n in notesInfo %}
           <tr>
-            <td>Dr. Clarise Lee</td>
-            <td>10/25/2018</td>
-            <td>Instructions from last visit</td>
-            <td>Please monitor blood pressure for the next 4 days. If symptoms persist, please schedule a follow up
-              appointment with me. Health Center: (808)342-0920
-            </td>
+            <td>{{n[0]}}</td>
+            <td>{{n[4]}}</td>
+            <td>{{n[3]}}</td>
+            <td>{{n[5]}}</td>
           </tr>
-          <tr>
-            <td>Dr. John Elms</td>
-            <td>09/10/2018</td>
-            <td>Allergy Test Results</td>
-            <td>Shellfish-Mild, Dust-High. If you would like more information about the allergy
-              test, you can reach me at (808)249-6302.
-            </td>
-          </tr>
+          {% endfor %}
           </tbody>
         </table>
       </div>
