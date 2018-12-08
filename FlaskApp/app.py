@@ -127,14 +127,6 @@ def confirmMsgDeleteDr(testVar, id_number):
     return render_template('provider/providerDeleteMsgConfirm.html', data=data, id_number=id_number)
 
 
-# View patient entries
-@app.route('/providerEntry/<id_num>')
-def entryDr(id_num):
-
-    return render_template('provider/providerEntry.html')
-
-
-## FIX THIS FOR MULTIPLE DOCTORS
 @app.route('/providerMessages/<id_number>', methods=['GET', 'POST'])
 def msgDr(id_number):
     conn = sqlite3.connect('database.db')
@@ -181,13 +173,13 @@ def notesDr(id_number, patient_id):
     return render_template('provider/providerNotes.html', data=data, id_number=id_number)
 
 
-@app.route('/viewEntry/<id_number>/<entry_id>')
-def entryViewDr(id_number, entry_id):
+@app.route('/providerEntry/<id_number>/<patient_id>/')
+def entryViewDr(id_number, patient_id):
     conn = sqlite3.connect('database.db')
-    cur = conn.cursor
-    cur.execute()
+    cur = conn.cursor()
+    cur.execute("select * from entries where patient_id = " + patient_id + ";")
     data = cur.fetchall()
-    return render_template('provider/providerEntry.html', id_number=id_number, entry_id=entry_id)
+    return render_template('provider/providerEntry.html', patient_id=patient_id, id_number=id_number, data=data)
 
 
 @app.route('/patientMyDoctor')
@@ -197,7 +189,6 @@ def drP():
 
 @app.route('/patientHome/<id_num>', methods=["GET", "POST"])
 def homeP(id_num):
-    currentPatient = id_num
     cur = conn.cursor()
     cur.execute("select * from entries where patient_id = ?", (id_num,))
     data = cur.fetchall()
