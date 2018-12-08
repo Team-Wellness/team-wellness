@@ -126,18 +126,28 @@ def homeP(id_num):
     foods = cur.fetchall()
     return render_template('patient/patientHome.html', data=data, foods=foods)
 
-@app.route('/patientHome/edit/<id_num>')
+@app.route('/patientHome/edit/<id_num>', methods=["GET", "POST"])
 def homeEditP(id_num):
     cur = conn.cursor()
     cur.execute("select * from entries where patient_id = ?", (id_num,))
     data = cur.fetchall()
     if request.method == 'POST':
-        print('jasdoahgfiua')
         if request.form['add'] == 'sleep':
-            hours = request.form["slhours"]
-            cur.execute("update entries set sleep = ? where id_num = ?", (hours,id_num,))
-            print("add success")
-            cur.commit()
+            slhours = request.form["slhours"]
+            cur.execute("update entries set sleep = ? where patient_id = ?", (slhours,id_num,))
+            conn.commit()
+        elif request.form['add'] == 'exercise':
+            exhours = request.form["exhours"]
+            cur.execute("update entries set exercise = ? where patient_id = ?", (exhours,id_num,))
+            conn.commit()
+        elif request.form['add'] < "6":
+            moods = request.form['add']
+            cur.execute("update entries set mood = ? where patient_id = ?", (moods,id_num,))
+            conn.commit()
+        elif request.form['add'] == 'food':
+            foods = request.form['foods']
+            cur.execute("insert into foods (food, id_num) values (?,?)", (foods,id_num,))
+            conn.commit()
     return render_template('patient/patientHomeEdit.html', data=data)
 
 
@@ -163,3 +173,5 @@ def entryViewDr():
 @app.route('/enterNotes')
 def notesEnterDr():
     return render_template('provider/providerNotes.html')
+
+

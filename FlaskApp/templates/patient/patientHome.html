@@ -76,12 +76,11 @@
     <div class="row">
       <div class="col">
         <div class="col">
-          <div style="margin: 10px;" id="mood" class="card">
-            <div class="card-body">
-              <h5 class="card-title">You are feeling: </h5>
-              <div class="row" >
-              <a style="width:50px;padding-left:20px"><i class="material-icons" >moods</i></a> <h5>Today</h5>
-              </div>
+          <div style="margin: 10px;" class="card">
+            <div class="card-body" align="center">
+              <h5 class="card-title">You are feeling like  </h5>
+               <h5>A {{o[3]}} Today</h5>
+
             </div>
           </div>
         </div>
@@ -120,11 +119,6 @@
                 <ul class="list-group">
                   {% for f in foods %}
                   <li class="list-group-item">{{f[0]}}</li>
-                  <!--<li class="list-group-item">Loco Moco</li>-->
-                  <!--<li class="list-group-item">BBQ Chicken and Kalbi Plate</li>-->
-                  <!--<li class="list-group-item">Spicy Ahi Poke</li>-->
-                  <!--<li class="list-group-item">Malasadas</li>-->
-                  <!--<li class="list-group-item">YEET</li>-->
                   {% endfor %}
                 </ul>
               </div>
@@ -156,19 +150,7 @@
   </div>
 </div>
 <!-- End filter bar/test patience -->
-<script>
-  switch(o.mood) {
-      case 1:
-          mood = sentiment_very_satisfied;
-      case 2:
-          mood = sentiment_satisfied;
-      case 3:
-          mood = sentiment_dissatisfied;
-      case 4:
-          mood = sentiment_very_dissatisfied;
-  }
-  document.getElementById("moods").innerHTML = mood;
-</script>
+
 {% endfor %}
 
 </body>
