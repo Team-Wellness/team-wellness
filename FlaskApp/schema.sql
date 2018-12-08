@@ -41,7 +41,7 @@ grace_period INT
 );
 
 create table if not exists message(
-patient VARCHAR(255) NOT NULL,
+patient INT NOT NULL,
 dr INT,
 msg_id INT PRIMARY KEY,
 day varchar(255) NOT NULL,

@@ -91,6 +91,23 @@ def confirmDeleteDr(testVar):
     print("Success!")
     return render_template('provider/providerDeleteConfirm.html', data=data)
 
+
+# Deletes message from provider side/database FIX THIS ONE AHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH
+@app.route('/providerDeleteMsg/<msgVar>', methods=['GET', 'POST'])
+def confirmMessageDeleteDr(msgVar):
+    conn = sqlite3.connect('database.db')
+    cur = conn.cursor()
+    cur.execute("select * from patients p where p.id_num =" + msgVar + ";")
+    data = cur.fetchall()
+    patient_id = msgVar
+    cur.setinputsizes(int)
+    cur.execute("delete from message where msg_id = " + msgVar + ";")
+    conn.commit()
+    print("Success!")
+    return render_template('provider/providerDeleteMsg.html', data=data)
+
+
+# Removes patient from dr's care
 @app.route('/providerDeleteMsgConfirm/<testVar>', methods=['GET', 'POST'])
 def confirmMsgDeleteDr(testVar):
     conn = sqlite3.connect('database.db')
@@ -105,19 +122,20 @@ def confirmMsgDeleteDr(testVar):
     return render_template('provider/providerDeleteMsgConfirm.html', data=data)
 
 
+# View patient entries
 @app.route('/providerEntry/<id_num>')
 def entryDr(id_num):
 
     return render_template('provider/providerEntry.html')
 
 
-@app.route('/providerMessages')
+@app.route('/providerMessages', methods=['GET', 'POST'])
 def msgDr():
     conn = sqlite3.connect('database.db')
     cur = conn.cursor()
-    cur.execute("select * from message where dr = 1;")  # Change 1 to current doctor id
-    data = cur.fetchall();
-    return render_template('provider/providerMessages.html', data=data)
+    cur.execute("select * from patients a join message b on a.id_num = b.patient;")
+    joinedData = cur.fetchall()
+    return render_template('provider/providerMessages.html', joinedData=joinedData)
 
 
 # Actually confirms that note has been sent, not msg

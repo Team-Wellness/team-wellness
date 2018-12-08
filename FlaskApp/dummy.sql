@@ -8,14 +8,16 @@ insert into patients(username, id_num, password, name, age, birthday, sex, heigh
 
 insert into relationships(dr_id, patient_id, relationship_id) values (1, 2938490, 9384909482304);
 
-insert into message(patient, dr, msg_id, day, subject, body) values ("Max Z", 1, 5, "October 5th, 2018", "Message Title", "This is the message body.");
+insert into message(patient, dr, msg_id, day, subject, body) values (43948, 1, 5, "October 5th, 2018", "Message Title", "This is the message body.");
 
-insert into message(patient, dr, msg_id, day, subject, body) values ("Max Z", 1, 6, "December 5th, 2018", "Another Subject", "Hi! This is a message.");
+insert into message(patient, dr, msg_id, day, subject, body) values (43948, 1, 6, "December 5th, 2018", "Another Subject", "Hi! This is a message.");
 
-insert into message(patient, dr, msg_id, day, subject, body) values ("Matt C", 1, 7, "July 2nd, 2018", "Annnnnd another subject", "How exciting!");
+insert into message(patient, dr, msg_id, day, subject, body) values (9438, 1, 7, "July 2nd, 2018", "Annnnnd another subject", "How exciting!");
 
-insert into message(patient, dr, msg_id, day, subject, body) values ("Angela Zheng", 1, 8, "June 1st, 2018", "Subject Subject", "I am a message.");
+insert into message(patient, dr, msg_id, day, subject, body) values (32848, 1, 8, "June 1st, 2018", "Subject Subject", "I am a message.");
 
-insert into message(patient, dr, msg_id, day, subject, body) values ("Edwin Z", 1, 9, "February 10th, 2018", "I'm a patient", "Oh yes I am.");
+insert into message(patient, dr, msg_id, day, subject, body) values (43825, 1, 9, "February 10th, 2018", "I'm a patient", "Oh yes I am.");
 
-insert into message(patient, dr, msg_id, day, subject, body) values ("Wendy C", 1, 10, "December 1st, 2018", "Message Title", "Message body");
+insert into message(patient, dr, msg_id, day, subject, body) values (43984, 1, 10, "December 1st, 2018", "Message Title", "Message body");
+
+insert into doctors(username, password, name, id_number) values ('doctor1', 'password', 'Dr. Amelia Badelia', 456);
