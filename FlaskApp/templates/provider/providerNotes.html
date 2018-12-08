@@ -38,13 +38,13 @@
 <hr>
 <ul class="nav justify-content-center">
     <li class="nav-item">
-        <a class="nav-link active" href="/providerHome"><h5>Patients</h5></a>
+        <a class="nav-link active" href="/providerHome/{{ id_number }}"><h5>Patients</h5></a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="/providerAdd"><h5>Add Patients</h5></a>
+        <a class="nav-link" href="/providerAdd/{{ id_number }}"><h5>Add Patients</h5></a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="/providerMessages"><h5>Messages</h5></a>
+        <a class="nav-link" href="/providerMessages/{{ id_number }}"><h5>Messages</h5></a>
     </li>
 </ul>
 <hr>
@@ -72,7 +72,7 @@
                     <!--End message subject and body-->
 
                     <!--Submit Message-->
-                        <button class="btn btn-primary btn-sm" name="submit" onclick="location.href='/provider/providerNotes.html'" type="submit">Submit</button>
+                        <button class="btn btn-outline-primary btn-sm" name="submit" onclick="location.href='/provider/providerNotes.html'" type="submit">Submit</button>
                     <!--<a href="/providerHome" class="btn btn-primary btn-sm">Submit notes</a>-->
                     <!--<button type="submit" class="btn btn-primary">Send Message</button>-->
                     <!--End submit-->
