@@ -145,9 +145,7 @@ def homeEditP():
 def profileP(id_num):
     cur.execute("select * from patients p where p.id_num = " + id_num +";")
     pInfo = cur.fetchall()
-
-    cur.execute("select name from doctors where id_number = (select dr_id from relationships where patient_id =" + id_num + ")" + ";")
-    pDocs = cur.fetchall()
+    pDocs = getDocInfo(id_num)
 
     return render_template('patient/patientProfile.html', pInfo = pInfo, pDocs = pDocs)
 
@@ -179,9 +177,39 @@ def editP(id_num):
         print("Information update, success!")
     return render_template('patient/patientProfileEdit.html', pInfo = pInfo)
 
-@app.route('/sendMsg')
-def msgP():
-    return render_template('patient/patientSendMessage.html')
+@app.route('/sendMsg/<id_num>', methods=['Get', 'POST'])
+def msgP(id_num):
+    pDocs = getDocInfo(id_num)
+
+    # Get message subject and body
+    if request.method == 'POST':
+        # Take data from form
+        selectDoc = request.form['selectDoc']
+        pSubject = request.form['pSubject']
+        pMessage = request.form['pMessage']
+        cur.execute("select date('now');")
+        date = cur.fetchall()
+        date = date[0][0]
+        msg_id = random.randint(0, 10000)
+        print(selectDoc, pSubject, pMessage, date)
+
+        # Get Doc id
+        for doc in pDocs:
+            if doc[2] == selectDoc: docId = doc[3]
+        print(selectDoc, docId, msg_id)
+
+        data = [id_num, str(docId), str(msg_id), date, pSubject, pMessage]
+        print(data)
+        # Place message into messages table
+        cur.executemany("insert into message(patient, dr, msg_id, day, subject, body) values (:1, :2, :3, :4, :5, :6);", [data])
+        conn.commit()
+        pDocs = getDocInfo(id_num)
+
+    # Check if message was inputted
+    #cur.execute("select * from message where patient = " + id_num + ";")
+    #print(cur.fetchall())
+
+    return render_template('patient/patientSendMessage.html', pDocs = pDocs)
 
 @app.route('/viewEntry')
 def entryViewDr():
@@ -192,3 +220,19 @@ def entryViewDr():
 def notesEnterDr():
     return render_template('provider/providerNotes.html')
 
+
+# Function that returns an array of patient's doctors
+def getDocInfo(patient_Id):
+    # Grab all id numbers of patient's doctors
+    cur.execute("select dr_id from relationships where patient_id =" + patient_Id + ";")
+    drIds = cur.fetchall()
+
+    i = 0
+    pDocs = []
+    # Go through list of ids and take dr's name
+    for id in drIds:
+        cur.execute("select * from doctors where id_number = " + str(id[0]) + ";")
+        drInfo = cur.fetchall()
+        pDocs.append(drInfo[0])
+
+    return pDocs

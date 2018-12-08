@@ -130,18 +130,10 @@
       <div class="card-body">
         <h5 class="card-title"><b>Your Doctors</b></h5>
         <table class="table">
-          <thead>
-          <tr>
-            <th scope="col">Doctor</th>
-            <th scope="col">Delete</th>
-          </tr>
-          </thead>
           <tbody>
          {% for d in pDocs %}
           <tr>
-            <td>{{d}}</td>
-            <td class="btn btn-secondary" href="patientProfileEdit.html" role="button"><i class="material-icons">highlight_off</i>
-            </td>
+            <td>{{d[2]}}</td>
           </tr>
           {% endfor %}
           </tbody>
