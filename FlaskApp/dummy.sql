@@ -6,25 +6,23 @@ insert into patients(username, id_num, password, name, age, birthday, sex, heigh
 
 insert into patients(username, id_num, password, name, age, birthday, sex, height, weight, img) values ("patient4", 43984, "password", "Matt C", 21, "March 19", "M", "69 in", 989, "https://66.media.tumblr.com/a77da79293850e89ddc89fe647843a7e/tumblr_pey3v5AnH41wjwprio2_540.jpg");
 
-insert into doctors (username, password, name, id_number)
-values ("doc1", "docTest1", "Dr. Juniper", 11);
+insert into relationships(dr_id, patient_id, relationship_id) values (123, 32848, 9384909482304);
 
-insert into doctors (username, password, name, id_number)
-values ("doc2", "docTest2", "Dr. Oak", 12);
+insert into relationships(dr_id, patient_id, relationship_id) values (123, 2938490, 9384909482302);
 
-insert into doctors (username, password, name, id_number)
-values ("doc1", "docTest1", "Dr. Elm", 13);
+insert into relationships(dr_id, patient_id, relationship_id) values (123, 9438, 9384909482307);
 
-insert into relationships(dr_id, patient_id, relationship_id) values (11, 9438, 9384909482304);
+insert into relationships(dr_id, patient_id, relationship_id) values (123, 43825, 9384909482309);
 
-insert into relationships(dr_id, patient_id, relationship_id) values (12, 9438, 9384909482305);
+insert into message(patient, dr, msg_id, day, subject, body) values (9438, 123, 483872, "July 2nd, 2018", "Only for doctor1", "Msg only for doctor1");
 
-insert into relationships(dr_id, patient_id, relationship_id) values (13, 9438, 9384909482306);
+insert into message(patient, dr, msg_id, day, subject, body) values (43948, 123, 5, "October 5th, 2018", "Message Title", "This is the message body.");
 
+insert into message(patient, dr, msg_id, day, subject, body) values (43948, 123, 6, "December 5th, 2018", "Another Subject", "Hi! This is a message.");
 
-insert into patients(username, id_num, password, name, age, birthday, sex, height, weight, img) values ("admin@gmail.com", 43989, "admin", "Test Patient", 21, "April 1", "F", "69 in", 110, "https://citizenmed.files.wordpress.com/2011/08/user-icon1.jpg");
+insert into message(patient, dr, msg_id, day, subject, body) values (9438, 1, 7, "July 2nd, 2018", "Annnnnd another subject", "How exciting!");
 
-insert into doctor_notes(dr_id, patient_id, note_id, subject, date, content) values (13, 9438, 1234567890, "Allergy Test now", date('NOW'), "Please call to see results");
+insert into message(patient, dr, msg_id, day, subject, body) values (32848, 1, 8, "June 1st, 2018", "Subject Subject", "I am a message.");
 
 insert into message(patient, dr, msg_id, day, subject, body) values (43825, 1, 9, "February 10th, 2018", "I'm a patient", "Oh yes I am.");
 
@@ -32,11 +30,10 @@ insert into message(patient, dr, msg_id, day, subject, body) values (43984, 1, 1
 
 insert into doctors(username, password, name, id_number) values ('doctor2', 'password', 'Dr. Amelia Badelia', 456);
 
+insert into doctors(username, password, name, id_number) values ('doctor3', 'password', 'Dr. Blank', 1);
+
 insert into doctors(username, password, name, id_number) values ('doctor1', 'password', 'Dr. Test Dr', 123);
 
 insert into entries(date, patient_id, entry_id, mood, sleep, exercise, medication, diet, img) values ("2018-07-07", 43984, 139812380, 5, 5, 5, "05:05:05.005", "food", "google.com");
 
 insert into entries(date, patient_id, entry_id, mood, sleep, exercise, medication, diet, img) values ("2018-07-07", 43984, 4978487487, 5, 5, 5, "05:05:05.005", "food", "google.com");
-
-insert into doctor_notes(dr_id, patient_id, note_id, subject, date, content)
-values (11, 9438, 123456780, "Rash Appointment", date('NOW'), "now Please call if rash get worse");
