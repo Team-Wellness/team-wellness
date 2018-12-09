@@ -14,7 +14,7 @@
 
   <!-- Javascript/jQuery -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-  <script src="https://code.jquery.com/jquery-3.3.1.js"  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+  <script src="js/scripts.js"></script>
 
 </head>
 <body>
@@ -29,7 +29,6 @@
     <!--});-->
 <!--</script>-->
 <!--&lt;!&ndash;end of Navigation bar&ndash;&gt;-->
-
 
 
 <!-- Navbar end -->
@@ -63,14 +62,15 @@
 </ul>
 <!-- Navbar end -->
 
-  {% for o in data %}
 
 <!-- Home Page -->
 <div id="boxy" class="container">
-  <div class="row" style="margin: auto; max-width: 250px">
+  <div class="row" style="text-align: center">
+    <div class="col">
       <a HREF="#" class="btn btn-lrg-2"><i class="material-icons">arrow_back</i> </a>
       <h3>{{o[0]}}</h3>
       <a HREF="#" class="btn btn-lrg-2"><i class="material-icons">arrow_forward</i> </a>
+    </div>
   </div>
   <div id="myUL">
     <div class="row">
@@ -90,8 +90,11 @@
         <div class="col">
           <div style="margin: 10px;" id="sleep" class="card">
             <div class="card-body">
-              <h5 class="card-title">You had this much sleep:</h5>
-              <h4>{{o[4]}} Hours</h4>
+              <h5 class="card-title">How much sleep did you have?</h5>
+              <a href="#" class="btn btn-lrg">1-3 Hrs</a>
+              <a href="#" class="btn btn-lrg">4-6 Hrs</a>
+              <a href="#" class="btn btn-lrg">7-8 Hrs</a>
+              <a href="#" class="btn btn-lrg">9+ Hrs</a>
             </div>
           </div>
         </div>
@@ -102,8 +105,11 @@
           <div style="margin: 10px;" id="exercise" class="card" style="width: 18rem;">
 
             <div class="card-body">
-              <h5 class="card-title">You exercised this long:</h5>
-              <h4>{{o[5]}} Hours</h4>
+              <h5 class="card-title">How much did you exercise?</h5>
+              <a href="#" class="btn btn-lrg">0-15 mins</a>
+              <a href="#" class="btn btn-lrg">15-30 mins</a>
+              <a href="#" class="btn btn-lrg">30-45 mins</a>
+              <a href="#" class="btn btn-lrg">45-60+ mins</a>
             </div>
           </div>
         </div>
@@ -144,7 +150,7 @@
     </div>
     <!-- Edit Button -->
     <div align="center">
-      <a type="button" class="btn btn-primary" href="/patientHome/edit/{{o[1]}}">Edit</a>
+      <a type="button" class="btn btn-primary" href="/patientHome/edit">Edit</a>
     </div>
     <!-- End Edit Button -->
   </div>
@@ -187,6 +193,4 @@
     document.getElementById("demo").innerHTML = d;
 </script>
 
-
 </html>
-

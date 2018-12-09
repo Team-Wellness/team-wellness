@@ -1,4 +1,4 @@
- create table if not exists doctors(
+create table if not exists doctors(
 username VARCHAR(255) NOT NULL,
 password VARCHAR(255) NOT NULL,
 name VARCHAR(255) NOT NULL,

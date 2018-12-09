@@ -40,13 +40,13 @@
 <hr>
 <ul class="nav justify-content-center">
     <li class="nav-item">
-        <a class="nav-link active" href="/providerHome"><h5>Patients</h5></a>
+        <a class="nav-link active" href="/providerHome/{{ id_number }}"><h5>Patients</h5></a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="/providerAdd"><h5>Add Patients</h5></a>
+        <a class="nav-link" href="/providerAdd/{{ id_number }}"><h5>Add Patients</h5></a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="/providerMessages"><h5>Messages</h5></a>
+        <a class="nav-link" href="/providerMessages/{{ id_number }}"><h5>Messages</h5></a>
     </li>
 </ul>
 <hr>
@@ -54,27 +54,6 @@
 <!--end of Navigation bar-->
 
 <div id="boxy" class="container">
-    <!--<div class="row">-->
-        <!--<div style="margin: 20px;" class="card w-75">-->
-            <!--<div class="card-body">-->
-                <!--<h5 class="card-title"><b>(Microwave John, ID: 12345)</b> Emergency!</h5>-->
-                <!--<p class="card-text">Hi Dr. Li, can you take a look at my sleep and see if I need to sleep more? Thanks.</p>-->
-                <!--<button type="button" class="btn btn-primary">Read</button>-->
-            <!--</div>-->
-        <!--</div>-->
-    <!--</div>-->
-
-    <!--<div class="row">-->
-        <!--<div style="margin: 20px;" class="card w-75">-->
-            <!--<div class="card-body">-->
-                <!--<h5 class="card-title"><b>(Sally Hanson, ID: 19478)</b> Test</h5>-->
-                <!--<p class="card-text">Dr. Li, please add me as your patient. Thank you!</p>-->
-                <!--<button type="button" class="btn btn-primary">Read</button>-->
-            <!--</div>-->
-        <!--</div>-->
-    <!--</div>-->
-
-
     <table class="table">
         <thead>
         <tr>
@@ -86,59 +65,19 @@
         </tr>
         </thead>
         <tbody>
+        {% for o in joinedData %}
         <tr>
-            <td>Goro Majima</td>
-            <td>11/01/2018</td>
-            <td>Emergency!</td>
-            <td>I developed a rash on my left arm. WebMD says I'm going to die. Is this true?</td>
-            <td><button type="button" class="btn btn-primary item-action item-action-danger" data-toggle="confirm" data-confirm-message="Delete?" data-confirm-yes="Yes" data-confirm-no="No" title="Delete">
-                <!--<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>-->
-                Delete
-            </button></td>
+            <td>{{ o[3] }}</td>
+            <td>{{ o[5] }}</td>
+            <td>{{ o[14] }}</td>
+            <td>{{ o[15] }}</td>
+            <td>
+                <a href="/providerDeleteMsg/{{id_number}}/{{o[12]}}" class="btn btn-outline-primary btn-sm">Delete</a>
+            </td>
         </tr>
-        <tr>
-            <td>Missy Elliot</td>
-            <td>01/20/2018</td>
-            <td>Appointment</td>
-            <td>lol I am deathly allergic to kittens but I just adopted one. What should I do?</td>
-            <td><button type="button" class="btn btn-primary item-action item-action-danger" data-toggle="confirm" data-confirm-message="Delete?" data-confirm-yes="Yes" data-confirm-no="No" title="Delete">
-                <span class="glyphicon glyphicon-trash" aria-hidden="true">
-                    Delete
-                </span>
-            </button></tr>
+        {% endfor %}
         </tbody>
     </table>
-
 </div>
-
-<!--<div class="ui centered container">-->
-    <!--<table border="1" class="ui celled table">-->
-        <!--<tr>-->
-            <!--<th>Name (im dying)</th>-->
-            <!--<th>Date</th>-->
-            <!--<th>Subject</th>-->
-            <!--<th>Body</th>-->
-            <!--<th></th>-->
-        <!--</tr>-->
-        <!--{% for o in data %}-->
-        <!--<tr>-->
-            <!--<td>{{ data.patient_name }}</td>-->
-            <!--<td>{{ o[2]}}</td>-->
-            <!--<td>{{ o[3] }}</td>-->
-            <!--<td>{{o[4]}}</td>-->
-            <!--<td><a href="edit_entry/{{o[0]}}" class="btn btn-default pull-right">Edit</a></td>-->
-            <!--&lt;!&ndash;<td><a href="edit_entry/{{o[0]}}" class="btn btn-default pull-right">Edit</a></td>&ndash;&gt;-->
-            <!--<td><a href="delete/{{o[0]}}" class="btn btn-default pull-right">Delete</a></td>-->
-        <!--</tr>-->
-        <!--{% endfor %}-->
-    <!--</table>-->
-<!--</div>-->
-
-
-
-<!-- End filter bar/test patience -->
-
-
 </body>
 </html>
-

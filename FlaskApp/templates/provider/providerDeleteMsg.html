@@ -45,19 +45,12 @@
 <hr>
 
 <div style="text-align: center" class="container">
-    {% for o in data %}
-    <h4>Deleted {{ o[3] }} as a patient</h4>
+    <h4>Deleted message</h4>
 <br><br>
-    <div class="card mx-auto"  style="width: 18rem;">
-    <img class="card-img-top" src="{{ o[9] }}" alt="Card image cap">
-    <div class="card-body">
-        <p class="card-text"><strong>{{ o[3] }}</strong></p>
-    </div>
-    </div>
 <br><br>
-    {% endfor %}
-    <a href="/providerHome/{{ id_number }}" class="btn btn-outline-primary">Confirm</a>
+    <a href="/providerMessages/{{ id_number }}" class="btn btn-outline-primary">Confirm</a>
     <br><br>
+    </div>
 </div>
 </div>
 

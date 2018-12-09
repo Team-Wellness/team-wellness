@@ -74,17 +74,16 @@
 <hr>
 <ul class="nav justify-content-center">
     <li class="nav-item">
-        <a class="nav-link active" href="/providerHome"><h5>Patients</h5></a>
+        <a class="nav-link active" href="/providerHome/{{ id_number }}"><h5>Patients</h5></a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="/providerAdd"><h5>Add Patients</h5></a>
+        <a class="nav-link" href="/providerAdd/{{ id_number }}"><h5>Add Patients</h5></a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="/providerMessages"><h5>Messages</h5></a>
+        <a class="nav-link" href="/providerMessages/{{ id_number }}"><h5>Messages</h5></a>
     </li>
 </ul>
 <hr>
-
 <!--end of Navigation bar-->
 
 <!-- Filter bar/Test Patients -->
@@ -119,9 +118,9 @@
                         <h5 class="card-title"> {{ o[3] }}</h5>
                         <p class="card-text">ID Number: {{ o[1] }}</p>
                         <div class="text-center">
-                            <a href="providerEntry/{{o[1]}}" class="btn btn-outline-primary btn-sm">Entries</a>
-                            <a href="providerNotes/{{o[1]}}" class="btn btn-outline-primary btn-sm">Notes</a>
-                            <a href="providerDeleteConfirm/{{o[1]}}" class="btn btn-outline-primary btn-sm">Delete</a>
+                            <a href="/providerEntry/{{ id_number }}/{{o[1]}}" class="btn btn-outline-primary btn-sm">Entries</a>
+                            <a href="/providerNotes/{{ id_number }}/{{o[1]}}" class="btn btn-outline-primary btn-sm">Notes</a>
+                            <a href="/providerDeleteConfirm/{{ id_number }}/{{o[1]}}" class="btn btn-outline-primary btn-sm">Delete</a>
                         </div>
                     </div>
                 </div></div>
@@ -167,4 +166,3 @@
 <!-- End filter bar -->
 
 </html>
-
