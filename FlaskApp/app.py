@@ -176,6 +176,7 @@ def notesDr(id_number, patient_id):
             id_number) + ", " + str(patient_id) + ", " + str(note_id) + ", '" + subject + "', '" + str(
             now) + "', '" + content + "');")
         conn.commit()
+        return redirect(url_for('homeDr', id_number=id_number))  # Redirect to patient home
     return render_template('provider/providerNotes.html', data=data, id_number=id_number)
 
 
