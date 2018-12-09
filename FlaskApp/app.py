@@ -198,7 +198,7 @@ def drP(id_num):
     cur.execute("select * from doctor_notes where patient_id = " + id_num + ";")
     dNotes = cur.fetchall()
     dNotes = list(dNotes)
-    print(dNotes)
+    #print(dNotes)
 
     # Need to grab names of dcotors for each message
     notesInfo = []
@@ -209,7 +209,7 @@ def drP(id_num):
         # Change dr's id field to dr's name
         doc_id[0] = name[0][0]
         notesInfo.append(doc_id)
-    print(notesInfo)
+    #print(notesInfo)
 
     return render_template('patient/patientMyDoctor.html', notesInfo=notesInfo, id_num=id_num)
 
@@ -318,7 +318,7 @@ def editP(id_num):
         if height == '': height = pInfo[0][7]
         weight = request.form['pWeight']
         if weight == '': weight = pInfo[0][8]
-        print(name, age, birthday, sex, height, weight)
+        #print(name, age, birthday, sex, height, weight)
         cur.execute(
             "update patients set name = ?, age = ?, birthday = ?, sex = ?, height = ?, weight = ? where id_num = ?",
             (name, age, birthday, sex, height, weight, id_num))
@@ -326,7 +326,9 @@ def editP(id_num):
 
         cur.execute("select * from patients where id_num = " + id_num + ";")
         pInfo = cur.fetchall()
-        print("Information update, success!")
+        #print("Information update, success!")
+        return redirect(url_for('profileP', id_num=id_num))
+
     return render_template('patient/patientProfileEdit.html', pInfo=pInfo, id_num=id_num)
 
 
@@ -346,7 +348,7 @@ def msgP(id_num):
         date = cur.fetchall()
         date = date[0][0]
         msg_id = random.randint(0, 10000)
-        print(selectDoc, pSubject, pMessage, date)
+        #print(selectDoc, pSubject, pMessage, date)
 
         # Get Doc id
         for doc in pDocs:
@@ -361,9 +363,7 @@ def msgP(id_num):
         conn.commit()
         # Check if message was
         pDocs = getDocInfo(id_num)
-    # cur.execute("select * from message where patient = " + id_num + ";")
-
-    # print(cur.fetchall())
+        return redirect(url_for('drP', id_num=id_num))
 
     return render_template('patient/patientSendMessage.html', pDocs=pDocs, id_num=id_num)
 
