@@ -48,13 +48,13 @@
 <hr>
 <ul class="nav justify-content-center">
     <li class="nav-item">
-        <a class="nav-link active" href="/providerHome/{{ id_number }}"><h5>Patients</h5></a>
+        <a class="nav-link active" href="/providerHome"><h5>Patients</h5></a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="/providerAdd/{{ id_number }}"><h5>Add Patients</h5></a>
+        <a class="nav-link" href="/providerAdd"><h5>Add Patients</h5></a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="/providerMessages/{{ id_number }}"><h5>Messages</h5></a>
+        <a class="nav-link" href="/providerMessages"><h5>Messages</h5></a>
     </li>
 </ul>
 <hr>
@@ -66,10 +66,13 @@
     <div class="row">
         <div class="col"></div>
         <div class="col"></div>
+        <div class="col">
+            <input style="text-align: center;" type="text" name="Date" value="10/30/2018" />
+            <!--<input type="submit" value="Send">-->
+            <button type="button" class="btn btn-primary">Go</button>
         </div>
-{% for data in data %}
-<h3 style="text-align: center;">{{ data[0] }}</h3>
-<hr>
+    </div>
+
     <div class="container">
         <div class="row">
             <div class="col">
@@ -77,8 +80,13 @@
                 <div class="card" style="width: 18rem; margin: 20px;">
                     <div class="card-body">
                         <h5 class="card-title" style="text-align: center;">Mood</h5>
-                        <p class="card-text" style="text-align: center;">
-                            {{ data[3] }}
+                        <h6 class="card-subtitle mb-2 text-muted" style="text-align: center">Mood</h6>
+                        <p class="card-text">
+                            <!-- icon test -->
+                            <i class="material-icons">
+                                sentiment_very_satisfied
+                            </i>
+                            <!-- icon test -->
                         </p>
                     </div>
                 </div>
@@ -87,8 +95,9 @@
                 <!-- Sleep -->
                 <div class="card" style="width: 18rem; margin: 20px;">
                     <div class="card-body">
-                        <h5 class="card-title" style="text-align: center;">Sleep</h5>
-                        <p class="card-text" style="text-align: center;">{{ data[4] }}</p>
+                        <h5 class="card-title">Sleep</h5>
+                        <h6 class="card-subtitle mb-2 text-muted" style="text-align: center">Mood</h6>
+                        <p class="card-text">INSERT NUMBERS HERE</p>
                     </div>
                 </div>
             </div>
@@ -98,8 +107,9 @@
                 <!--Food-->
                 <div class="card" style="width: 18rem; margin: 20px;">
                     <div class="card-body">
-                        <h5 class="card-title" style="text-align: center;">Food</h5>
-                        <p class="card-text" style="text-align: center;">{{ data[7] }}</p>
+                        <h5 class="card-title">Food</h5>
+                        <h6 class="card-subtitle mb-2 text-muted" style="text-align: center">Mood</h6>
+                        <p class="card-text">INSERT FOOD LOG HERE</p>
                     </div>
                 </div>
             </div>
@@ -107,17 +117,17 @@
                 <!--Exercise-->
                 <div class="card" style="width: 18rem; margin: 20px;">
                     <div class="card-body">
-                        <h5 class="card-title" style="text-align: center;">Exercise</h5>
-                        <p class="card-text" style="text-align: center;">{{ data[5] }}</p>
+                        <h5 class="card-title">Exercise</h5>
+                        <h6 class="card-subtitle mb-2 text-muted" style="text-align: center">Mood</h6>
+                        <p class="card-text">INSERT EXERCISE HERE</p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-<hr>
-    {% endfor %}
 </div> <!-- End boxy -->
 <!-- End Calendar -->
+
 
 
 </body>

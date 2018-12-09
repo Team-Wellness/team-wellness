@@ -63,27 +63,27 @@
           <!--end of Navigation bar-->
           <div class="form-group">
             <label for="selectDoctor">Select Doctor</label>
-            <select class="form-control" id="selectDoctor">
-              <option>Dr. John Elms</option>
-              <option>Dr. Clarise Lee</option>
-              <option>Dr. Ellie Tau</option>
+            <select class="form-control" id="selectDoc" name="selectDoc">
+              {% for d in pDocs %}
+              <option>{{d[2]}}</option>
+              {% endfor %}
             </select>
           </div>
           <!--End Doctor Selection-->
 
           <!--Message Subject and Body-->
           <div class="form-group">
-            <label for="patientSubject">Subject</label>
-            <input type="email" class="form-control" id="patientSubject">
+            <label for="pSubject">Subject</label>
+            <input type="text" class="form-control" id="pSubject" name="pSubject">
           </div>
           <div class="form-group">
-            <label for="patientMessage">Message</label>
-            <textarea class="form-control" id="patientMessage" rows="3"></textarea>
+            <label for="pMessage">Message</label>
+            <textarea class="form-control" id="pMessage" name="pMessage" rows="3"></textarea>
           </div>
           <!--End message subject and body-->
 
           <!--Submit Message-->
-          <button type="submit" class="btn btn-primary">Send Message</button>
+          <button type="submit" class="btn btn-primary" formmethod="POST">Send Message</button>
           <!--End submit-->
         </form>
       </div>

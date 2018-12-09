@@ -73,13 +73,13 @@
 <hr>
 <ul class="nav justify-content-center">
     <li class="nav-item">
-        <a class="nav-link active" href="/providerHome/{{ id_number }}"><h5>Patients</h5></a>
+        <a class="nav-link active" href="/providerHome"><h5>Patients</h5></a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="/providerAdd/{{ id_number }}"><h5>Add Patients</h5></a>
+        <a class="nav-link" href="/providerAdd"><h5>Add Patients</h5></a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="/providerMessages/{{ id_number }}"><h5>Messages</h5></a>
+        <a class="nav-link" href="/providerMessages"><h5>Messages</h5></a>
     </li>
 </ul>
 <hr>
@@ -115,7 +115,7 @@
                     <div class="card-body">
                         <h5 class="card-title"> {{ o[3] }}</h5>
                         <p class="card-text">ID Number: {{ o[1] }}</p>
-                        <a href="/providerConfirm/{{ id_number}}/{{ o[1]}}" class="btn btn-outline-primary btn-sm">Add</a>
+                        <a href="providerConfirm/{{ o[1]}}" class="btn btn-primary btn-sm">Add</a>
                     </div>
                 </div></div>
                 <br><br>
