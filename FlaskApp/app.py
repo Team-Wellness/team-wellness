@@ -277,14 +277,14 @@ def msgP(id_num):
         # Place message into messages table
         cur.executemany("insert into message(patient, dr, msg_id, day, subject, body) values (:1, :2, :3, :4, :5, :6);", [data])
         conn.commit()
+    # Check if message was
         pDocs = getDocInfo(id_num)
-
-    # Check if message was inputted
     #cur.execute("select * from message where patient = " + id_num + ";")
+
     #print(cur.fetchall())
 
     return render_template('patient/patientSendMessage.html', pDocs = pDocs)
-
+inputted
 
 # Function that returns an array of patient's doctors
 def getDocInfo(patient_Id):
