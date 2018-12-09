@@ -133,6 +133,7 @@ def drP(id_num):
     cur.execute("select * from doctor_notes where patient_id = " + id_num + ";")
     dNotes = cur.fetchall()
     dNotes = list(dNotes)
+    print(dNotes)
 
     # Need to grab names of dcotors for each message
     notesInfo = []
@@ -142,12 +143,10 @@ def drP(id_num):
         name = cur.fetchall()
         # Change dr's id field to dr's name
         doc_id[0] = name[0][0]
-        # Change date
-        #print(doc_id[4].format('L'))
         notesInfo.append(doc_id)
     print(notesInfo)
 
-    return render_template('patient/patientMyDoctor.html', notesInfo = notesInfo)
+    return render_template('patient/patientMyDoctor.html', notesInfo = notesInfo, id_num = id_num)
 
 
 @app.route('/patientHome')

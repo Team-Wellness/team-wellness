@@ -62,13 +62,13 @@
       <div class="card-body">
         <div class="row">
           <h5 class="card-title col-sm"><b>Doctor Notes</b></h5>
-          <a class="btn btn-primary btn btn-block col-sm" href="/sendMsg" role="button">Send A Message</a>
+          <a class="btn btn-primary btn btn-block col-sm" href="/sendMsg/{{id_num}}" role="button">Send A Message</a>
         </div>
         <table class="table">
           <thead>
           <tr>
-            <th scope="col">Doctor</th>
             <th scope="col">Date</th>
+            <th scope="col">Doctor</th>
             <th scope="col">Subject</th>
             <th scope="col">Notes</th>
           </tr>
@@ -76,8 +76,8 @@
           <tbody>
           {% for n in notesInfo %}
           <tr>
-            <td>{{n[0]}}</td>
             <td>{{n[4]}}</td>
+            <td>{{n[0]}}</td>
             <td>{{n[3]}}</td>
             <td>{{n[5]}}</td>
           </tr>

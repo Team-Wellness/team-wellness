@@ -24,7 +24,7 @@ insert into relationships(dr_id, patient_id, relationship_id) values (13, 9438, 
 
 insert into patients(username, id_num, password, name, age, birthday, sex, height, weight, img) values ("admin@gmail.com", 43989, "admin", "Test Patient", 21, "April 1", "F", "69 in", 110, "https://citizenmed.files.wordpress.com/2011/08/user-icon1.jpg");
 
-insert into doctor_notes(dr_id, patient_id, note_id, subject, date, content) values (13, 9438, 123, "Allergy Test", 12/08/2018, "Please call to see results");
+insert into doctor_notes(dr_id, patient_id, note_id, subject, date, content) values (13, 9438, 1234567890, "Allergy Test now", date('NOW'), "Please call to see results");
 
 insert into doctor_notes(dr_id, patient_id, note_id, subject, date, content)
-values (12, 9438, 1234, "Rash Appointment", 10/25/2018, "Please call if rash get worse");
+values (11, 9438, 123456780, "Rash Appointment", date('NOW'), "now Please call if rash get worse");
