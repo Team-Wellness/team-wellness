@@ -3,4 +3,5 @@
 *.pyc
 *.pyc
 FlaskApp/database.db
-*.db
+*.xml
+*.pyc
