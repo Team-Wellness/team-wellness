@@ -66,31 +66,41 @@
     </li>
 </ul>
 <!-- Nav Bar -->
-{% for o in data%}
+
 <!-- Home Page -->
 
 <div id="boxy" class="container">
-    <h1 align="center">EDIT MODE</h1>
+    <h1 align="center">Make a new entry</h1>
     <div id="myUL">
+        <form action="{{ url_for('newEntry', id_num=id_num) }}" method="POST">
         <div class="row">
             <div class="col">
                 <div class="col">
                     <div style="margin: 10px;" id="mood" class="card">
 
                         <div class="card-body">
-                            <form action="{{ url_for('homeEditP', id_num=o[1]) }}" method="POST">
+
                                 <h5 class="card-title">How Are you Feeling Today?</h5>
-                                <button HREF="#" name="add" class="btn btn-lrg-2" type="submit" value=1><h4>1</h4>
-                                </button>
-                                <button HREF="#" name="add" class="btn btn-lrg-2" type="submit" value=2><h4>2</h4>
-                                </button>
-                                <button HREF="#" name="add" class="btn btn-lrg-2" type="submit" value=3><h4>3</h4>
-                                </button>
-                                <button HREF="#" name="add" class="btn btn-lrg-2" type="submit" value=4><h4>4</h4>
-                                </button>
-                                <button HREF="#" name="add" class="btn btn-lrg-2" type="submit" value=5><h4>5</h4>
-                                </button>
-                            </form>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="mood" id="varysad" value="1" required>
+                                <label class="form-check-label" for="inlineRadio1">1</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                 <input class="form-check-input" type="radio" name="mood" id="sad" value="2" required>
+                                <label class="form-check-label" for="inlineRadio1">2</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="mood" id="neutral" value="3" required>
+                                <label class="form-check-label" for="inlineRadio1">3</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="mood" id="happy" value="4" required>
+                            <label class="form-check-label" for="inlineRadio1">4</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="mood" id="veryhappy" value="5" required>
+                            <label class="form-check-label" for="inlineRadio1">5</label>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -100,17 +110,15 @@
                 <div class="col">
                     <div style="margin: 10px;" id="sleep" class="card">
                         <div class="card-body">
-                            <form action="{{ url_for('homeEditP', id_num=o[1]) }}" method="POST">
+
                                 <h5 class="card-title">How much sleep did you have?</h5>
                                 <div class="input-group">
                                     <input id="slhr" name="slhours" type="number" placeholder="Hours"
                                            class="form-control" title="sleep" required/>
-                                    <button onclick="slcheck()" name=add type="submit" class="btn btn-primary"
-                                            value="sleep">Add
                                     </button>
                                 </div>
                                 <p id="demos"></p>
-                            </form>
+
                         </div>
                     </div>
                 </div>
@@ -120,16 +128,14 @@
                 <div class="col">
                     <div style="margin: 10px;" id="exercise" class="card" style="width: 18rem;">
                         <div class="card-body">
-                            <form action="{{ url_for('homeEditP', id_num=o[1]) }}" method="POST">
+
                                 <h5 class="card-title">How much did you exercise?</h5>
                                 <div class="input-group">
                                     <input id="exhr" name="exhours" type="number" placeholder="Hours"
                                            class="form-control" title="exercise" required/>
-                                    <button onclick="excheck()" name=add type="submit" class="btn btn-primary" value="exercise">Add
-                                    </button>
                                 </div>
                                 <p id="demoe"></p>
-                            </form>
+
                         </div>
                     </div>
                 </div>
@@ -143,14 +149,10 @@
                         <div style="margin: 10px" id="Food" class="card">
                             <div class="card-body">
                                 <h5 class="card-title">What Did You Eat Today?</h5>
-                                <form action="{{ url_for('homeEditP', id_num=o[1]) }}" method="POST">
+
                                     <div class="input-group">
                                         <input name="foods" type="search" placeholder="Input 1 food" class="form-control" title="Add food"/>
-                                        <span class="input-group-btn">
-                                        <button name=add  type="submit" class="btn btn-primary" value="food">Add</button>
-                                        </span>
                                     </div>
-                                </form>
                             </div>
                         </div>
                     </div>
@@ -165,11 +167,9 @@
                                 <div class="form-group">
                                     <label>Pick day and time</label>
                                     <div class="input-group date" data-onload-datetimepicker>
-                                        <form action="{{ url_for('homeEditP', id_num=o[1]) }}" method="POST">
                                             <div class="input-group">
                                                 <input name="times" type="search" placeholder="Input Time" class="form-control" title="Set Time"/>
                                                 <span class="input-group-btn">
-                                        <button name=add  type="submit" class="btn btn-primary" value="time">Set</button>
                                         </span>
                                             </div>
                                             <div class="form-check form-check-inline">
@@ -180,7 +180,7 @@
                                                 <input class="form-check-input" type="radio" name="time" id="inlineRadio2" value="PM" required>
                                                 <label class="form-check-label" for="inlineRadio1">PM</label>
                                             </div>
-                                    </form>
+
                                 </div>
                             </div>
                         </div>
@@ -190,13 +190,15 @@
         </div>
         <!-- Back Button -->
         <div align="center">
-            <a type="button" class="btn btn-primary" href="/patientHome/{{o[1]}}">Back</a>
+            <button type="submit" class="btn btn-primary">Submit</button>
         </div>
+
         <!-- End Back Button -->
     </div>
+        </form>
 </div>
 </div>
-{% endfor %}
+
 
 
 <!-- End filter bar/test patience -->

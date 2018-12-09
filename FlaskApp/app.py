@@ -5,7 +5,7 @@ from flask_simplelogin import SimpleLogin
 import sqlite3
 import datetime
 
-app = Flask(__name__) # create the application instance
+app = Flask(__name__)  # create the application instance
 SimpleLogin(app)
 app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
 
@@ -26,13 +26,13 @@ def main():
             data = cur.fetchall()
             if cur.fetchone() is None:
                 for id in data:
-                    return redirect(url_for('homeP', id_num=id[1]))# Redirect to patient home
+                    return redirect(url_for('homeP', id_num=id[1]))  # Redirect to patient home
             else:
                 error == 'Could not find account using email or password'
         elif request.form['loginType'] == 'd':
             usernameDr = request.form['usernameDr']
             passwordDr = request.form['passwordDr']
-            cur.execute("select * from doctors where username = ? and password = ?", (usernameDr,passwordDr,))
+            cur.execute("select * from doctors where username = ? and password = ?", (usernameDr, passwordDr,))
             data = cur.fetchall()
             if cur.fetchone() is None:
                 for id in data:
@@ -41,13 +41,15 @@ def main():
                 error == 'Could not find account using email or password'
     return render_template('index.html')
 
+
 @app.route('/providerHome/<id_number>', methods=['GET', 'POST'])
 def homeDr(id_number):
     currentDoctor = id_number
     print(currentDoctor)
     conn = sqlite3.connect('database.db')
     cur = conn.cursor()
-    cur.execute("select * from patients where id_num in (select patient_id from relationships where dr_id = " + id_number + ");") # who exist in the relationships table
+    cur.execute(
+        "select * from patients where id_num in (select patient_id from relationships where dr_id = " + id_number + ");")  # who exist in the relationships table
     data = cur.fetchall()
     print(currentDoctor)
     return render_template('provider/providerHome.html', data=data, id_number=id_number)
@@ -58,7 +60,8 @@ def homeDr(id_number):
 def addDr(id_number):
     conn = sqlite3.connect('database.db')
     cur = conn.cursor()
-    cur.execute("select * from patients p where not exists (select * from relationships r where p.id_num in (select patient_id from relationships where dr_id = " + id_number + "));")
+    cur.execute(
+        "select * from patients p where not exists (select * from relationships r where p.id_num in (select patient_id from relationships where dr_id = " + id_number + "));")
     data = cur.fetchall()
     return render_template('provider/providerAdd.html', data=data, id_number=id_number)
 
@@ -151,7 +154,8 @@ def noteConfirmDr(testVar, id_number):
     rows = [(dr_id, patient_id, relationship_id)]
     # cur.bindarraysize = 1
     cur.setinputsizes(int, int, int)
-    cur.executemany("insert into doctor_notes(dr_id, patient_id, note_id, subject, date, content) values (:1, :2, :3, )", rows)
+    cur.executemany(
+        "insert into doctor_notes(dr_id, patient_id, note_id, subject, date, content) values (:1, :2, :3, )", rows)
     conn.commit()
     return render_template('provider/providerConfirmMsgSend.html', data=data, id_number=id_number)
 
@@ -168,7 +172,9 @@ def notesDr(id_number, patient_id):
         subject = str(request.values.get('patientSubject'))
         content = str(request.values.get('patientMessage'))
         note_id = random.randint(0, 1000000000000)
-        cur.execute("INSERT INTO doctor_notes(dr_id, patient_id, note_id, subject, date, content) VALUES(" + str(id_number) + ", " + str(patient_id) + ", " + str(note_id) + ", '" + subject + "', '" + str(now) + "', '" + content + "');")
+        cur.execute("INSERT INTO doctor_notes(dr_id, patient_id, note_id, subject, date, content) VALUES(" + str(
+            id_number) + ", " + str(patient_id) + ", " + str(note_id) + ", '" + subject + "', '" + str(
+            now) + "', '" + content + "');")
         conn.commit()
     return render_template('provider/providerNotes.html', data=data, id_number=id_number)
 
@@ -181,10 +187,13 @@ def entryViewDr(id_number, patient_id):
     data = cur.fetchall()
     return render_template('provider/providerEntry.html', patient_id=patient_id, id_number=id_number, data=data)
 
+
 ###
 
-@app.route('/patientMyDoctor/<id_num>', methods = ['GET'])
+@app.route('/patientMyDoctor/<id_num>', methods=['GET'])
 def drP(id_num):
+    conn = sqlite3.connect('database.db')
+    cur = conn.cursor()
     # Data for doctor notes: take all messages for patient
     cur.execute("select * from doctor_notes where patient_id = " + id_num + ";")
     dNotes = cur.fetchall()
@@ -202,31 +211,98 @@ def drP(id_num):
         notesInfo.append(doc_id)
     print(notesInfo)
 
-    return render_template('patient/patientMyDoctor.html', notesInfo = notesInfo, id_num = id_num)
+    return render_template('patient/patientMyDoctor.html', notesInfo=notesInfo, id_num=id_num)
 
 
-@app.route('/patientHome')
-def homeP():
-    return render_template('patient/patientHome.html')
+@app.route('/patientHome/<id_num>', methods=["GET", "POST"])
+def homeP(id_num):
+    cur = conn.cursor()
+    cur.execute("select * from entries where patient_id = ? and date = strftime('%m/%d/%Y', 'now')", (id_num,))
+    data = cur.fetchall()
+    cur.execute("select * from foods where id_num = ?", (id_num,))
+    foods = cur.fetchall()
+    return render_template('patient/patientHome.html', data=data, foods=foods, id_num=id_num)
 
 
-@app.route('/patientHome/edit')
-def homeEditP():
-    return render_template('patient/patientHomeEdit.html')
+@app.route('/newEntry/<id_num>', methods=["GET", "POST"])
+def newEntry(id_num):
+    cur = conn.cursor()
+    cur.execute("select * from entries where patient_id = ? and date = strftime('%m/%d/%Y', 'now')", (id_num,))
+    data = cur.fetchall()
+    if request.method == 'POST':
+        slhours = request.form["slhours"]
+        print(slhours)
+        exhours = request.form["exhours"]
+        print(exhours)
+        moods = request.form['mood']
+        print(moods)
+        foods = request.form['foods']
+        print(foods)
+        time = request.form['times']
+        print(time)
+        when = request.form['time']
+
+        entry_id = random.randint(0, 493824983)
+        cur.execute(
+            "insert into entries (date, patient_id, entry_id, mood, sleep, exercise, medication, diet, img) values (strftime('%m/%d/%Y', 'now', 'localtime'), ?, ?, ?, ?, ?, ?, ?, 'lol')",
+            (id_num, entry_id, moods, slhours, exhours,time, when,))
+        cur.execute("insert into foods (food, id_num) values (?,?)", (foods, id_num,))
+        conn.commit()
+        return redirect(url_for('homeP', id_num=id_num))
+    return render_template('patient/newEntry.html', data=data, id_num=id_num)
+
+
+@app.route('/patientHome/edit/<id_num>', methods=["GET", "POST"])
+def homeEditP(id_num):
+    cur = conn.cursor()
+    cur.execute("select * from entries where patient_id = ? and date = strftime('%m/%d/%Y', 'now')", (id_num,))
+    data = cur.fetchall()
+    if request.method == 'POST':
+        if request.form['add'] == 'sleep':
+            slhours = request.form["slhours"]
+            cur.execute("update entries set sleep = ? where patient_id = ? and date = strftime('%m/%d/%Y', 'now')",
+                        (slhours, id_num,))
+            conn.commit()
+        elif request.form['add'] == 'exercise':
+            exhours = request.form["exhours"]
+            cur.execute("update entries set exercise = ? where patient_id = ? and date = strftime('%m/%d/%Y', 'now')",
+                        (exhours, id_num,))
+            conn.commit()
+        elif request.form['add'] < "6":
+            moods = request.form['add']
+            cur.execute("update entries set mood = ? where patient_id = ? and date = strftime('%m/%d/%Y', 'now')",
+                        (moods, id_num,))
+            conn.commit()
+        elif request.form['add'] == 'food':
+            foods = request.form['foods']
+            cur.execute("insert into foods (food, id_num) values (?,?)", (foods, id_num,))
+            conn.commit()
+        elif request.form['add'] == 'time':
+            time = request.form['times']
+            when = request.form['time']
+            cur.execute(
+                "update entries set medication = ?, diet = ? where patient_id = ? and date = strftime('%m/%d/%Y', 'now')",
+                (time, when, id_num,))
+            conn.commit()
+    return render_template('patient/patientHomeEdit.html', data=data, id_num=id_num)
 
 
 @app.route('/patientProfile/<id_num>', methods=['GET'])
 def profileP(id_num):
-    cur.execute("select * from patients p where p.id_num = " + id_num +";")
+    conn = sqlite3.connect('database.db')
+    cur = conn.cursor()
+    cur.execute("select * from patients p where p.id_num = " + id_num + ";")
     pInfo = cur.fetchall()
     pDocs = getDocInfo(id_num)
 
-    return render_template('patient/patientProfile.html', pInfo = pInfo, pDocs = pDocs)
+    return render_template('patient/patientProfile.html', pInfo=pInfo, pDocs=pDocs, id_num=id_num)
 
 
 @app.route('/patientProfile/edit/<id_num>', methods=['GET', 'POST'])
 def editP(id_num):
-    cur.execute("select * from patients where id_num = " + id_num +";")
+    conn = sqlite3.connect('database.db')
+    cur = conn.cursor()
+    cur.execute("select * from patients where id_num = " + id_num + ";")
     pInfo = cur.fetchall()
 
     if request.method == 'POST':
@@ -243,16 +319,21 @@ def editP(id_num):
         weight = request.form['pWeight']
         if weight == '': weight = pInfo[0][8]
         print(name, age, birthday, sex, height, weight)
-        cur.execute("update patients set name = ?, age = ?, birthday = ?, sex = ?, height = ?, weight = ? where id_num = ?", (name, age, birthday, sex, height, weight, id_num))
+        cur.execute(
+            "update patients set name = ?, age = ?, birthday = ?, sex = ?, height = ?, weight = ? where id_num = ?",
+            (name, age, birthday, sex, height, weight, id_num))
         conn.commit()
 
-        cur.execute("select * from patients where id_num = " + id_num +";")
+        cur.execute("select * from patients where id_num = " + id_num + ";")
         pInfo = cur.fetchall()
         print("Information update, success!")
-    return render_template('patient/patientProfileEdit.html', pInfo = pInfo)
+    return render_template('patient/patientProfileEdit.html', pInfo=pInfo, id_num=id_num)
+
 
 @app.route('/sendMsg/<id_num>', methods=['Get', 'POST'])
 def msgP(id_num):
+    conn = sqlite3.connect('database.db')
+    cur = conn.cursor()
     pDocs = getDocInfo(id_num)
 
     # Get message subject and body
@@ -270,24 +351,27 @@ def msgP(id_num):
         # Get Doc id
         for doc in pDocs:
             if doc[2] == selectDoc: docId = doc[3]
-        #print(selectDoc, docId, msg_id)
+        # print(selectDoc, docId, msg_id)
 
         data = [id_num, str(docId), str(msg_id), date, pSubject, pMessage]
-        #print(data)
+        # print(data)
         # Place message into messages table
-        cur.executemany("insert into message(patient, dr, msg_id, day, subject, body) values (:1, :2, :3, :4, :5, :6);", [data])
+        cur.executemany("insert into message(patient, dr, msg_id, day, subject, body) values (:1, :2, :3, :4, :5, :6);",
+                        [data])
         conn.commit()
-    # Check if message was
+        # Check if message was
         pDocs = getDocInfo(id_num)
-    #cur.execute("select * from message where patient = " + id_num + ";")
+    # cur.execute("select * from message where patient = " + id_num + ";")
 
-    #print(cur.fetchall())
+    # print(cur.fetchall())
 
-    return render_template('patient/patientSendMessage.html', pDocs = pDocs)
+    return render_template('patient/patientSendMessage.html', pDocs=pDocs, id_num=id_num)
 
 
 # Function that returns an array of patient's doctors
 def getDocInfo(patient_Id):
+    conn = sqlite3.connect('database.db')
+    cur = conn.cursor()
     # Grab all id numbers of patient's doctors
     cur.execute("select dr_id from relationships where patient_id =" + patient_Id + ";")
     drIds = cur.fetchall()
