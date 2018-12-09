@@ -284,7 +284,7 @@ def msgP(id_num):
     #print(cur.fetchall())
 
     return render_template('patient/patientSendMessage.html', pDocs = pDocs)
-inputted
+
 
 # Function that returns an array of patient's doctors
 def getDocInfo(patient_Id):
