@@ -234,7 +234,7 @@ def homeEditP(id_num):
             conn.commit()
         elif request.form['add'] == 'food':
             foods = request.form['foods']
-            cur.execute("insert into foods (food, id_num) values (?,?) and date = strftime('%m/%d/%Y', 'now')", (foods,id_num,))
+            cur.execute("insert into foods (food, id_num) values (?,?)", (foods,id_num,))
             conn.commit()
         elif request.form['add'] == 'time':
             time = request.form['times']
