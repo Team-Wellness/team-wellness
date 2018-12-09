@@ -185,6 +185,8 @@ def entryViewDr(id_number, patient_id):
 
 @app.route('/patientMyDoctor/<id_num>', methods = ['GET'])
 def drP(id_num):
+    conn = sqlite3.connect('database.db')
+    cur = conn.cursor()
     # Data for doctor notes: take all messages for patient
     cur.execute("select * from doctor_notes where patient_id = " + id_num + ";")
     dNotes = cur.fetchall()
@@ -217,15 +219,19 @@ def homeEditP():
 
 @app.route('/patientProfile/<id_num>', methods=['GET'])
 def profileP(id_num):
+    conn = sqlite3.connect('database.db')
+    cur = conn.cursor()
     cur.execute("select * from patients p where p.id_num = " + id_num +";")
     pInfo = cur.fetchall()
     pDocs = getDocInfo(id_num)
 
-    return render_template('patient/patientProfile.html', pInfo = pInfo, pDocs = pDocs)
+    return render_template('patient/patientProfile.html', pInfo = pInfo, pDocs = pDocs, id_num = id_num)
 
 
 @app.route('/patientProfile/edit/<id_num>', methods=['GET', 'POST'])
 def editP(id_num):
+    conn = sqlite3.connect('database.db')
+    cur = conn.cursor()
     cur.execute("select * from patients where id_num = " + id_num +";")
     pInfo = cur.fetchall()
 
@@ -249,10 +255,12 @@ def editP(id_num):
         cur.execute("select * from patients where id_num = " + id_num +";")
         pInfo = cur.fetchall()
         print("Information update, success!")
-    return render_template('patient/patientProfileEdit.html', pInfo = pInfo)
+    return render_template('patient/patientProfileEdit.html', pInfo = pInfo, id_num=id_num)
 
 @app.route('/sendMsg/<id_num>', methods=['Get', 'POST'])
 def msgP(id_num):
+    conn = sqlite3.connect('database.db')
+    cur = conn.cursor()
     pDocs = getDocInfo(id_num)
 
     # Get message subject and body
@@ -283,11 +291,13 @@ def msgP(id_num):
 
     #print(cur.fetchall())
 
-    return render_template('patient/patientSendMessage.html', pDocs = pDocs)
+    return render_template('patient/patientSendMessage.html', pDocs = pDocs, id_num=id_num)
 
 
 # Function that returns an array of patient's doctors
 def getDocInfo(patient_Id):
+    conn = sqlite3.connect('database.db')
+    cur = conn.cursor()
     # Grab all id numbers of patient's doctors
     cur.execute("select dr_id from relationships where patient_id =" + patient_Id + ";")
     drIds = cur.fetchall()
