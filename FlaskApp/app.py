@@ -120,7 +120,7 @@ def drP():
 @app.route('/patientHome/<id_num>', methods=["GET", "POST"])
 def homeP(id_num):
     cur = conn.cursor()
-    cur.execute("select * from entries where patient_id = ?", (id_num,))
+    cur.execute("select * from entries where patient_id = ? and date = strftime('%m/%d/%Y', 'now')", (id_num,))
     data = cur.fetchall()
     cur.execute("select * from foods where id_num = ?", (id_num,))
     foods = cur.fetchall()
@@ -129,25 +129,31 @@ def homeP(id_num):
 @app.route('/patientHome/edit/<id_num>', methods=["GET", "POST"])
 def homeEditP(id_num):
     cur = conn.cursor()
-    cur.execute("select * from entries where patient_id = ?", (id_num,))
+    cur.execute("select * from entries where patient_id = ? and date = strftime('%m/%d/%Y', 'now')", (id_num,))
     data = cur.fetchall()
     if request.method == 'POST':
         if request.form['add'] == 'sleep':
             slhours = request.form["slhours"]
-            cur.execute("update entries set sleep = ? where patient_id = ?", (slhours,id_num,))
+            cur.execute("update entries set sleep = ? where patient_id = ? and date = strftime('%m/%d/%Y', 'now')", (slhours,id_num,))
             conn.commit()
         elif request.form['add'] == 'exercise':
             exhours = request.form["exhours"]
-            cur.execute("update entries set exercise = ? where patient_id = ?", (exhours,id_num,))
+            cur.execute("update entries set exercise = ? where patient_id = ? and date = strftime('%m/%d/%Y', 'now')", (exhours,id_num,))
             conn.commit()
         elif request.form['add'] < "6":
             moods = request.form['add']
-            cur.execute("update entries set mood = ? where patient_id = ?", (moods,id_num,))
+            cur.execute("update entries set mood = ? where patient_id = ? and date = strftime('%m/%d/%Y', 'now')", (moods,id_num,))
             conn.commit()
         elif request.form['add'] == 'food':
             foods = request.form['foods']
-            cur.execute("insert into foods (food, id_num) values (?,?)", (foods,id_num,))
+            cur.execute("insert into foods (food, id_num) values (?,?) and date = strftime('%m/%d/%Y', 'now')", (foods,id_num,))
             conn.commit()
+        elif request.form['add'] == 'time':
+            time = request.form['times']
+            when = request.form['time']
+            cur.execute("update entries set medication = ?, diet = ? where patient_id = ? and date = strftime('%m/%d/%Y', 'now')", (time, when, id_num,))
+            conn.commit()
+
     return render_template('patient/patientHomeEdit.html', data=data)
 
 

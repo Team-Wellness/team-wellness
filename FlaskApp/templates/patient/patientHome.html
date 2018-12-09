@@ -52,7 +52,7 @@
 <hr>
 <ul class="nav justify-content-center">
   <li class="nav-item">
-    <a class="nav-link active" href="/patientHome"><h5>Home</h5></a>
+    <a class="nav-link active" href=""><h5>Home</h5></a>
   </li>
   <li class="nav-item">
     <a class="nav-link" href="/patientProfile"><h5>Profile</h5></a>
@@ -69,16 +69,16 @@
 <div id="boxy" class="container">
   <div class="row" style="margin: auto; max-width: 250px">
       <a HREF="#" class="btn btn-lrg-2"><i class="material-icons">arrow_back</i> </a>
-      <h3 id="demo"></h3>
+      <h3>{{o[0]}}</h3>
       <a HREF="#" class="btn btn-lrg-2"><i class="material-icons">arrow_forward</i> </a>
   </div>
   <div id="myUL">
     <div class="row">
       <div class="col">
         <div class="col">
-          <div style="margin: 10px;" class="card">
+          <div style="margin: 10px; width: 400px" class="card">
             <div class="card-body" align="center">
-              <h5 class="card-title">You are feeling like  </h5>
+              <h5 class="card-title">On a scale of 1 - 5, you're feeling:  </h5>
                <h5>A {{o[3]}} Today</h5>
 
             </div>
@@ -115,7 +115,7 @@
           <div class="col">
             <div style="margin: 10px" id="Food" class="card">
               <div class="card-body">
-                <h5 class="card-title">What Did You Eat Today?</h5>
+                <h5 class="card-title">Here's a list of what you ate today:</h5>
                 <ul class="list-group">
                   {% for f in foods %}
                   <li class="list-group-item">{{f[0]}}</li>
@@ -134,7 +134,7 @@
               <div class="card-body">
                 <h5 class="card-title">Medications</h5>
                 <a>Next Dose at:</a><br>
-                <h2>{{o[6]}} PM Today</h2>
+                <h2>{{o[6]}} {{o[7]}} Today</h2>
               </div>
             </div>
           </div>
