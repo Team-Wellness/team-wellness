@@ -30,6 +30,8 @@ insert into message(patient, dr, msg_id, day, subject, body) values (43984, 1, 1
 
 insert into doctors(username, password, name, id_number) values ('doctor2', 'password', 'Dr. Amelia Badelia', 456);
 
+insert into doctors(username, password, name, id_number) values ('doctor1', 'password', 'Dr. Test Dr', 123);
+
 insert into entries(date, patient_id, entry_id, mood, sleep, exercise, medication, diet, img) values ("2018-07-07", 43984, 139812380, 5, 5, 5, "05:05:05.005", "food", "google.com");
 
 insert into entries(date, patient_id, entry_id, mood, sleep, exercise, medication, diet, img) values ("2018-07-07", 43984, 4978487487, 5, 5, 5, "05:05:05.005", "food", "google.com");
