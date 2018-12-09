@@ -168,7 +168,7 @@ def notesDr(id_number, patient_id):
         subject = str(request.values.get('patientSubject'))
         content = str(request.values.get('patientMessage'))
         note_id = random.randint(0, 1000000000000)
-        cur.execute("INSERT INTO doctor_notes(dr_id, patient_id, note_id, subject, date, content) VALUES(1, " + str(id_number) + ", " + str(note_id) + ", '" + subject + "', '" + str(now) + "', '" + content + "');")
+        cur.execute("INSERT INTO doctor_notes(dr_id, patient_id, note_id, subject, date, content) VALUES(" + str(id_number) + ", " + str(patient_id) + ", " + str(note_id) + ", '" + subject + "', '" + str(now) + "', '" + content + "');")
         conn.commit()
     return render_template('provider/providerNotes.html', data=data, id_number=id_number)
 
