@@ -189,7 +189,47 @@ def entryViewDr(id_number, patient_id):
     # cur.execute("select food from foods where id_num = " + patient_id + " ;")
     cur.execute("select * from entries e left join foods f where f.date = e.date AND e.patient_id = " + patient_id + ";")
     data = cur.fetchall()
-    return render_template('provider/providerEntry.html', patient_id=patient_id, id_number=id_number, data=data)
+
+    print("Data")
+    print(data)
+
+    #Grab patient's entries
+    cur.execute("select * from entries where patient_id = " + patient_id + ";")
+    test = cur.fetchall()
+    test = list(test)
+    print("Initial patient Entries")
+    print(test)
+
+    # Grab patient's food entries
+    cur.execute("select * from foods where id_num = " + patient_id + ";")
+    food = cur.fetchall()
+    print("Patient's food entries")
+    print(food)
+
+    pEntries = []
+    dFood = []
+    pFood = []
+    #for each entry grab the food and combine the strings
+    for day in test:
+        # grab the food entries
+        print("Day Entry")
+        print(day)
+        for f in food:
+            print("Food Entry")
+            print(f)
+            #if day's date and food's date match then add to list
+            if f[0] == day[0]: dFood.append(f[1])
+        print("Final Array of Foods for that day")
+        print(dFood) #This should be array of foods for that day
+        day = list(day)
+        day.append(dFood)
+        pEntries.append(day)
+        dFood = []
+
+   #print(pEntries)
+
+
+    return render_template('provider/providerEntry.html', patient_id=patient_id, id_number=id_number, data=data, test = pEntries)
 
 
 ###

@@ -34,6 +34,18 @@ insert into doctors(username, password, name, id_number) values ('doctor3', 'pas
 
 insert into doctors(username, password, name, id_number) values ('doctor1', 'password', 'Dr. Test Dr', 123);
 
-insert into entries(date, patient_id, entry_id, mood, sleep, exercise, medication, diet, img) values ("2018-07-07", 43984, 139812380, 5, 5, 5, "05:05:05.005", "food", "google.com");
+insert into entries(date, patient_id, entry_id, mood, sleep, exercise, medication, diet, img) values ("7/7/2018", 43984, 139812380, 5, 5, 5, "05:05:05.005", "food", "google.com");
 
-insert into entries(date, patient_id, entry_id, mood, sleep, exercise, medication, diet, img) values ("2018-07-07", 43984, 4978487487, 5, 5, 5, "05:05:05.005", "food", "google.com");
+insert into entries(date, patient_id, entry_id, mood, sleep, exercise, medication, diet, img) values ("7/7/2018", 43984, 4978487487, 5, 5, 5, "05:05:05.005", "food", "google.com");
+
+insert into entries(date, patient_id, entry_id, mood, sleep, exercise, medication, diet, img) values ("5/6/2018", 43825, 44874878558, 5, 5, 5, "05:05:05.005", "food", "google.com");
+
+insert into foods(date, food, id_num) values("5/6/2018", "Cinnamon Cookie", 43825);
+insert into foods(date, food, id_num) values("5/6/2018", "Fried Rice", 43825);
+
+insert into entries(date, patient_id, entry_id, mood, sleep, exercise, medication, diet, img) values ("7/7/2018", 43825, 497848788, 5, 5, 5, "05:05:05.005", "food", "google.com");
+
+insert into foods(date, food, id_num) values("7/7/2018", "Apple Pie", 43825);
+insert into foods(date, food, id_num) values("7/7/2018", "Eggplant Tofu", 43825);
+
+
