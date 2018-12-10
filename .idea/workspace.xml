@@ -65,19 +65,19 @@
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="HTML" value="550" />
-          <entry key="Python" value="351" />
+          <entry key="HTML" value="561" />
+          <entry key="Python" value="363" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/FlaskApp/templates/patient/patientHome.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="159" lean-forward="true" selection-start-line="159" selection-end-line="159" />
+            <state relative-caret-position="340">
+              <caret line="158" column="12" selection-start-line="158" selection-start-column="12" selection-end-line="158" selection-end-column="12" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
@@ -88,7 +88,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/FlaskApp/templates/patient/newEntry.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="709">
+            <state relative-caret-position="-107">
               <caret line="100" column="108" selection-start-line="100" selection-start-column="108" selection-end-line="100" selection-end-column="108" />
             </state>
           </provider>
@@ -106,11 +106,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/FlaskApp/app.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="760">
-              <caret line="247" column="68" selection-start-line="247" selection-start-column="68" selection-end-line="247" selection-end-column="68" />
+            <state relative-caret-position="522">
+              <caret line="257" column="97" selection-start-line="257" selection-start-column="97" selection-end-line="257" selection-end-column="97" />
               <folding>
                 <element signature="e#0#103#0" expanded="true" />
               </folding>
@@ -192,8 +192,8 @@
         <option value="$PROJECT_DIR$/FlaskApp/templates/patient/patientSendMessage.html" />
         <option value="$PROJECT_DIR$/FlaskApp/templates/patient/patientHomeEdit.html" />
         <option value="$PROJECT_DIR$/FlaskApp/templates/patient/newEntry.html" />
-        <option value="$PROJECT_DIR$/FlaskApp/app.py" />
         <option value="$PROJECT_DIR$/FlaskApp/templates/patient/patientHome.html" />
+        <option value="$PROJECT_DIR$/FlaskApp/app.py" />
       </list>
     </option>
   </component>
@@ -365,12 +365,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1543345357147</updated>
-      <workItem from="1544381843258" duration="8809000" />
+      <workItem from="1544381843258" duration="10494000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="10838000" />
+    <option name="totallyTimeSpent" value="12523000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="2552" y="-8" width="1936" height="1056" extended-state="6" />
@@ -602,13 +602,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/FlaskApp/templates/patient/newEntry.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="709">
-          <caret line="100" column="108" selection-start-line="100" selection-start-column="108" selection-end-line="100" selection-end-column="108" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/FlaskApp/templates/patient/patientHomeEdit.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2227">
@@ -619,22 +612,29 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/FlaskApp/app.py">
+    <entry file="file://$PROJECT_DIR$/FlaskApp/templates/patient/patientHome.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="760">
-          <caret line="247" column="68" selection-start-line="247" selection-start-column="68" selection-end-line="247" selection-end-column="68" />
+        <state relative-caret-position="340">
+          <caret line="158" column="12" selection-start-line="158" selection-start-column="12" selection-end-line="158" selection-end-column="12" />
           <folding>
-            <element signature="e#0#103#0" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/FlaskApp/templates/patient/patientHome.html">
+    <entry file="file://$PROJECT_DIR$/FlaskApp/templates/patient/newEntry.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="159" lean-forward="true" selection-start-line="159" selection-end-line="159" />
+        <state relative-caret-position="-107">
+          <caret line="100" column="108" selection-start-line="100" selection-start-column="108" selection-end-line="100" selection-end-column="108" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FlaskApp/app.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="522">
+          <caret line="257" column="97" selection-start-line="257" selection-start-column="97" selection-end-line="257" selection-end-column="97" />
           <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#0#103#0" expanded="true" />
           </folding>
         </state>
       </provider>

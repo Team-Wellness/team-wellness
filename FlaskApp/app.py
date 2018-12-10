@@ -217,7 +217,7 @@ def drP(id_num):
 @app.route('/patientHome/<id_num>', methods=["GET", "POST"])
 def homeP(id_num):
     cur = conn.cursor()
-    cur.execute("select * from entries where patient_id = ? and date = strftime('%m/%d/%Y', 'now')", (id_num,))
+    cur.execute("select * from entries where patient_id = ? and date = strftime('%m/%d/%Y', 'now', 'localtime')", (id_num,))
     data = cur.fetchall()
     cur.execute("select * from foods where id_num = ?", (id_num,))
     foods = cur.fetchall()
@@ -255,7 +255,7 @@ def newEntry(id_num):
 @app.route('/patientHome/edit/<id_num>', methods=["GET", "POST"])
 def homeEditP(id_num):
     cur = conn.cursor()
-    cur.execute("select * from entries where patient_id = ? and date = strftime('%m/%d/%Y', 'now')", (id_num,))
+    cur.execute("select * from entries where patient_id = ? and date = strftime('%m/%d/%Y', 'now', 'localtime')", (id_num,))
     data = cur.fetchall()
     if request.method == 'POST':
         if request.form['add'] == 'sleep':
