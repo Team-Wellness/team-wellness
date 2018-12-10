@@ -223,7 +223,7 @@ def homeP(id_num):
     cur = conn.cursor()
     cur.execute("select * from entries where patient_id = ? and date = strftime('%m/%d/%Y', 'now', 'localtime')", (id_num,))
     data = cur.fetchall()
-    cur.execute("select * from foods where id_num = ?", (id_num,))
+    cur.execute("select * from foods where id_num = ? and date = strftime('%m/%d/%Y', 'now', 'localtime')", (id_num,))
     foods = cur.fetchall()
     return render_template('patient/patientHome.html', data=data, foods=foods, id_num=id_num)
 

@@ -5,8 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="54303b3c-c00f-4324-a36f-708880e16a04" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/FlaskApp/database.db" afterPath="$PROJECT_DIR$/FlaskApp/database.db" />
-      <change beforePath="$PROJECT_DIR$/FlaskApp/templates/patient/patientHome.html" afterPath="$PROJECT_DIR$/FlaskApp/templates/patient/patientHome.html" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/FlaskApp/app.py" afterPath="$PROJECT_DIR$/FlaskApp/app.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -72,14 +72,22 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="patientHome.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="patientHome.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/FlaskApp/templates/patient/patientHome.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="393">
-              <caret line="121" column="51" lean-forward="false" selection-start-line="121" selection-start-column="51" selection-end-line="121" selection-end-column="51" />
-              <folding>
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
+            <state relative-caret-position="405">
+              <caret line="152" column="6" lean-forward="false" selection-start-line="152" selection-start-column="6" selection-end-line="152" selection-end-column="6" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="providerEntry.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/FlaskApp/templates/provider/providerEntry.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2085">
+              <caret line="138" column="7" lean-forward="false" selection-start-line="138" selection-start-column="7" selection-end-line="138" selection-end-column="7" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -87,7 +95,7 @@
       <file leaf-file-name="newEntry.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/FlaskApp/templates/patient/newEntry.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
+            <state relative-caret-position="1500">
               <caret line="100" column="108" lean-forward="false" selection-start-line="100" selection-start-column="108" selection-end-line="100" selection-end-column="108" />
               <folding />
             </state>
@@ -97,63 +105,62 @@
       <file leaf-file-name="patientHomeEdit.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/FlaskApp/templates/patient/patientHomeEdit.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1936">
+            <state relative-caret-position="2985">
               <caret line="199" column="0" lean-forward="false" selection-start-line="199" selection-start-column="0" selection-end-line="199" selection-end-column="0" />
-              <folding>
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="app.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="app.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/FlaskApp/app.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2">
-              <caret line="238" column="20" lean-forward="true" selection-start-line="238" selection-start-column="20" selection-end-line="238" selection-end-column="20" />
+            <state relative-caret-position="276">
+              <caret line="225" column="106" lean-forward="false" selection-start-line="225" selection-start-column="106" selection-end-line="225" selection-end-column="106" />
               <folding>
-                <element signature="e#0#103#0" expanded="true" />
-                <marker date="1544460152631" expanded="true" signature="778:836" ph="select * fro... patients" />
-                <marker date="1544460152631" expanded="true" signature="1333:1390" ph="select * fro... doctors" />
-                <marker date="1544460152631" expanded="true" signature="1996:2105" ph="select * fro... patients" />
-                <marker date="1544460152631" expanded="true" signature="2036:2087" ph="select patie... relationships" />
-                <marker date="1544460152631" expanded="true" signature="2482:2644" ph="select * fro... patients" />
-                <marker date="1544460152631" expanded="true" signature="2525:2643" ph="select * fro... relationships" />
-                <marker date="1544460152631" expanded="true" signature="2574:2625" ph="select patie... relationships" />
-                <marker date="1544460152631" expanded="true" signature="3048:3090" ph="select * fro... patients" />
-                <marker date="1544460152631" expanded="true" signature="3371:3452" ph="insert into relationships... " />
-                <marker date="1544460152631" expanded="true" signature="3803:3845" ph="select * fro... patients" />
-                <marker date="1544460152631" expanded="true" signature="3960:4005" ph="delete from relationships... " />
-                <marker date="1544460152631" expanded="true" signature="4481:4522" ph="select * fro... patients" />
-                <marker date="1544460152631" expanded="true" signature="4634:4669" ph="delete from message... " />
-                <marker date="1544460152631" expanded="true" signature="5070:5112" ph="select * fro... patients" />
-                <marker date="1544460152631" expanded="true" signature="5227:5272" ph="delete from relationships... " />
-                <marker date="1544460152631" expanded="true" signature="5611:5688" ph="select * fro... patients" />
-                <marker date="1544460152631" expanded="true" signature="6206:6248" ph="select * fro... patients" />
-                <marker date="1544460152631" expanded="true" signature="6524:6622" ph="insert into doctor_notes... " />
-                <marker date="1544460152631" expanded="true" signature="6948:6990" ph="select * fro... patients" />
-                <marker date="1544460152631" expanded="true" signature="7318:7556" ph="INSERT INTO doctor_notes... " />
-                <marker date="1544460152631" expanded="true" signature="7944:7985" ph="select * fro... entries" />
-                <marker date="1544460152631" expanded="true" signature="8369:8415" ph="select * fro... doctor_notes" />
-                <marker date="1544460152631" expanded="true" signature="8656:8699" ph="select name doctors" />
-                <marker date="1544460152631" expanded="true" signature="9104:9198" ph="select * fro... entries" />
-                <marker date="1544460152631" expanded="true" signature="9255:9291" ph="select * fro... foods" />
-                <marker date="1544460152631" expanded="true" signature="9549:9630" ph="select * fro... entries" />
-                <marker date="1544460152631" expanded="true" signature="10126:10298" ph="insert into entries... " />
-                <marker date="1544460152631" expanded="true" signature="10391:10483" ph="insert into foods... " />
-                <marker date="1544460152631" expanded="true" signature="10793:10887" ph="select * fro... entries" />
-                <marker date="1544460152631" expanded="true" signature="11074:11175" ph="update entries... " />
-                <marker date="1544460152631" expanded="true" signature="11367:11471" ph="update entries... " />
-                <marker date="1544460152631" expanded="true" signature="11649:11749" ph="update entries... " />
-                <marker date="1544460152631" expanded="true" signature="11931:12023" ph="insert into foods... " />
-                <marker date="1544460152631" expanded="true" signature="12237:12353" ph="update entries... " />
-                <marker date="1544460152631" expanded="true" signature="12669:12711" ph="select * fro... patients" />
-                <marker date="1544460152631" expanded="true" signature="13060:13098" ph="select * fro... patients" />
-                <marker date="1544460152631" expanded="true" signature="13769:13870" ph="update patients... " />
-                <marker date="1544460152631" expanded="true" signature="13981:14019" ph="select * fro... patients" />
-                <marker date="1544460152631" expanded="true" signature="15174:15266" ph="insert into message... " />
-                <marker date="1544460152631" expanded="true" signature="15750:15800" ph="select dr_id... relationships" />
-                <marker date="1544460152631" expanded="true" signature="15965:16005" ph="select * fro... doctors" />
+                <marker date="1544464096358" expanded="true" signature="778:836" ph="select * fro... patients" />
+                <marker date="1544464096358" expanded="true" signature="1333:1390" ph="select * fro... doctors" />
+                <marker date="1544464096358" expanded="true" signature="1996:2105" ph="select * fro... patients" />
+                <marker date="1544464096358" expanded="true" signature="2036:2087" ph="select patie... relationships" />
+                <marker date="1544464096358" expanded="true" signature="2482:2644" ph="select * fro... patients" />
+                <marker date="1544464096358" expanded="true" signature="2525:2643" ph="select * fro... relationships" />
+                <marker date="1544464096358" expanded="true" signature="2574:2625" ph="select patie... relationships" />
+                <marker date="1544464096358" expanded="true" signature="3048:3090" ph="select * fro... patients" />
+                <marker date="1544464096358" expanded="true" signature="3371:3452" ph="insert into relationships... " />
+                <marker date="1544464096358" expanded="true" signature="3803:3845" ph="select * fro... patients" />
+                <marker date="1544464096358" expanded="true" signature="3960:4005" ph="delete from relationships... " />
+                <marker date="1544464096358" expanded="true" signature="4481:4522" ph="select * fro... patients" />
+                <marker date="1544464096358" expanded="true" signature="4634:4669" ph="delete from message... " />
+                <marker date="1544464096358" expanded="true" signature="5070:5112" ph="select * fro... patients" />
+                <marker date="1544464096358" expanded="true" signature="5227:5272" ph="delete from relationships... " />
+                <marker date="1544464096358" expanded="true" signature="5611:5688" ph="select * fro... patients" />
+                <marker date="1544464096358" expanded="true" signature="6206:6248" ph="select * fro... patients" />
+                <marker date="1544464096358" expanded="true" signature="6524:6622" ph="insert into doctor_notes... " />
+                <marker date="1544464096358" expanded="true" signature="6948:6990" ph="select * fro... patients" />
+                <marker date="1544464096358" expanded="true" signature="7318:7556" ph="INSERT INTO doctor_notes... " />
+                <marker date="1544464096358" expanded="true" signature="8134:8217" ph="select * fro... entries" />
+                <marker date="1544464096358" expanded="true" signature="8204:8217" ph="select * fro... entries" />
+                <marker date="1544464096358" expanded="true" signature="8601:8647" ph="select * fro... doctor_notes" />
+                <marker date="1544464096358" expanded="true" signature="8888:8931" ph="select name doctors" />
+                <marker date="1544464096358" expanded="true" signature="9336:9430" ph="select * fro... entries" />
+                <marker date="1544464096358" expanded="true" signature="9487:9523" ph="select * fro... foods" />
+                <marker date="1544464096358" expanded="true" signature="9487:9575" ph="select * fro... foods" />
+                <marker date="1544464096358" expanded="true" signature="9833:9914" ph="select * fro... entries" />
+                <marker date="1544464096358" expanded="true" signature="10410:10582" ph="insert into entries... " />
+                <marker date="1544464096358" expanded="true" signature="10675:10767" ph="insert into foods... " />
+                <marker date="1544464096358" expanded="true" signature="11077:11171" ph="select * fro... entries" />
+                <marker date="1544464096358" expanded="true" signature="11358:11459" ph="update entries... " />
+                <marker date="1544464096358" expanded="true" signature="11651:11755" ph="update entries... " />
+                <marker date="1544464096358" expanded="true" signature="11933:12033" ph="update entries... " />
+                <marker date="1544464096358" expanded="true" signature="12215:12307" ph="insert into foods... " />
+                <marker date="1544464096358" expanded="true" signature="12521:12637" ph="update entries... " />
+                <marker date="1544464096358" expanded="true" signature="12953:12995" ph="select * fro... patients" />
+                <marker date="1544464096358" expanded="true" signature="13344:13382" ph="select * fro... patients" />
+                <marker date="1544464096358" expanded="true" signature="14053:14154" ph="update patients... " />
+                <marker date="1544464096358" expanded="true" signature="14265:14303" ph="select * fro... patients" />
+                <marker date="1544464096358" expanded="true" signature="15458:15550" ph="insert into message... " />
+                <marker date="1544464096358" expanded="true" signature="16034:16084" ph="select dr_id... relationships" />
+                <marker date="1544464096358" expanded="true" signature="16249:16289" ph="select * fro... doctors" />
               </folding>
             </state>
           </provider>
@@ -163,7 +170,7 @@
         <entry file="file://$PROJECT_DIR$/FlaskApp/food.sql">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="75">
-              <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+              <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -172,7 +179,7 @@
       <file leaf-file-name="schema.sql" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/FlaskApp/schema.sql">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="65">
+            <state relative-caret-position="435">
               <caret line="29" column="24" lean-forward="false" selection-start-line="29" selection-start-column="24" selection-end-line="29" selection-end-column="24" />
               <folding />
             </state>
@@ -245,8 +252,8 @@
         <option value="$PROJECT_DIR$/FlaskApp/templates/patient/patientHomeEdit.html" />
         <option value="$PROJECT_DIR$/FlaskApp/templates/patient/newEntry.html" />
         <option value="$PROJECT_DIR$/FlaskApp/food.sql" />
-        <option value="$PROJECT_DIR$/FlaskApp/app.py" />
         <option value="$PROJECT_DIR$/FlaskApp/templates/patient/patientHome.html" />
+        <option value="$PROJECT_DIR$/FlaskApp/app.py" />
       </list>
     </option>
   </component>
@@ -280,7 +287,7 @@
       <path value="$PROJECT_DIR$/FlaskApp/templates/bootstrap-ui/package.json" />
     </packageJsonPaths>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds">
     <option name="x" value="130" />
     <option name="y" value="23" />
     <option name="width" value="1298" />
@@ -301,8 +308,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -328,11 +333,20 @@
               <item name="templates" type="462c0819:PsiDirectoryNode" />
               <item name="patient" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="team-wellness" type="b2602c69:ProjectViewProjectNode" />
+              <item name="team-wellness" type="462c0819:PsiDirectoryNode" />
+              <item name="FlaskApp" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="provider" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
       <pane id="PackagesPane" />
+      <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -449,21 +463,21 @@
     <option name="totallyTimeSpent" value="12523000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1280" height="777" extended-state="6" />
+    <frame x="130" y="23" width="1298" height="777" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1953125" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19491525" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32881773" sideWeight="0.5" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.16219512" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="SciView" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297491" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -521,13 +535,103 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/FlaskApp/templates/patient/patientHome.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FlaskApp/templates/patient/newEntry.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1500">
+          <caret line="100" column="108" lean-forward="false" selection-start-line="100" selection-start-column="108" selection-end-line="100" selection-end-column="108" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FlaskApp/templates/patient/patientHomeEdit.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2985">
+          <caret line="199" column="0" lean-forward="false" selection-start-line="199" selection-start-column="0" selection-end-line="199" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FlaskApp/app.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3570">
+          <caret line="238" column="20" lean-forward="true" selection-start-line="238" selection-start-column="20" selection-end-line="238" selection-end-column="20" />
+          <folding>
+            <marker date="1544464096358" expanded="true" signature="778:836" ph="select * fro... patients" />
+            <marker date="1544464096358" expanded="true" signature="1333:1390" ph="select * fro... doctors" />
+            <marker date="1544464096358" expanded="true" signature="1996:2105" ph="select * fro... patients" />
+            <marker date="1544464096358" expanded="true" signature="2036:2087" ph="select patie... relationships" />
+            <marker date="1544464096358" expanded="true" signature="2482:2644" ph="select * fro... patients" />
+            <marker date="1544464096358" expanded="true" signature="2525:2643" ph="select * fro... relationships" />
+            <marker date="1544464096358" expanded="true" signature="2574:2625" ph="select patie... relationships" />
+            <marker date="1544464096358" expanded="true" signature="3048:3090" ph="select * fro... patients" />
+            <marker date="1544464096358" expanded="true" signature="3371:3452" ph="insert into relationships... " />
+            <marker date="1544464096358" expanded="true" signature="3803:3845" ph="select * fro... patients" />
+            <marker date="1544464096358" expanded="true" signature="3960:4005" ph="delete from relationships... " />
+            <marker date="1544464096358" expanded="true" signature="4481:4522" ph="select * fro... patients" />
+            <marker date="1544464096358" expanded="true" signature="4634:4669" ph="delete from message... " />
+            <marker date="1544464096358" expanded="true" signature="5070:5112" ph="select * fro... patients" />
+            <marker date="1544464096358" expanded="true" signature="5227:5272" ph="delete from relationships... " />
+            <marker date="1544464096358" expanded="true" signature="5611:5688" ph="select * fro... patients" />
+            <marker date="1544464096358" expanded="true" signature="6206:6248" ph="select * fro... patients" />
+            <marker date="1544464096358" expanded="true" signature="6524:6622" ph="insert into doctor_notes... " />
+            <marker date="1544464096358" expanded="true" signature="6948:6990" ph="select * fro... patients" />
+            <marker date="1544464096358" expanded="true" signature="7318:7556" ph="INSERT INTO doctor_notes... " />
+            <marker date="1544464096358" expanded="true" signature="8134:8217" ph="select * fro... entries" />
+            <marker date="1544464096358" expanded="true" signature="8204:8217" ph="select * fro... entries" />
+            <marker date="1544464096358" expanded="true" signature="8601:8647" ph="select * fro... doctor_notes" />
+            <marker date="1544464096358" expanded="true" signature="8888:8931" ph="select name doctors" />
+            <marker date="1544464096358" expanded="true" signature="9336:9430" ph="select * fro... entries" />
+            <marker date="1544464096358" expanded="true" signature="9487:9523" ph="select * fro... foods" />
+            <marker date="1544464096358" expanded="true" signature="9487:9575" ph="select * fro... foods" />
+            <marker date="1544464096358" expanded="true" signature="9833:9914" ph="select * fro... entries" />
+            <marker date="1544464096358" expanded="true" signature="10410:10582" ph="insert into entries... " />
+            <marker date="1544464096358" expanded="true" signature="10675:10767" ph="insert into foods... " />
+            <marker date="1544464096358" expanded="true" signature="11077:11171" ph="select * fro... entries" />
+            <marker date="1544464096358" expanded="true" signature="11358:11459" ph="update entries... " />
+            <marker date="1544464096358" expanded="true" signature="11651:11755" ph="update entries... " />
+            <marker date="1544464096358" expanded="true" signature="11933:12033" ph="update entries... " />
+            <marker date="1544464096358" expanded="true" signature="12215:12307" ph="insert into foods... " />
+            <marker date="1544464096358" expanded="true" signature="12521:12637" ph="update entries... " />
+            <marker date="1544464096358" expanded="true" signature="12953:12995" ph="select * fro... patients" />
+            <marker date="1544464096358" expanded="true" signature="13344:13382" ph="select * fro... patients" />
+            <marker date="1544464096358" expanded="true" signature="14053:14154" ph="update patients... " />
+            <marker date="1544464096358" expanded="true" signature="14265:14303" ph="select * fro... patients" />
+            <marker date="1544464096358" expanded="true" signature="15458:15550" ph="insert into message... " />
+            <marker date="1544464096358" expanded="true" signature="16034:16084" ph="select dr_id... relationships" />
+            <marker date="1544464096358" expanded="true" signature="16249:16289" ph="select * fro... doctors" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FlaskApp/food.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FlaskApp/schema.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="29" column="24" lean-forward="false" selection-start-line="29" selection-start-column="24" selection-end-line="29" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/FlaskApp/templates/patient/patientHomeEdit.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2985">
           <caret line="199" column="0" lean-forward="true" selection-start-line="199" selection-start-column="0" selection-end-line="199" selection-end-column="0" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -535,9 +639,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2370">
           <caret line="158" column="12" lean-forward="false" selection-start-line="158" selection-start-column="12" selection-end-line="158" selection-end-column="12" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -562,48 +664,49 @@
         <state relative-caret-position="3855">
           <caret line="257" column="23" lean-forward="true" selection-start-line="257" selection-start-column="23" selection-end-line="257" selection-end-column="23" />
           <folding>
-            <element signature="e#0#103#0" expanded="true" />
-            <marker date="1544460152631" expanded="true" signature="778:836" ph="select * fro... patients" />
-            <marker date="1544460152631" expanded="true" signature="1333:1390" ph="select * fro... doctors" />
-            <marker date="1544460152631" expanded="true" signature="1996:2105" ph="select * fro... patients" />
-            <marker date="1544460152631" expanded="true" signature="2036:2087" ph="select patie... relationships" />
-            <marker date="1544460152631" expanded="true" signature="2482:2644" ph="select * fro... patients" />
-            <marker date="1544460152631" expanded="true" signature="2525:2643" ph="select * fro... relationships" />
-            <marker date="1544460152631" expanded="true" signature="2574:2625" ph="select patie... relationships" />
-            <marker date="1544460152631" expanded="true" signature="3048:3090" ph="select * fro... patients" />
-            <marker date="1544460152631" expanded="true" signature="3371:3452" ph="insert into relationships... " />
-            <marker date="1544460152631" expanded="true" signature="3803:3845" ph="select * fro... patients" />
-            <marker date="1544460152631" expanded="true" signature="3960:4005" ph="delete from relationships... " />
-            <marker date="1544460152631" expanded="true" signature="4481:4522" ph="select * fro... patients" />
-            <marker date="1544460152631" expanded="true" signature="4634:4669" ph="delete from message... " />
-            <marker date="1544460152631" expanded="true" signature="5070:5112" ph="select * fro... patients" />
-            <marker date="1544460152631" expanded="true" signature="5227:5272" ph="delete from relationships... " />
-            <marker date="1544460152631" expanded="true" signature="5611:5688" ph="select * fro... patients" />
-            <marker date="1544460152631" expanded="true" signature="6206:6248" ph="select * fro... patients" />
-            <marker date="1544460152631" expanded="true" signature="6524:6622" ph="insert into doctor_notes... " />
-            <marker date="1544460152631" expanded="true" signature="6948:6990" ph="select * fro... patients" />
-            <marker date="1544460152631" expanded="true" signature="7318:7556" ph="INSERT INTO doctor_notes... " />
-            <marker date="1544460152631" expanded="true" signature="7944:7985" ph="select * fro... entries" />
-            <marker date="1544460152631" expanded="true" signature="8369:8415" ph="select * fro... doctor_notes" />
-            <marker date="1544460152631" expanded="true" signature="8656:8699" ph="select name doctors" />
-            <marker date="1544460152631" expanded="true" signature="9104:9198" ph="select * fro... entries" />
-            <marker date="1544460152631" expanded="true" signature="9255:9291" ph="select * fro... foods" />
-            <marker date="1544460152631" expanded="true" signature="9549:9630" ph="select * fro... entries" />
-            <marker date="1544460152631" expanded="true" signature="10126:10298" ph="insert into entries... " />
-            <marker date="1544460152631" expanded="true" signature="10391:10483" ph="insert into foods... " />
-            <marker date="1544460152631" expanded="true" signature="10793:10887" ph="select * fro... entries" />
-            <marker date="1544460152631" expanded="true" signature="11074:11175" ph="update entries... " />
-            <marker date="1544460152631" expanded="true" signature="11367:11471" ph="update entries... " />
-            <marker date="1544460152631" expanded="true" signature="11649:11749" ph="update entries... " />
-            <marker date="1544460152631" expanded="true" signature="11931:12023" ph="insert into foods... " />
-            <marker date="1544460152631" expanded="true" signature="12237:12353" ph="update entries... " />
-            <marker date="1544460152631" expanded="true" signature="12669:12711" ph="select * fro... patients" />
-            <marker date="1544460152631" expanded="true" signature="13060:13098" ph="select * fro... patients" />
-            <marker date="1544460152631" expanded="true" signature="13769:13870" ph="update patients... " />
-            <marker date="1544460152631" expanded="true" signature="13981:14019" ph="select * fro... patients" />
-            <marker date="1544460152631" expanded="true" signature="15174:15266" ph="insert into message... " />
-            <marker date="1544460152631" expanded="true" signature="15750:15800" ph="select dr_id... relationships" />
-            <marker date="1544460152631" expanded="true" signature="15965:16005" ph="select * fro... doctors" />
+            <marker date="1544464096358" expanded="true" signature="778:836" ph="select * fro... patients" />
+            <marker date="1544464096358" expanded="true" signature="1333:1390" ph="select * fro... doctors" />
+            <marker date="1544464096358" expanded="true" signature="1996:2105" ph="select * fro... patients" />
+            <marker date="1544464096358" expanded="true" signature="2036:2087" ph="select patie... relationships" />
+            <marker date="1544464096358" expanded="true" signature="2482:2644" ph="select * fro... patients" />
+            <marker date="1544464096358" expanded="true" signature="2525:2643" ph="select * fro... relationships" />
+            <marker date="1544464096358" expanded="true" signature="2574:2625" ph="select patie... relationships" />
+            <marker date="1544464096358" expanded="true" signature="3048:3090" ph="select * fro... patients" />
+            <marker date="1544464096358" expanded="true" signature="3371:3452" ph="insert into relationships... " />
+            <marker date="1544464096358" expanded="true" signature="3803:3845" ph="select * fro... patients" />
+            <marker date="1544464096358" expanded="true" signature="3960:4005" ph="delete from relationships... " />
+            <marker date="1544464096358" expanded="true" signature="4481:4522" ph="select * fro... patients" />
+            <marker date="1544464096358" expanded="true" signature="4634:4669" ph="delete from message... " />
+            <marker date="1544464096358" expanded="true" signature="5070:5112" ph="select * fro... patients" />
+            <marker date="1544464096358" expanded="true" signature="5227:5272" ph="delete from relationships... " />
+            <marker date="1544464096358" expanded="true" signature="5611:5688" ph="select * fro... patients" />
+            <marker date="1544464096358" expanded="true" signature="6206:6248" ph="select * fro... patients" />
+            <marker date="1544464096358" expanded="true" signature="6524:6622" ph="insert into doctor_notes... " />
+            <marker date="1544464096358" expanded="true" signature="6948:6990" ph="select * fro... patients" />
+            <marker date="1544464096358" expanded="true" signature="7318:7556" ph="INSERT INTO doctor_notes... " />
+            <marker date="1544464096358" expanded="true" signature="8134:8217" ph="select * fro... entries" />
+            <marker date="1544464096358" expanded="true" signature="8204:8217" ph="select * fro... entries" />
+            <marker date="1544464096358" expanded="true" signature="8601:8647" ph="select * fro... doctor_notes" />
+            <marker date="1544464096358" expanded="true" signature="8888:8931" ph="select name doctors" />
+            <marker date="1544464096358" expanded="true" signature="9336:9430" ph="select * fro... entries" />
+            <marker date="1544464096358" expanded="true" signature="9487:9523" ph="select * fro... foods" />
+            <marker date="1544464096358" expanded="true" signature="9487:9575" ph="select * fro... foods" />
+            <marker date="1544464096358" expanded="true" signature="9833:9914" ph="select * fro... entries" />
+            <marker date="1544464096358" expanded="true" signature="10410:10582" ph="insert into entries... " />
+            <marker date="1544464096358" expanded="true" signature="10675:10767" ph="insert into foods... " />
+            <marker date="1544464096358" expanded="true" signature="11077:11171" ph="select * fro... entries" />
+            <marker date="1544464096358" expanded="true" signature="11358:11459" ph="update entries... " />
+            <marker date="1544464096358" expanded="true" signature="11651:11755" ph="update entries... " />
+            <marker date="1544464096358" expanded="true" signature="11933:12033" ph="update entries... " />
+            <marker date="1544464096358" expanded="true" signature="12215:12307" ph="insert into foods... " />
+            <marker date="1544464096358" expanded="true" signature="12521:12637" ph="update entries... " />
+            <marker date="1544464096358" expanded="true" signature="12953:12995" ph="select * fro... patients" />
+            <marker date="1544464096358" expanded="true" signature="13344:13382" ph="select * fro... patients" />
+            <marker date="1544464096358" expanded="true" signature="14053:14154" ph="update patients... " />
+            <marker date="1544464096358" expanded="true" signature="14265:14303" ph="select * fro... patients" />
+            <marker date="1544464096358" expanded="true" signature="15458:15550" ph="insert into message... " />
+            <marker date="1544464096358" expanded="true" signature="16034:16084" ph="select dr_id... relationships" />
+            <marker date="1544464096358" expanded="true" signature="16249:16289" ph="select * fro... doctors" />
           </folding>
         </state>
       </provider>
@@ -662,13 +765,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="642">
           <caret line="60" column="0" lean-forward="true" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/FlaskApp/templates/provider/providerEntry.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="642">
-          <caret line="138" column="7" lean-forward="false" selection-start-line="138" selection-start-column="7" selection-end-line="138" selection-end-column="7" />
         </state>
       </provider>
     </entry>
@@ -758,7 +854,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/FlaskApp/schema.sql">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="65">
+        <state relative-caret-position="435">
           <caret line="29" column="24" lean-forward="false" selection-start-line="29" selection-start-column="24" selection-end-line="29" selection-end-column="24" />
           <folding />
         </state>
@@ -767,75 +863,22 @@
     <entry file="file://$PROJECT_DIR$/FlaskApp/food.sql">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
-          <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+          <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/FlaskApp/app.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2">
-          <caret line="238" column="20" lean-forward="true" selection-start-line="238" selection-start-column="20" selection-end-line="238" selection-end-column="20" />
-          <folding>
-            <element signature="e#0#103#0" expanded="true" />
-            <marker date="1544460152631" expanded="true" signature="778:836" ph="select * fro... patients" />
-            <marker date="1544460152631" expanded="true" signature="1333:1390" ph="select * fro... doctors" />
-            <marker date="1544460152631" expanded="true" signature="1996:2105" ph="select * fro... patients" />
-            <marker date="1544460152631" expanded="true" signature="2036:2087" ph="select patie... relationships" />
-            <marker date="1544460152631" expanded="true" signature="2482:2644" ph="select * fro... patients" />
-            <marker date="1544460152631" expanded="true" signature="2525:2643" ph="select * fro... relationships" />
-            <marker date="1544460152631" expanded="true" signature="2574:2625" ph="select patie... relationships" />
-            <marker date="1544460152631" expanded="true" signature="3048:3090" ph="select * fro... patients" />
-            <marker date="1544460152631" expanded="true" signature="3371:3452" ph="insert into relationships... " />
-            <marker date="1544460152631" expanded="true" signature="3803:3845" ph="select * fro... patients" />
-            <marker date="1544460152631" expanded="true" signature="3960:4005" ph="delete from relationships... " />
-            <marker date="1544460152631" expanded="true" signature="4481:4522" ph="select * fro... patients" />
-            <marker date="1544460152631" expanded="true" signature="4634:4669" ph="delete from message... " />
-            <marker date="1544460152631" expanded="true" signature="5070:5112" ph="select * fro... patients" />
-            <marker date="1544460152631" expanded="true" signature="5227:5272" ph="delete from relationships... " />
-            <marker date="1544460152631" expanded="true" signature="5611:5688" ph="select * fro... patients" />
-            <marker date="1544460152631" expanded="true" signature="6206:6248" ph="select * fro... patients" />
-            <marker date="1544460152631" expanded="true" signature="6524:6622" ph="insert into doctor_notes... " />
-            <marker date="1544460152631" expanded="true" signature="6948:6990" ph="select * fro... patients" />
-            <marker date="1544460152631" expanded="true" signature="7318:7556" ph="INSERT INTO doctor_notes... " />
-            <marker date="1544460152631" expanded="true" signature="7944:7985" ph="select * fro... entries" />
-            <marker date="1544460152631" expanded="true" signature="8369:8415" ph="select * fro... doctor_notes" />
-            <marker date="1544460152631" expanded="true" signature="8656:8699" ph="select name doctors" />
-            <marker date="1544460152631" expanded="true" signature="9104:9198" ph="select * fro... entries" />
-            <marker date="1544460152631" expanded="true" signature="9255:9291" ph="select * fro... foods" />
-            <marker date="1544460152631" expanded="true" signature="9549:9630" ph="select * fro... entries" />
-            <marker date="1544460152631" expanded="true" signature="10126:10298" ph="insert into entries... " />
-            <marker date="1544460152631" expanded="true" signature="10391:10483" ph="insert into foods... " />
-            <marker date="1544460152631" expanded="true" signature="10793:10887" ph="select * fro... entries" />
-            <marker date="1544460152631" expanded="true" signature="11074:11175" ph="update entries... " />
-            <marker date="1544460152631" expanded="true" signature="11367:11471" ph="update entries... " />
-            <marker date="1544460152631" expanded="true" signature="11649:11749" ph="update entries... " />
-            <marker date="1544460152631" expanded="true" signature="11931:12023" ph="insert into foods... " />
-            <marker date="1544460152631" expanded="true" signature="12237:12353" ph="update entries... " />
-            <marker date="1544460152631" expanded="true" signature="12669:12711" ph="select * fro... patients" />
-            <marker date="1544460152631" expanded="true" signature="13060:13098" ph="select * fro... patients" />
-            <marker date="1544460152631" expanded="true" signature="13769:13870" ph="update patients... " />
-            <marker date="1544460152631" expanded="true" signature="13981:14019" ph="select * fro... patients" />
-            <marker date="1544460152631" expanded="true" signature="15174:15266" ph="insert into message... " />
-            <marker date="1544460152631" expanded="true" signature="15750:15800" ph="select dr_id... relationships" />
-            <marker date="1544460152631" expanded="true" signature="15965:16005" ph="select * fro... doctors" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/FlaskApp/templates/patient/patientHomeEdit.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1936">
+        <state relative-caret-position="2985">
           <caret line="199" column="0" lean-forward="false" selection-start-line="199" selection-start-column="0" selection-end-line="199" selection-end-column="0" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/FlaskApp/templates/patient/newEntry.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
+        <state relative-caret-position="1500">
           <caret line="100" column="108" lean-forward="false" selection-start-line="100" selection-start-column="108" selection-end-line="100" selection-end-column="108" />
           <folding />
         </state>
@@ -843,10 +886,68 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/FlaskApp/templates/patient/patientHome.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="393">
-          <caret line="121" column="51" lean-forward="false" selection-start-line="121" selection-start-column="51" selection-end-line="121" selection-end-column="51" />
+        <state relative-caret-position="405">
+          <caret line="152" column="6" lean-forward="false" selection-start-line="152" selection-start-column="6" selection-end-line="152" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FlaskApp/templates/provider/providerEntry.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2085">
+          <caret line="138" column="7" lean-forward="false" selection-start-line="138" selection-start-column="7" selection-end-line="138" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FlaskApp/app.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="276">
+          <caret line="225" column="106" lean-forward="false" selection-start-line="225" selection-start-column="106" selection-end-line="225" selection-end-column="106" />
           <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <marker date="1544464096358" expanded="true" signature="778:836" ph="select * fro... patients" />
+            <marker date="1544464096358" expanded="true" signature="1333:1390" ph="select * fro... doctors" />
+            <marker date="1544464096358" expanded="true" signature="1996:2105" ph="select * fro... patients" />
+            <marker date="1544464096358" expanded="true" signature="2036:2087" ph="select patie... relationships" />
+            <marker date="1544464096358" expanded="true" signature="2482:2644" ph="select * fro... patients" />
+            <marker date="1544464096358" expanded="true" signature="2525:2643" ph="select * fro... relationships" />
+            <marker date="1544464096358" expanded="true" signature="2574:2625" ph="select patie... relationships" />
+            <marker date="1544464096358" expanded="true" signature="3048:3090" ph="select * fro... patients" />
+            <marker date="1544464096358" expanded="true" signature="3371:3452" ph="insert into relationships... " />
+            <marker date="1544464096358" expanded="true" signature="3803:3845" ph="select * fro... patients" />
+            <marker date="1544464096358" expanded="true" signature="3960:4005" ph="delete from relationships... " />
+            <marker date="1544464096358" expanded="true" signature="4481:4522" ph="select * fro... patients" />
+            <marker date="1544464096358" expanded="true" signature="4634:4669" ph="delete from message... " />
+            <marker date="1544464096358" expanded="true" signature="5070:5112" ph="select * fro... patients" />
+            <marker date="1544464096358" expanded="true" signature="5227:5272" ph="delete from relationships... " />
+            <marker date="1544464096358" expanded="true" signature="5611:5688" ph="select * fro... patients" />
+            <marker date="1544464096358" expanded="true" signature="6206:6248" ph="select * fro... patients" />
+            <marker date="1544464096358" expanded="true" signature="6524:6622" ph="insert into doctor_notes... " />
+            <marker date="1544464096358" expanded="true" signature="6948:6990" ph="select * fro... patients" />
+            <marker date="1544464096358" expanded="true" signature="7318:7556" ph="INSERT INTO doctor_notes... " />
+            <marker date="1544464096358" expanded="true" signature="8134:8217" ph="select * fro... entries" />
+            <marker date="1544464096358" expanded="true" signature="8204:8217" ph="select * fro... entries" />
+            <marker date="1544464096358" expanded="true" signature="8601:8647" ph="select * fro... doctor_notes" />
+            <marker date="1544464096358" expanded="true" signature="8888:8931" ph="select name doctors" />
+            <marker date="1544464096358" expanded="true" signature="9336:9430" ph="select * fro... entries" />
+            <marker date="1544464096358" expanded="true" signature="9487:9523" ph="select * fro... foods" />
+            <marker date="1544464096358" expanded="true" signature="9487:9575" ph="select * fro... foods" />
+            <marker date="1544464096358" expanded="true" signature="9833:9914" ph="select * fro... entries" />
+            <marker date="1544464096358" expanded="true" signature="10410:10582" ph="insert into entries... " />
+            <marker date="1544464096358" expanded="true" signature="10675:10767" ph="insert into foods... " />
+            <marker date="1544464096358" expanded="true" signature="11077:11171" ph="select * fro... entries" />
+            <marker date="1544464096358" expanded="true" signature="11358:11459" ph="update entries... " />
+            <marker date="1544464096358" expanded="true" signature="11651:11755" ph="update entries... " />
+            <marker date="1544464096358" expanded="true" signature="11933:12033" ph="update entries... " />
+            <marker date="1544464096358" expanded="true" signature="12215:12307" ph="insert into foods... " />
+            <marker date="1544464096358" expanded="true" signature="12521:12637" ph="update entries... " />
+            <marker date="1544464096358" expanded="true" signature="12953:12995" ph="select * fro... patients" />
+            <marker date="1544464096358" expanded="true" signature="13344:13382" ph="select * fro... patients" />
+            <marker date="1544464096358" expanded="true" signature="14053:14154" ph="update patients... " />
+            <marker date="1544464096358" expanded="true" signature="14265:14303" ph="select * fro... patients" />
+            <marker date="1544464096358" expanded="true" signature="15458:15550" ph="insert into message... " />
+            <marker date="1544464096358" expanded="true" signature="16034:16084" ph="select dr_id... relationships" />
+            <marker date="1544464096358" expanded="true" signature="16249:16289" ph="select * fro... doctors" />
           </folding>
         </state>
       </provider>
