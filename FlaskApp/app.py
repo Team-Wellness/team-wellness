@@ -261,17 +261,17 @@ def homeEditP(id_num):
     if request.method == 'POST':
         if request.form['add'] == 'sleep':
             slhours = request.form["slhours"]
-            cur.execute("update entries set sleep = ? where patient_id = ? and date = strftime('%m/%d/%Y', 'now')",
+            cur.execute("update entries set sleep = ? where patient_id = ? and date = strftime('%m/%d/%Y', 'now', 'localtime')",
                         (slhours, id_num,))
             conn.commit()
         elif request.form['add'] == 'exercise':
             exhours = request.form["exhours"]
-            cur.execute("update entries set exercise = ? where patient_id = ? and date = strftime('%m/%d/%Y', 'now')",
+            cur.execute("update entries set exercise = ? where patient_id = ? and date = strftime('%m/%d/%Y', 'now', 'localtime')",
                         (exhours, id_num,))
             conn.commit()
         elif request.form['add'] < "6":
             moods = request.form['add']
-            cur.execute("update entries set mood = ? where patient_id = ? and date = strftime('%m/%d/%Y', 'now')",
+            cur.execute("update entries set mood = ? where patient_id = ? and date = strftime('%m/%d/%Y', 'now', 'localtime')",
                         (moods, id_num,))
             conn.commit()
         elif request.form['add'] == 'food':
@@ -282,7 +282,7 @@ def homeEditP(id_num):
             time = request.form['times']
             when = request.form['time']
             cur.execute(
-                "update entries set medication = ?, diet = ? where patient_id = ? and date = strftime('%m/%d/%Y', 'now')",
+                "update entries set medication = ?, diet = ? where patient_id = ? and date = strftime('%m/%d/%Y', 'now', 'localtime')",
                 (time, when, id_num,))
             conn.commit()
     return render_template('patient/patientHomeEdit.html', data=data, id_num=id_num)
