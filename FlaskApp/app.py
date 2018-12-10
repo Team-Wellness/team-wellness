@@ -184,7 +184,10 @@ def notesDr(id_number, patient_id):
 def entryViewDr(id_number, patient_id):
     conn = sqlite3.connect('database.db')
     cur = conn.cursor()
-    cur.execute("select * from entries where patient_id = " + patient_id + ";")
+    # cur.execute("select * from entries where patient_id = " + patient_id + ";")
+    # data = cur.fetchall()
+    # cur.execute("select food from foods where id_num = " + patient_id + " ;")
+    cur.execute("select * from entries e left join foods f where f.date = e.date AND e.patient_id = " + patient_id + ";")
     data = cur.fetchall()
     return render_template('provider/providerEntry.html', patient_id=patient_id, id_number=id_number, data=data)
 
