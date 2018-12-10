@@ -247,7 +247,7 @@ def newEntry(id_num):
         cur.execute(
             "insert into entries (date, patient_id, entry_id, mood, sleep, exercise, medication, diet, img) values (strftime('%m/%d/%Y', 'now', 'localtime'), ?, ?, ?, ?, ?, ?, ?, 'lol')",
             (id_num, entry_id, moods, slhours, exhours,time, when,))
-        cur.execute("insert into foods (food, id_num) values (?,?)", (foods, id_num,))
+        cur.execute("insert into foods (date, food, id_num) values (strftime('%m/%d/%Y', 'now', 'localtime'),?,?)", (foods, id_num,))
         conn.commit()
         return redirect(url_for('homeP', id_num=id_num))
     return render_template('patient/newEntry.html', data=data, id_num=id_num)
@@ -276,7 +276,7 @@ def homeEditP(id_num):
             conn.commit()
         elif request.form['add'] == 'food':
             foods = request.form['foods']
-            cur.execute("insert into foods (food, id_num) values (?,?)", (foods, id_num,))
+            cur.execute("insert into foods (date, food, id_num) values (strftime('%m/%d/%Y', 'now', 'localtime'),?,?)", (foods, id_num,))
             conn.commit()
         elif request.form['add'] == 'time':
             time = request.form['times']
